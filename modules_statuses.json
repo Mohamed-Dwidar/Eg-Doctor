@@ -7,5 +7,6 @@
     "SeoModule": true,
     "DepartmentModule": true,
     "DegreeModule" : true,
-    "DoctorModule" : true
+    "DoctorModule" : true,
+    "QuestionModule" : true
 }

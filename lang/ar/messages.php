@@ -476,7 +476,7 @@ return [
   "orders" => 'الطلبات',
   "how_to_help_you" => ' كيف نساعدك ؟',
   "shipping_and_delivery" => 'الشحن والتوصيل',
-  "questions" => 'سؤال',
+  "questions" => 'الأسئلة',
   "balance_and_payment" => 'الرصيد والدفع',
   "common_questions" => 'الأسئلة الشائعة',
   "my_points_and_affiliate_marketing" => 'نقاطي والتسويق بالعمولة',
@@ -953,5 +953,17 @@ return [
   "more_info" => "معلومات إضافية",
   "found_us" => "كيف تعرف علينا",
   "select_departments" => "اختر الأقسام",
+
+  // Questions
+  "title" => "العنوان",
+  "add_new_question" => "إضافة سؤال جديد",
+  "update_question" => "تعديل السؤال",
+  "seo_applied_to_questions" => "تم تطبيق بيانات السيو على :count سؤال.",
+  "question" => "السؤال",
+  "writer" => "الكاتب",
+  "answers" => "الإجابات",
+  "loading" => "جاري التحميل...",
+  "no_answers_found" => "لا توجد إجابات حتى الآن.",
+  "something_went_wrong" => "حدث خطأ ما. حاول مرة أخرى.",
 
 ];

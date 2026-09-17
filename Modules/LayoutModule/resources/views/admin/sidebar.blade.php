@@ -79,6 +79,15 @@
                     </a>
                 </li>
 
+                <li class="pc-item">
+                    <a href="{{ route('admin.questions') }}" class="pc-link">
+                        <span class="pc-micon">
+                            <i class="fas fa-question-circle"></i>
+                        </span>
+                        <span class="pc-mtext" data-i18n="Questions">Questions</span>
+                    </a>
+                </li>
+
             </ul>
 
         </div>

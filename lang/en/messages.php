@@ -591,7 +591,7 @@ return [
   "orders" => 'Orders',
   "how_to_help_you" => 'How can we help you?',
   "shipping_and_delivery" => 'Shipping and delivery',
-  "questions" => 'Question',
+  "questions" => 'Questions',
   "balance_and_payment" => 'Balance and payment',
   "common_questions" => 'Common questions',
   "my_points_and_affiliate_marketing" => 'My points and affiliate marketing',
@@ -1095,5 +1095,16 @@ return [
   "more_info" => "More info",
   "found_us" => "How did they find us",
   "select_departments" => "Select departments",
+
+  // Questions
+  "add_new_question" => "Add new question",
+  "update_question" => "Edit question",
+  "seo_applied_to_questions" => "SEO data has been applied to :count question(s).",
+  "question" => "Question",
+  "writer" => "Writer",
+  "answers" => "Answers",
+  "loading" => "Loading...",
+  "no_answers_found" => "No answers yet.",
+  "something_went_wrong" => "Something went wrong. Please try again.",
 
 ];
