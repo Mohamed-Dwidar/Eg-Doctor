@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\DepartmentModule\Database\Seeders;
+namespace Modules\DoctorModule\Database\Seeders;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
-use Modules\DepartmentModule\app\Models\Department;
+use Modules\DoctorModule\app\Models\Doctor;
 
-class DepartmentModuleDatabaseSeeder extends Seeder
+class DoctorModuleDatabaseSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class DepartmentModuleDatabaseSeeder extends Seeder
     public function run(): void
     {
         Model::unguard();
-        DB::table('departments')->truncate();
+        DB::table('doctors')->truncate();
 
     }
 }

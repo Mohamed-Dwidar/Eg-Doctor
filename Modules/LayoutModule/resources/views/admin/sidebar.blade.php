@@ -70,6 +70,15 @@
                     </a>
                 </li>
 
+                <li class="pc-item">
+                    <a href="{{ route('admin.doctors') }}" class="pc-link">
+                        <span class="pc-micon">
+                            <i class="fas fa-user-md"></i>
+                        </span>
+                        <span class="pc-mtext" data-i18n="Doctors">Doctors</span>
+                    </a>
+                </li>
+
             </ul>
 
         </div>

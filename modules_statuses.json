@@ -6,5 +6,6 @@
     "BlogModule": true,
     "SeoModule": true,
     "DepartmentModule": true,
-    "DegreeModule" : true
+    "DegreeModule" : true,
+    "DoctorModule" : true
 }

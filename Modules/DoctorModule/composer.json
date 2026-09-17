@@ -1,0 +1,30 @@
+{
+    "name": "nwidart/doctormodule",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\DoctorModule\\": "app/",
+            "Modules\\DoctorModule\\Database\\Factories\\": "database/factories/",
+            "Modules\\DoctorModule\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\DoctorModule\\Tests\\": "tests/"
+        }
+    }
+}

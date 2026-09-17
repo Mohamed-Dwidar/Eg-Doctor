@@ -1072,4 +1072,28 @@ return [
   "header_script" => "Header script",
   "footer_script" => "Footer script",
 
+  // Doctors
+  "doctors" => "Doctors",
+  "add_new_doctor" => "Add new doctor",
+  "update_doctor" => "Edit doctor",
+  "seo_applied_to_doctors" => "SEO data has been applied to :count doctor(s).",
+  "degree" => "Degree",
+  "select_degree" => "Select degree",
+  "zone" => "Zone",
+  "zones" => "Zones",
+  "select_city_first" => "Select a city first",
+  "select_zone" => "Select zone",
+  "address" => "Address",
+  "address_latitude" => "Address latitude",
+  "address_longitude" => "Address longitude",
+  "address_map_zoom" => "Map zoom level",
+  "phone" => "Phone",
+  "mobile" => "Mobile",
+  "website" => "Website",
+  "pic" => "Photo",
+  "working_time" => "Working time",
+  "more_info" => "More info",
+  "found_us" => "How did they find us",
+  "select_departments" => "Select departments",
+
 ];
