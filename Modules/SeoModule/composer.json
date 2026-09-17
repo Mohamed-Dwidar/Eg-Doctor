@@ -1,0 +1,31 @@
+{
+    "name": "nwidart/seomodule",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\SeoModule\\": "",
+            "Modules\\SeoModule\\App\\": "app/",
+            "Modules\\SeoModule\\Database\\Factories\\": "database/factories/",
+            "Modules\\SeoModule\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\SeoModule\\Tests\\": "tests/"
+        }
+    }
+}

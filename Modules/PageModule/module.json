@@ -1,0 +1,11 @@
+{
+    "name": "PageModule",
+    "alias": "pagemodule",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\PageModule\\Providers\\PageModuleServiceProvider"
+    ],
+    "files": []
+}

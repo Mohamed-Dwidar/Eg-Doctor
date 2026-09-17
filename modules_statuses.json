@@ -1,0 +1,8 @@
+{
+    "AdminModule": true,
+    "UserModule": true,
+    "LayoutModule": true,
+    "PageModule": true,
+    "BlogModule": true,
+    "SeoModule": true
+}

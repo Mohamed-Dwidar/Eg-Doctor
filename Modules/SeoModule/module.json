@@ -1,0 +1,11 @@
+{
+    "name": "SeoModule",
+    "alias": "seomodule",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\SeoModule\\App\\Providers\\SeoModuleServiceProvider"
+    ],
+    "files": []
+}
