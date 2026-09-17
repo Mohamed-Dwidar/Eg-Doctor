@@ -909,6 +909,23 @@ return [
   "select_week_start" => "اختر بداية الأسبوع",
   "enter_period_weeks" => "أدخل الفترة بالأسابيع",
   "period_in_weeks" => "أدخل الفترة بالأسابيع (1-52)",
-  "cancel" => "إلغاء"
+  "cancel" => "إلغاء",
+
+  // Departments
+  "departments" => "الأقسام",
+  "add_new_department" => "إضافة قسم جديد",
+  "update_department" => "تعديل القسم",
+  "apply_seo_to_all" => "تطبيق السيو على الكل",
+  "apply_seo_confirm_text" => "سيتم إضافة بيانات سيو افتراضية لكل قسم لا يملك بيانات سيو بعد.",
+  "seo_applied_to_departments" => "تم تطبيق بيانات السيو على :count قسم.",
+  "yes" => "نعم",
+  "no_cancel" => "لا، إلغاء",
+
+  // SEO
+  "meta_title" => "عنوان ميتا",
+  "meta_description" => "وصف ميتا",
+  "meta_tag" => "وسوم ميتا",
+  "header_script" => "سكريبت الهيدر",
+  "footer_script" => "سكريبت الفوتر",
 
 ];

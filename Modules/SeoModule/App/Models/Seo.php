@@ -14,7 +14,7 @@ class Seo extends Model
      * The attributes that are mass assignable.
      */
     protected $guarded = [];
-    
+
     protected static function newFactory(): SeoFactory
     {
         //return SeoFactory::new();

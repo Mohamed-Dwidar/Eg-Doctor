@@ -13,14 +13,13 @@ return new class extends Migration
     {
         Schema::create('seos', function (Blueprint $table) {
             $table->id();
+            $table->string('slug')->unique();
             $table->string('meta_title')->nullable();
-            $table->text('meta_description')->nullable();
-            $table->string('meta_tag')->nullable();
-            $table->text('header_script')->nullable();
-            $table->text('footer_script')->nullable();
+            $table->longText('meta_description')->nullable();
+            $table->longText('meta_tag')->nullable();
+            $table->longText('header_script')->nullable();
+            $table->longText('footer_script')->nullable();
             $table->morphs('seo_capable');
-
-            
             $table->timestamps();
         });
     }

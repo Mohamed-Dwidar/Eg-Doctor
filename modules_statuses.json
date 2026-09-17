@@ -4,5 +4,7 @@
     "LayoutModule": true,
     "PageModule": true,
     "BlogModule": true,
-    "SeoModule": true
+    "SeoModule": true,
+    "DepartmentModule": true,
+    "DegreeModule" : true
 }

@@ -61,6 +61,15 @@
                     </ul>
                 </li>
 
+                <li class="pc-item">
+                    <a href="{{ route('admin.departments') }}" class="pc-link">
+                        <span class="pc-micon">
+                            <i class="fas fa-sitemap"></i>
+                        </span>
+                        <span class="pc-mtext" data-i18n="Departments">Departments</span>
+                    </a>
+                </li>
+
             </ul>
 
         </div>

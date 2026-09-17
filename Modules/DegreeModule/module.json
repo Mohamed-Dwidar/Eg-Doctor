@@ -1,0 +1,11 @@
+{
+    "name": "DegreeModule",
+    "alias": "degreemodule",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\DegreeModule\\Providers\\DegreeModuleServiceProvider"
+    ],
+    "files": []
+}

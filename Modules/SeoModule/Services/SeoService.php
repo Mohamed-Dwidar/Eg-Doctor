@@ -4,6 +4,7 @@ namespace Modules\SeoModule\Services;
 
 use App\Helpers\UploaderHelper;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 use Modules\SeoModule\Repository\SeoRepository;
 
 class SeoService
@@ -15,66 +16,44 @@ class SeoService
     public function __construct(SeoRepository $seoRepository)
     {
         $this->seoRepository = $seoRepository;
-        
+
+    }
+    public function create($data)
+    {
+        return $this->seoRepository->create($data);
     }
 
     public function update($data)
     {
         $project_data = [
-            'name' => $data->name,
-            'img_alt' => $data->img_alt,
-        ];
-        if ($data->hasFile('image')) {
-            $imageName = $this->uploadImage($data->file('image'), 'projects', 'p');
-            if ($imageName) {
-                $old_data = $this->projectRepository->find($data->id);
-                $old_image_title = $old_data->image;
-                /////Delete the old image////
-                if ($old_image_title != null) {
-                    File::delete(public_path('uploads/projects/' . $old_image_title));
-                }
-                /////////////////////////////
-                $project_data['image'] = $imageName;
-            }
-        }
-
-        return $this->projectRepository->update($project_data, $data->id);
-    }
-    public function create($data)
-    {
-        // dd($data);
-        $project_data = [
-            'name' => $data->name,
-            'img_alt' => $data->img_alt,
+            'slug' => Str::slug($data->slug, '-', null),
+            'meta_title' => $data->meta_title,
+            'meta_description' => $data->meta_description,
+            'meta_tag' => $data->meta_tag,
+            'header_script' => $data->header_script,
+            'footer_script' => $data->footer_script,
         ];
 
-        $service = $this->projectRepository->create($project_data);
-
-        if ($data->hasFile('image')) {
-            $imageName = $this->uploadImage($data->file('image'), 'projects', 'p');
-            $project_data['image'] = $imageName;
-        }
-
-        return $this->projectRepository->update($project_data, $service->id);
+        return $this->seoRepository->update($project_data, $data->id);
     }
 
     public function findAll()
     {
-        return $this->projectRepository->get();
+        return $this->seoRepository->all();
     }
 
     public function findOne($id)
     {
-        return $this->projectRepository->find($id);
+        return $this->seoRepository->find($id);
     }
 
     public function delete($id)
     {
-        return $this->projectRepository->delete($id);
+        return $this->seoRepository->delete($id);
     }
 
     public function paginate()
     {
-        return $this->projectRepository->paginate();
+        return $this->seoRepository->paginate();
     }
 }

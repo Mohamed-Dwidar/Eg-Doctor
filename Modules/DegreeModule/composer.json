@@ -1,0 +1,30 @@
+{
+    "name": "nwidart/degreemodule",
+    "description": "",
+    "authors": [
+        {
+            "name": "Nicolas Widart",
+            "email": "n.widart@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\DegreeModule\\": "app/",
+            "Modules\\DegreeModule\\Database\\Factories\\": "database/factories/",
+            "Modules\\DegreeModule\\Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Modules\\DegreeModule\\Tests\\": "tests/"
+        }
+    }
+}

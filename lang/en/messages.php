@@ -1059,5 +1059,17 @@ return [
     "blog_details" => "Blog details",
     "our_blogs" => "Our blogs",
 
+  // Departments
+  "departments" => "Departments",
+  "add_new_department" => "Add new department",
+  "update_department" => "Edit department",
+  "apply_seo_to_all" => "Apply SEO to all",
+  "apply_seo_confirm_text" => "This will add default SEO data to every department that doesn't have any yet.",
+  "seo_applied_to_departments" => "SEO data has been applied to :count department(s).",
+
+  // SEO
+  "meta_tag" => "Meta tags",
+  "header_script" => "Header script",
+  "footer_script" => "Footer script",
 
 ];
