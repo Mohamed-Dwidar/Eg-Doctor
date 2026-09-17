@@ -19,8 +19,9 @@ class LayoutModuleController extends Controller
 
     public function home_page()
     {
-        $pages = $this->pageService->findAll();
-        return view('layoutmodule::front.home', compact('pages'));
+        // $pages = $this->pageService->findAll();
+        // return view('layoutmodule::front.home', compact('pages'));
+        return view('layoutmodule::front.home');
     }
 
     public function welcome()
