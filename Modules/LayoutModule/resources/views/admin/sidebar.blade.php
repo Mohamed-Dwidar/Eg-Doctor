@@ -88,6 +88,15 @@
                     </a>
                 </li>
 
+                <li class="pc-item">
+                    <a href="{{ route('admin.articles') }}" class="pc-link">
+                        <span class="pc-micon">
+                            <i class="fas fa-newspaper"></i>
+                        </span>
+                        <span class="pc-mtext" data-i18n="Articles">Articles</span>
+                    </a>
+                </li>
+
             </ul>
 
         </div>

@@ -1107,4 +1107,15 @@ return [
   "no_answers_found" => "No answers yet.",
   "something_went_wrong" => "Something went wrong. Please try again.",
 
+  // Articles
+  "articles" => "Articles",
+  "add_new_article" => "Add new article",
+  "update_article" => "Edit article",
+  "seo_applied_to_articles" => "SEO data has been applied to :count article(s).",
+  "doctor" => "Doctor",
+  "select_doctor" => "Select doctor",
+  "views" => "Views",
+  "status_published" => "Published",
+  "status_draft" => "Draft",
+
 ];

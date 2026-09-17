@@ -966,4 +966,15 @@ return [
   "no_answers_found" => "لا توجد إجابات حتى الآن.",
   "something_went_wrong" => "حدث خطأ ما. حاول مرة أخرى.",
 
+  // Articles
+  "articles" => "المقالات",
+  "add_new_article" => "إضافة مقال جديد",
+  "update_article" => "تعديل المقال",
+  "seo_applied_to_articles" => "تم تطبيق بيانات السيو على :count مقال.",
+  "doctor" => "الطبيب",
+  "select_doctor" => "اختر الطبيب",
+  "views" => "المشاهدات",
+  "status_published" => "منشور",
+  "status_draft" => "مسودة",
+
 ];

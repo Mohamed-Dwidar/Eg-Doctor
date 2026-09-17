@@ -1,0 +1,11 @@
+{
+    "name": "ArticleModule",
+    "alias": "articlemodule",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\ArticleModule\\Providers\\ArticleModuleServiceProvider"
+    ],
+    "files": []
+}
