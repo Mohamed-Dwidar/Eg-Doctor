@@ -97,6 +97,15 @@
                     </a>
                 </li>
 
+                <li class="pc-item">
+                    <a href="{{ route('admin.informations') }}" class="pc-link">
+                        <span class="pc-micon">
+                            <i class="fas fa-info-circle"></i>
+                        </span>
+                        <span class="pc-mtext" data-i18n="Informations">Informations</span>
+                    </a>
+                </li>
+
             </ul>
 
         </div>

@@ -977,4 +977,12 @@ return [
   "status_published" => "منشور",
   "status_draft" => "مسودة",
 
+  // Informations
+  "informations" => "المعلومات",
+  "add_new_information" => "إضافة معلومة جديدة",
+  "update_information" => "تعديل المعلومة",
+  "seo_applied_to_informations" => "تم تطبيق بيانات السيو على :count سجل.",
+  "is_active" => "نشط",
+  "inactive" => "غير نشط",
+
 ];

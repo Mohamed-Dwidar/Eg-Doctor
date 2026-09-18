@@ -1118,4 +1118,11 @@ return [
   "status_published" => "Published",
   "status_draft" => "Draft",
 
+  // Informations
+  "informations" => "Information",
+  "add_new_information" => "Add new information",
+  "update_information" => "Edit information",
+  "seo_applied_to_informations" => "SEO data has been applied to :count information record(s).",
+  "inactive" => "Inactive",
+
 ];

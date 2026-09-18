@@ -9,5 +9,6 @@
     "DegreeModule" : true,
     "DoctorModule" : true,
     "QuestionModule" : true,
-    "ArticleModule" : true
+    "ArticleModule" : true,
+    "InformationModule" : true
 }
