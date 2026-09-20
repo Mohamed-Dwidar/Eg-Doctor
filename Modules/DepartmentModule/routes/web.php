@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\DepartmentModule\app\Http\Controllers\Admin\DepartmentAdminController;
+use Modules\DepartmentModule\app\Http\Controllers\DepartmentModuleController;
 
 Route::group(['prefix' => 'admin/departments', 'middleware' => ['auth:admin']], function () {
     Route::get('/', [DepartmentAdminController::class, 'index'])->name('admin.departments');
@@ -12,4 +13,9 @@ Route::group(['prefix' => 'admin/departments', 'middleware' => ['auth:admin']], 
     Route::get('/edit/{id}', [DepartmentAdminController::class, 'edit'])->name('admin.departments.edit');
     Route::post('/update', [DepartmentAdminController::class, 'update'])->name('admin.departments.update');
     Route::post('/delete/{id}', [DepartmentAdminController::class, 'destroy'])->name('admin.departments.delete');
+});
+
+
+Route::group(['prefix' => 'departments', 'middleware' => ['auth:admin']], function () {
+   // Route::get('/view/{id}', [DepartmentModuleController::class, 'show'])->name('admin.departments.view');
 });

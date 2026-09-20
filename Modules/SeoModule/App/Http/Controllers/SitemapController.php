@@ -3,18 +3,15 @@
 namespace Modules\SeoModule\App\Http\Controllers;
 
 use Illuminate\Routing\Controller;
-use Modules\BlogModule\Services\BlogService;
+use Modules\SeoModule\App\Models\Seo;
 
 class SitemapController extends Controller {
 
-    public $blogService;
-    public function __construct(BlogService $blogService) {
-        $this->blogService = $blogService;
-    }
-
     public function index() {
-        $blogs = $this->blogService->findAll();
+        $seosByType = Seo::orderBy('seo_capable_type')->get()->groupBy('seo_capable_type');
 
-        return response()->view('seomodule::sitemap', compact('blogs'))->header('Content-Type', 'text/xml');
+        return response()
+            ->view('seomodule::sitemap', compact('seosByType'))
+            ->header('Content-Type', 'text/xml');
     }
 }

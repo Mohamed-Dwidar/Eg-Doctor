@@ -8,21 +8,18 @@
         <priority>1.0</priority>
     </url>
 
-
-    @if($blogs->count() > 0)
+    @foreach ($seosByType as $type => $seos)
+        {!! '<!-- ' . class_basename($type) . ' (' . $seos->count() . ') -->' !!}
+        @foreach ($seos as $seo)
+            @if ($seo->slug)
     <url>
-        <loc>{{ url('/blogs') }}</loc>
+        <loc>{{ url($seo->slug) }}</loc>
+        <lastmod>{{ optional($seo->updated_at)->toAtomString() }}</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
-    @foreach($blogs as $blog)
-    <url>
-        <loc>{{ url('blogs/singleBlog/'.$blog->id) }}</loc>
-        <lastmod>{{ $blog->updated_at->toAtomString() }}</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
+            @endif
+        @endforeach
     @endforeach
-    @endif
 
 </urlset>
