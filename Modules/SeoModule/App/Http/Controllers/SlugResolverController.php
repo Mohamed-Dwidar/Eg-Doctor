@@ -32,8 +32,12 @@ class SlugResolverController extends Controller
     /**
      * Laravel's fallback route: called only when no other route in
      * the app matched the request. Looks the path up as a slug in
-     * the seos table and, if found, hands off to whichever
-     * controller renders that content type.
+     * the seos table. A manually-created entry (no seo_capable_type)
+     * internally forwards to whatever route matches its target_path
+     * (e.g. "terms" => "pages/2") and returns that route's response
+     * as-is — the browser keeps showing the original slug URL, it's
+     * not a redirect. Anything else hands off to whichever controller
+     * renders that content type.
      */
     public function resolve(Request $request)
     {
@@ -43,6 +47,19 @@ class SlugResolverController extends Controller
 
         if (!$seo) {
             abort(404);
+        }
+
+        // Shared so metas.blade.php can use the slug that was actually
+        // typed, even after a manual entry's forwardTo() rebinds the
+        // request to its target_path's own sub-request below.
+        app()->instance('resolved_seo', $seo);
+
+        if (!$seo->seo_capable_type) {
+            if (!$seo->target_path) {
+                abort(404);
+            }
+
+            return $this->forwardTo($request, $seo->target_path);
         }
 
         $type = class_basename($seo->seo_capable_type);
@@ -55,5 +72,30 @@ class SlugResolverController extends Controller
         [$controllerClass, $method] = $handler;
 
         return app($controllerClass)->{$method}($seo->seo_capable_id);
+    }
+
+    /**
+     * Dispatches target_path's own route internally and returns its
+     * response, without ever sending a redirect — so the browser's
+     * address bar keeps showing the slug the visitor actually typed.
+     */
+    private function forwardTo(Request $originalRequest, string $targetPath)
+    {
+        $subRequest = Request::create(
+            '/' . ltrim($targetPath, '/'),
+            'GET',
+            [],
+            $originalRequest->cookies->all(),
+            [],
+            $originalRequest->server->all()
+        );
+
+        if ($originalRequest->hasSession()) {
+            $subRequest->setLaravelSession($originalRequest->session());
+        }
+
+        app()->instance('request', $subRequest);
+
+        return app('router')->dispatch($subRequest);
     }
 }

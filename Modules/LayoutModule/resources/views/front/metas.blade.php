@@ -1,4 +1,21 @@
  @php
+     // If the current URL matches a slug in the seos table, its
+     // meta_title/meta_description/meta_tag take priority over
+     // whatever $page_meta the calling page passed in. Prefer the
+     // already-resolved record SlugResolverController shares (it
+     // knows the slug that was actually typed, even for a manual
+     // entry that forwards elsewhere and swaps the bound request
+     // along the way); fall back to a direct lookup otherwise.
+     $__seo = app()->bound('resolved_seo')
+         ? app('resolved_seo')
+         : \Modules\SeoModule\App\Models\Seo::where('slug', request()->decodedPath())->first();
+
+     if ($__seo) {
+         $page_meta['title'] = trim($__seo->meta_title ?? '') ?: ($page_meta['title'] ?? '');
+         $page_meta['description'] = trim($__seo->meta_description ?? '') ?: ($page_meta['description'] ?? '');
+         $page_meta['keywords'] = trim($__seo->meta_tag ?? '') ?: ($page_meta['keywords'] ?? '');
+     }
+
      $page_meta['title'] =
          trim($page_meta['title'] ?? '') ?:
          'Coworking Space in Alexandria | Private Offices, Meeting Rooms & Virtual Office';
@@ -36,7 +53,9 @@
 
  <link rel="icon" type="image/png" href="{{ asset('assets/front/img/favicon.png') }}">
 
-
+ @if ($__seo && $__seo->header_script)
+     {!! $__seo->header_script !!}
+ @endif
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-11ZF4Q3D52"></script>

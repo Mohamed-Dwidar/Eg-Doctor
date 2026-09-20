@@ -15,7 +15,4 @@ Route::group(['prefix' => 'admin/departments', 'middleware' => ['auth:admin']], 
     Route::post('/delete/{id}', [DepartmentAdminController::class, 'destroy'])->name('admin.departments.delete');
 });
 
-
-Route::group(['prefix' => 'departments', 'middleware' => ['auth:admin']], function () {
-   // Route::get('/view/{id}', [DepartmentModuleController::class, 'show'])->name('admin.departments.view');
-});
+Route::get('/departments', [DepartmentModuleController::class, 'index'])->name('departments');

@@ -12,7 +12,7 @@ class DepartmentModuleController extends Controller
      */
     public function index()
     {
-        return view('departmentmodule::index');
+        return view('departmentmodule::guest.index');
     }
 
     /**

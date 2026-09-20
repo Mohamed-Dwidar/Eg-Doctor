@@ -1125,4 +1125,10 @@ return [
   "seo_applied_to_informations" => "SEO data has been applied to :count information record(s).",
   "inactive" => "Inactive",
 
+  // Manual SEO entries
+  "manual_seo" => "Manual SEO",
+  "add_new_manual_seo" => "Add new manual SEO entry",
+  "update_manual_seo" => "Edit manual SEO entry",
+  "target_path" => "Target path",
+
 ];

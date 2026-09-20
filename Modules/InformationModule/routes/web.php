@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\InformationModule\app\Http\Controllers\Admin\InformationAdminController;
+use Modules\InformationModule\app\Http\Controllers\InformationModuleController;
 
 Route::group(['prefix' => 'admin/informations', 'middleware' => ['auth:admin']], function () {
     Route::get('/', [InformationAdminController::class, 'index'])->name('admin.informations');
@@ -13,3 +14,5 @@ Route::group(['prefix' => 'admin/informations', 'middleware' => ['auth:admin']],
     Route::post('/update', [InformationAdminController::class, 'update'])->name('admin.informations.update');
     Route::post('/delete/{id}', [InformationAdminController::class, 'destroy'])->name('admin.informations.delete');
 });
+
+Route::get('/informations', [InformationModuleController::class, 'index'])->name('informations');

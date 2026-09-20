@@ -985,4 +985,10 @@ return [
   "is_active" => "نشط",
   "inactive" => "غير نشط",
 
+  // Manual SEO entries
+  "manual_seo" => "سيو يدوي",
+  "add_new_manual_seo" => "إضافة سيو يدوي جديد",
+  "update_manual_seo" => "تعديل السيو اليدوي",
+  "target_path" => "المسار المستهدف",
+
 ];

@@ -24,4 +24,14 @@ class Seo extends Model
     {
         return $this->morphTo();
     }
+
+    /**
+     * Manually-created entries that aren't tied to any real content
+     * record — just a slug that redirects to a fixed target_path
+     * (e.g. "terms" => "pages/2").
+     */
+    public function scopeManual($query)
+    {
+        return $query->whereNull('seo_capable_type');
+    }
 }

@@ -106,6 +106,16 @@
                     </a>
                 </li>
 
+                <li class="pc-item">
+                    <a href="{{ route('admin.seo.manual') }}" class="pc-link">
+                        <span class="pc-micon">
+                            <i class="fas fa-link"></i>
+                        </span>
+                        <span class="pc-mtext"
+                            data-i18n="{{ __('messages.manual_seo') }}">{{ __('messages.manual_seo') }}</span>
+                    </a>
+                </li>
+
             </ul>
 
         </div>

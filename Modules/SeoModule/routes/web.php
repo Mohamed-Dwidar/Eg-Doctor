@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\SeoModule\App\Http\Controllers\Admin\SeoAdminController;
 use Modules\SeoModule\App\Http\Controllers\SeoModuleController;
 use Modules\SeoModule\App\Http\Controllers\SitemapController;
 use Modules\SeoModule\App\Http\Controllers\SlugResolverController;
@@ -18,6 +19,15 @@ use Modules\SeoModule\App\Http\Controllers\SlugResolverController;
 
 Route::group([], function () {
     Route::resource('seomodule', SeoModuleController::class)->names('seomodule');
+});
+
+Route::group(['prefix' => 'admin/seo-manual', 'middleware' => ['auth:admin']], function () {
+    Route::get('/', [SeoAdminController::class, 'index'])->name('admin.seo.manual');
+    Route::get('/add', [SeoAdminController::class, 'create'])->name('admin.seo.manual.add');
+    Route::post('/store', [SeoAdminController::class, 'store'])->name('admin.seo.manual.store');
+    Route::get('/edit/{id}', [SeoAdminController::class, 'edit'])->name('admin.seo.manual.edit');
+    Route::post('/update', [SeoAdminController::class, 'update'])->name('admin.seo.manual.update');
+    Route::post('/delete/{id}', [SeoAdminController::class, 'destroy'])->name('admin.seo.manual.delete');
 });
 
 Route::get('/sitemap.xml', [SitemapController::class, 'index']);

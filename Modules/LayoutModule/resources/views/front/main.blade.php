@@ -57,8 +57,8 @@
             <div class="d-table-cell">
                 <div class="container">
                     <div class="page-title-content">
-                        <h1>{{ $page_title }}</h1>
-                        @if ($breadcrumb)
+                        <h1>{{ $page_title ?? '' }}</h1>
+                        @if ($breadcrumb ?? false)
                             <ul>
                                 @foreach ($breadcrumb as $item)
                                     <li><a href="{{ $item['url'] }}">{{ $item['title'] }}</a></li>
