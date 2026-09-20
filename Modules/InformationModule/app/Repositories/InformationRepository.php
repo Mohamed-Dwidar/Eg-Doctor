@@ -17,4 +17,17 @@ class InformationRepository extends BaseRepository
     {
         return Information::filter($request);
     }
+
+    /**
+     * A random sample of active informations, for the homepage's
+     * "معلومات طبية" section.
+     */
+    function random($count)
+    {
+        return Information::with('seo')
+            ->where('is_active', 1)
+            ->inRandomOrder()
+            ->limit($count)
+            ->get();
+    }
 }

@@ -17,4 +17,17 @@ class ArticleRepository extends BaseRepository
     {
         return Article::filter($request);
     }
+
+    /**
+     * A random sample of published articles, for the homepage's
+     * "أحدث المقالات الطبية" section.
+     */
+    function random($count)
+    {
+        return Article::with(['seo', 'doctor'])
+            ->where('status', 1)
+            ->inRandomOrder()
+            ->limit($count)
+            ->get();
+    }
 }

@@ -14,3 +14,10 @@ Route::group(['prefix' => 'admin/questions', 'middleware' => ['auth:admin']], fu
     Route::post('/update', [QuestionAdminController::class, 'update'])->name('admin.questions.update');
     Route::post('/delete/{id}', [QuestionAdminController::class, 'destroy'])->name('admin.questions.delete');
 });
+
+Route::group(['prefix' => 'questions', 'middleware' => ['auth:web']], function () {
+    Route::get('/', [QuestionAdminController::class, 'index'])->name('questions');
+    Route::get('/add', [QuestionAdminController::class, 'create'])->name('questions.add');
+    Route::post('/store', [QuestionAdminController::class, 'store'])->name('questions.store');
+    Route::get('/view/{id}', [QuestionAdminController::class, 'show'])->name('questions.view');
+});

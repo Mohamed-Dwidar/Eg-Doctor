@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 
-    <title>إيج دكتور | دليلك الطبي للبحث عن أطباء مصر حسب التخصص والمحافظة</title>
+    <title>ايجي دكتور | دليلك الطبي للبحث عن أطباء مصر حسب التخصص والمحافظة الاستشارات الطبية</title>
     <meta name="description"
-        content="إيج دكتور دليل طبي شامل يساعدك على البحث عن أفضل الأطباء في مصر حسب التخصص والمحافظة والمنطقة، مع معلومات موثوقة عن الأطباء والعيادات ومقالات واستشارات طبية.">
-    <meta name="keywords" content="دليل أطباء مصر, بحث عن طبيب, تخصصات طبية, عيادات, استشارات طبية, إيج دكتور">
+        content="إيجي دكتور دليل طبي شامل يساعدك على البحث عن أفضل الأطباء في مصر حسب التخصص والمحافظة والمنطقة، مع معلومات موثوقة عن الأطباء والعيادات ومقالات واستشارات طبية.">
+    <meta name="keywords" content="دليل أطباء مصر, بحث عن طبيب, تخصصات طبية, عيادات, استشارات طبية, إيجي دكتور">
 
-    <meta property="og:title" content="إيج دكتور | دليلك الطبي للبحث عن أطباء مصر" />
-    <meta property="og:description" content="ابحث عن طبيبك المناسب حسب التخصص والمحافظة والمنطقة مع إيج دكتور." />
+    <meta property="og:title" content="إيجي دكتور | دليلك الطبي للبحث عن أطباء مصر" />
+    <meta property="og:description" content="ابحث عن طبيبك المناسب حسب التخصص والمحافظة والمنطقة مع إيجي دكتور." />
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ar_EG">
     <meta name="robots" content="index, follow" />
@@ -77,12 +77,12 @@
     <div class="egd-topbar d-none d-md-block">
         <div class="container">
             <div class="egd-topbar-info">
-                <span><i class="fas fa-phone"></i> اتصل بنا: 19XXX</span>
-                <span><i class="fas fa-envelope"></i> info@egdoctor.com</span>
-                <span><i class="fas fa-map-marker-alt"></i> خدمة تغطي جميع محافظات مصر</span>
+                {{-- <span><i class="fas fa-phone"></i> اتصل بنا: 19XXX</span>
+                <span><i class="fas fa-envelope"></i> info@egdoctor.com</span> --}}
+                <span><i class="fas fa-map-marker-alt"></i> الدليل الطبي للأطباء في جميع محافظات مصر</span>
             </div>
             <div class="egd-topbar-social">
-                <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                <a href="http://www.facebook.com/EgyptianDoctorsGuide" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
                 <a href="#" aria-label="انستقرام"><i class="fab fa-instagram"></i></a>
                 <a href="#" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
@@ -96,18 +96,18 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <a class="navbar-brand egd-logo" href="{{ url('/') }}">
-                    <img src="{{ asset('assets/front/img/logo_main.png') }}" alt="إيج دكتور - دليل الأطباء المصري"
+                    <img src="{{ asset('assets/front/img/logo_main.png') }}" alt="إيجي دكتور - دليل الأطباء المصري"
                         width="200" height="80">
                 </a>
 
                 <div class="collapse navbar-collapse mean-menu" id="egdNavbarContent">
                     <ul class="navbar-nav mx-lg-auto">
                         <li class="nav-item active"><a href="#" class="nav-link">الرئيسية</a></li>
-                        <li class="nav-item"><a href="#egd-doctors" class="nav-link">الأطباء</a></li>
-                        <li class="nav-item"><a href="#egd-specialties" class="nav-link">التخصصات</a></li>
-                        <li class="nav-item"><a href="#egd-articles" class="nav-link">المقالات الطبية</a></li>
-                        <li class="nav-item"><a href="#egd-consultations" class="nav-link">الاستشارات الطبية</a></li>
-                        <li class="nav-item"><a href="#egd-info" class="nav-link">معلومات طبية</a></li>
+                        <li class="nav-item"><a href="/الأطباء" class="nav-link">الأطباء</a></li>
+                        <li class="nav-item"><a href="/المجالات-و-التخصصات-الطبية" class="nav-link">التخصصات</a></li>
+                        <li class="nav-item"><a href="/مقالات-طبية" class="nav-link">المقالات الطبية</a></li>
+                        <li class="nav-item"><a href="/استشارات-و-اسئلة-طبية" class="nav-link">الاستشارات الطبية</a></li>
+                        <li class="nav-item"><a href="/معلومات-طبية-سريعة" class="nav-link">معلومات طبية</a></li>
                     </ul>
 
                     <div class="egd-header-actions">
@@ -159,16 +159,9 @@
                         <div class="egd-input-icon">
                             <select id="egd-specialty" name="specialty">
                                 <option value="">كل التخصصات</option>
-                                <option>باطنة</option>
-                                <option>أطفال</option>
-                                <option>نساء وتوليد</option>
-                                <option>جلدية</option>
-                                <option>أسنان</option>
-                                <option>قلب وأوعية دموية</option>
-                                <option>عظام</option>
-                                <option>أنف وأذن وحنجرة</option>
-                                <option>عيون</option>
-                                <option>مخ وأعصاب</option>
+                                @foreach ($departments as $department)
+                                    <option value="{{ $department->id }}">{{ $department->name }}</option>
+                                @endforeach
                             </select>
                             <i class="fas fa-stethoscope"></i>
                         </div>
@@ -179,12 +172,11 @@
                         <div class="egd-input-icon">
                             <select id="egd-governorate" name="governorate">
                                 <option value="">كل المحافظات</option>
-                                <option>القاهرة</option>
-                                <option>الجيزة</option>
-                                <option>الإسكندرية</option>
-                                <option>الدقهلية</option>
-                                <option>الشرقية</option>
-                                <option>الغربية</option>
+                                @foreach ($cities as $city)
+                                    <option value="{{ $city->id }}" @selected($defaultCity && $city->id === $defaultCity->id)>
+                                        {{ $city->name }}
+                                    </option>
+                                @endforeach
                             </select>
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
@@ -195,11 +187,9 @@
                         <div class="egd-input-icon">
                             <select id="egd-area" name="area">
                                 <option value="">كل المناطق</option>
-                                <option>المهندسين</option>
-                                <option>مدينة نصر</option>
-                                <option>المعادي</option>
-                                <option>سموحة</option>
-                                <option>رشدي</option>
+                                @foreach ($defaultCityZones as $zone)
+                                    <option value="{{ $zone->id }}">{{ $zone->name }}</option>
+                                @endforeach
                             </select>
                             <i class="fas fa-map-marked-alt"></i>
                         </div>
@@ -220,11 +210,9 @@
 
                 <div class="egd-search-tags">
                     <span>الأكثر بحثًا:</span>
-                    <a href="#">أطفال</a>
-                    <a href="#">أسنان</a>
-                    <a href="#">جلدية</a>
-                    <a href="#">نساء وتوليد</a>
-                    <a href="#">عظام</a>
+                    @foreach ($departments->take(5) as $department)
+                        <a href="{{ $department->seo?->slug ? url($department->seo->slug) : '#' }}">{{ $department->name }}</a>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -249,98 +237,72 @@
             <div class="egd-title">
                 <span class="egd-eyebrow">التخصصات الطبية</span>
                 <h2>ابحث حسب التخصص</h2>
-                <p>اختر التخصص المناسب لحالتك من بين أكثر من 50 تخصصًا طبيًا متاحًا على إيج دكتور.</p>
+                <p>اختر التخصص المناسب لحالتك من بين أكثر من 50 تخصصًا طبيًا متاحًا على إيجي دكتور.</p>
             </div>
 
+            @php
+                // Best-effort icon per real department name; anything
+                // not listed here falls back to a generic icon rather
+                // than needing a schema change to store one per row.
+                $egdSpecialtyIcons = [
+                    'الأنف والأذن والحنجرة' => 'fa-deaf',
+                    'الاطفال' => 'fa-baby',
+                    'الباطنة' => 'fa-stethoscope',
+                    'الجلدية والتناسلية' => 'fa-allergies',
+                    'الجهاز الهضمي والكبد' => 'fa-notes-medical',
+                    'الروماتيزم والمفاصل' => 'fa-bone',
+                    'الصدر والحساسية' => 'fa-wind',
+                    'الطب الطبيعي' => 'fa-procedures',
+                    'الطب النفسى' => 'fa-comment-medical',
+                    'العيون' => 'fa-eye',
+                    'الغدد الصماء والسكر' => 'fa-syringe',
+                    'الفم والأسنان' => 'fa-tooth',
+                    'القلب والأوعية الدموية' => 'fa-heartbeat',
+                    'الكلى' => 'fa-vial',
+                    'المخ والاعصاب' => 'fa-brain',
+                    'النساء و الولادة' => 'fa-female',
+                    'تحاليل طبيه' => 'fa-flask',
+                    'تخدير' => 'fa-syringe',
+                    'تنظيم الاسرة' => 'fa-venus',
+                    'جراحة عامة' => 'fa-user-md',
+                    'جراحه أطفال' => 'fa-child',
+                    'خصوبة و عقم' => 'fa-venus',
+                    'ريجيم وعلاج السمنة و النحافة' => 'fa-weight',
+                    'سمع وتخاطب' => 'fa-deaf',
+                    'صحة عامة و تغذيه' => 'fa-first-aid',
+                    'طب الاورام' => 'fa-microscope',
+                    'طوارئ' => 'fa-ambulance',
+                    'غسيل كلوي' => 'fa-vial',
+                    'مناظير' => 'fa-x-ray',
+                ];
+            @endphp
+
             <div class="row g-4">
-                <div class="col-6 col-sm-4 col-lg-2">
-                    <a href="#" class="egd-specialty-card wow fadeInUp" data-wow-delay="0.05s">
-                        <span class="egd-specialty-icon"><i class="fas fa-stethoscope"></i></span>
-                        <h3>باطنة</h3>
-                        <span>أمراض الجهاز الهضمي والباطنة العامة</span>
-                    </a>
-                </div>
-                <div class="col-6 col-sm-4 col-lg-2">
-                    <a href="#" class="egd-specialty-card wow fadeInUp" data-wow-delay="0.1s">
-                        <span class="egd-specialty-icon"><i class="fas fa-baby"></i></span>
-                        <h3>أطفال</h3>
-                        <span>رعاية الأطفال وحديثي الولادة</span>
-                    </a>
-                </div>
-                <div class="col-6 col-sm-4 col-lg-2">
-                    <a href="#" class="egd-specialty-card wow fadeInUp" data-wow-delay="0.15s">
-                        <span class="egd-specialty-icon"><i class="fas fa-female"></i></span>
-                        <h3>نساء وتوليد</h3>
-                        <span>متابعة الحمل وأمراض النساء</span>
-                    </a>
-                </div>
-                <div class="col-6 col-sm-4 col-lg-2">
-                    <a href="#" class="egd-specialty-card wow fadeInUp" data-wow-delay="0.2s">
-                        <span class="egd-specialty-icon"><i class="fas fa-allergies"></i></span>
-                        <h3>جلدية</h3>
-                        <span>الأمراض الجلدية والتجميل</span>
-                    </a>
-                </div>
-                <div class="col-6 col-sm-4 col-lg-2">
-                    <a href="#" class="egd-specialty-card wow fadeInUp" data-wow-delay="0.25s">
-                        <span class="egd-specialty-icon"><i class="fas fa-tooth"></i></span>
-                        <h3>أسنان</h3>
-                        <span>علاج وتجميل الأسنان</span>
-                    </a>
-                </div>
-                <div class="col-6 col-sm-4 col-lg-2">
-                    <a href="#" class="egd-specialty-card wow fadeInUp" data-wow-delay="0.3s">
-                        <span class="egd-specialty-icon"><i class="fas fa-heartbeat"></i></span>
-                        <h3>قلب وأوعية دموية</h3>
-                        <span>أمراض القلب والشرايين</span>
-                    </a>
-                </div>
-                <div class="col-6 col-sm-4 col-lg-2">
-                    <a href="#" class="egd-specialty-card wow fadeInUp" data-wow-delay="0.05s">
-                        <span class="egd-specialty-icon"><i class="fas fa-bone"></i></span>
-                        <h3>عظام</h3>
-                        <span>جراحة العظام والمفاصل</span>
-                    </a>
-                </div>
-                <div class="col-6 col-sm-4 col-lg-2">
-                    <a href="#" class="egd-specialty-card wow fadeInUp" data-wow-delay="0.1s">
-                        <span class="egd-specialty-icon"><i class="fas fa-deaf"></i></span>
-                        <h3>أنف وأذن وحنجرة</h3>
-                        <span>أمراض السمع والتنفس</span>
-                    </a>
-                </div>
-                <div class="col-6 col-sm-4 col-lg-2">
-                    <a href="#" class="egd-specialty-card wow fadeInUp" data-wow-delay="0.15s">
-                        <span class="egd-specialty-icon"><i class="fas fa-eye"></i></span>
-                        <h3>عيون</h3>
-                        <span>فحص وعلاج أمراض العيون</span>
-                    </a>
-                </div>
-                <div class="col-6 col-sm-4 col-lg-2">
-                    <a href="#" class="egd-specialty-card wow fadeInUp" data-wow-delay="0.2s">
-                        <span class="egd-specialty-icon"><i class="fas fa-brain"></i></span>
-                        <h3>مخ وأعصاب</h3>
-                        <span>أمراض الجهاز العصبي</span>
-                    </a>
-                </div>
-                <div class="col-6 col-sm-4 col-lg-2">
-                    <a href="#" class="egd-specialty-card wow fadeInUp" data-wow-delay="0.25s">
-                        <span class="egd-specialty-icon"><i class="fas fa-syringe"></i></span>
-                        <h3>مسالك بولية</h3>
-                        <span>أمراض الكلى والمسالك البولية</span>
-                    </a>
-                </div>
-                <div class="col-6 col-sm-4 col-lg-2">
-                    <a href="#" class="egd-specialty-card wow fadeInUp" data-wow-delay="0.3s">
-                        <span class="egd-specialty-icon"><i class="fas fa-user-md"></i></span>
-                        <h3>جراحة عامة</h3>
-                        <span>العمليات الجراحية العامة</span>
-                    </a>
-                </div>
+                @foreach ($departments->take(12) as $department)
+                    @php
+                        $egdIcon = $egdSpecialtyIcons[$department->name]
+                            ?? (str_contains($department->name, 'جراحة') || str_contains($department->name, 'جراحه')
+                                ? 'fa-user-md'
+                                : 'fa-stethoscope');
+                        $egdSpecialtyUrl = $department->seo?->slug ? url($department->seo->slug) : '#';
+                        $egdSpecialtyBlurb = \Illuminate\Support\Str::limit(
+                            trim(str_replace($department->name, '', $department->seo?->meta_description ?? ''), " -\n"),
+                            40
+                        ) ?: $department->name;
+                    @endphp
+                    <div class="col-6 col-sm-4 col-lg-2">
+                        <a href="{{ $egdSpecialtyUrl }}" class="egd-specialty-card wow fadeInUp"
+                            data-wow-delay="0.05s">
+                            <span class="egd-specialty-icon"><i class="fas {{ $egdIcon }}"></i></span>
+                            <h3>{{ $department->name }}</h3>
+                            <span>{{ $egdSpecialtyBlurb }}</span>
+                        </a>
+                    </div>
+                @endforeach
             </div>
 
             <div class="text-center mt-5">
-                <a href="#" class="egd-btn-outline">عرض جميع التخصصات <i class="fas fa-arrow-left"></i></a>
+                <a href="/المجالات-و-التخصصات-الطبية" class="egd-btn-outline">عرض جميع التخصصات <i class="fas fa-arrow-left"></i></a>
             </div>
         </div>
     </section>
@@ -352,146 +314,48 @@
             <div class="egd-title">
                 <span class="egd-eyebrow">نخبة الأطباء</span>
                 <h2>أطباء مميزون</h2>
-                <p>تعرف على نخبة من الأطباء الأعلى تقييمًا على إيج دكتور في مختلف التخصصات والمحافظات.</p>
+                <p>تعرف على نخبة من الأطباء الأعلى تقييمًا على إيجي دكتور في مختلف التخصصات والمحافظات.</p>
             </div>
 
             <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <article class="egd-doctor-card wow fadeInUp" data-wow-delay="0.05s">
-                        <div class="egd-doctor-top">
-                            <div class="egd-doctor-avatar" aria-hidden="true">أس</div>
-                            <div>
-                                <h3>د. أحمد السيد محمود</h3>
-                                <span class="egd-specialty-tag">استشاري الباطنة والجهاز الهضمي</span>
+                @forelse ($featuredDoctors as $doctor)
+                    @php
+                        $egdDoctorUrl = $doctor->seo?->slug ? url($doctor->seo->slug) : '#';
+                        $egdDoctorDept = $doctor->departments->first()?->name;
+                    @endphp
+                    <div class="col-md-6 col-lg-4">
+                        <article class="egd-doctor-card wow fadeInUp" data-wow-delay="0.05s">
+                            <div class="egd-doctor-top">
+                                <div class="egd-doctor-avatar" aria-hidden="true">{{ mb_substr(trim($doctor->name), 0, 2) }}</div>
+                                <div>
+                                    <h3>{{ $doctor->name }}</h3>
+                                    <span class="egd-specialty-tag">
+                                        {{ $doctor->degree?->name }}
+                                        @if ($egdDoctorDept)
+                                            - {{ $egdDoctorDept }}
+                                        @endif
+                                    </span>
+                                </div>
                             </div>
-                        </div>
-                        <div class="egd-doctor-body">
-                            <div class="egd-doc-meta"><i class="fas fa-graduation-cap"></i> أستاذ مساعد بكلية طب القصر
-                                العيني</div>
-                            <div class="egd-doc-meta"><i class="fas fa-map-marker-alt"></i> القاهرة - المهندسين</div>
-                            <div class="egd-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                <span>4.9 (128 تقييم)</span>
+                            <div class="egd-doctor-body">
+                                @if ($doctor->more_info)
+                                    <div class="egd-doc-meta"><i class="fas fa-graduation-cap"></i> {{ $doctor->more_info }}</div>
+                                @endif
+                                @if ($doctor->city || $doctor->zone)
+                                    <div class="egd-doc-meta"><i class="fas fa-map-marker-alt"></i>
+                                        {{ $doctor->city?->name }}
+                                        @if ($doctor->zone)
+                                            - {{ $doctor->zone->name }}
+                                        @endif
+                                    </div>
+                                @endif
+                                <a href="{{ $egdDoctorUrl }}" class="egd-btn-outline">عرض الملف</a>
                             </div>
-                            <a href="#" class="egd-btn-outline">عرض الملف</a>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <article class="egd-doctor-card wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="egd-doctor-top">
-                            <div class="egd-doctor-avatar" aria-hidden="true">من</div>
-                            <div>
-                                <h3>د. منى عبد الرحمن</h3>
-                                <span class="egd-specialty-tag">أخصائية أمراض جلدية وتجميل</span>
-                            </div>
-                        </div>
-                        <div class="egd-doctor-body">
-                            <div class="egd-doc-meta"><i class="fas fa-graduation-cap"></i> دكتوراه في الأمراض
-                                الجلدية</div>
-                            <div class="egd-doc-meta"><i class="fas fa-map-marker-alt"></i> الإسكندرية - سموحة</div>
-                            <div class="egd-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span>4.8 (96 تقييم)</span>
-                            </div>
-                            <a href="#" class="egd-btn-outline">عرض الملف</a>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <article class="egd-doctor-card wow fadeInUp" data-wow-delay="0.15s">
-                        <div class="egd-doctor-top">
-                            <div class="egd-doctor-avatar" aria-hidden="true">كف</div>
-                            <div>
-                                <h3>د. كريم فتحي</h3>
-                                <span class="egd-specialty-tag">استشاري جراحة العظام والمفاصل</span>
-                            </div>
-                        </div>
-                        <div class="egd-doctor-body">
-                            <div class="egd-doc-meta"><i class="fas fa-graduation-cap"></i> عضو الجمعية المصرية لجراحة
-                                العظام</div>
-                            <div class="egd-doc-meta"><i class="fas fa-map-marker-alt"></i> الجيزة - الدقي</div>
-                            <div class="egd-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i><i class="far fa-star"></i>
-                                <span>4.7 (74 تقييم)</span>
-                            </div>
-                            <a href="#" class="egd-btn-outline">عرض الملف</a>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <article class="egd-doctor-card wow fadeInUp" data-wow-delay="0.05s">
-                        <div class="egd-doctor-top">
-                            <div class="egd-doctor-avatar" aria-hidden="true">سي</div>
-                            <div>
-                                <h3>د. سارة يوسف</h3>
-                                <span class="egd-specialty-tag">أخصائية طب الأطفال وحديثي الولادة</span>
-                            </div>
-                        </div>
-                        <div class="egd-doctor-body">
-                            <div class="egd-doc-meta"><i class="fas fa-graduation-cap"></i> ماجستير طب الأطفال</div>
-                            <div class="egd-doc-meta"><i class="fas fa-map-marker-alt"></i> القاهرة - مدينة نصر</div>
-                            <div class="egd-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span>4.9 (150 تقييم)</span>
-                            </div>
-                            <a href="#" class="egd-btn-outline">عرض الملف</a>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <article class="egd-doctor-card wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="egd-doctor-top">
-                            <div class="egd-doctor-avatar" aria-hidden="true">مع</div>
-                            <div>
-                                <h3>د. محمد عبد الله</h3>
-                                <span class="egd-specialty-tag">استشاري القلب والأوعية الدموية</span>
-                            </div>
-                        </div>
-                        <div class="egd-doctor-body">
-                            <div class="egd-doc-meta"><i class="fas fa-graduation-cap"></i> زميل الكلية الملكية
-                                للأطباء</div>
-                            <div class="egd-doc-meta"><i class="fas fa-map-marker-alt"></i> القاهرة - المعادي</div>
-                            <div class="egd-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                <span>4.8 (110 تقييم)</span>
-                            </div>
-                            <a href="#" class="egd-btn-outline">عرض الملف</a>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-md-6 col-lg-4">
-                    <article class="egd-doctor-card wow fadeInUp" data-wow-delay="0.15s">
-                        <div class="egd-doctor-top">
-                            <div class="egd-doctor-avatar" aria-hidden="true">هش</div>
-                            <div>
-                                <h3>د. هبة الشريف</h3>
-                                <span class="egd-specialty-tag">استشارية النساء والتوليد</span>
-                            </div>
-                        </div>
-                        <div class="egd-doctor-body">
-                            <div class="egd-doc-meta"><i class="fas fa-graduation-cap"></i> دكتوراه أمراض النساء
-                                والتوليد</div>
-                            <div class="egd-doc-meta"><i class="fas fa-map-marker-alt"></i> الإسكندرية - رشدي</div>
-                            <div class="egd-rating">
-                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                    class="fas fa-star"></i><i class="fas fa-star"></i>
-                                <span>4.9 (135 تقييم)</span>
-                            </div>
-                            <a href="#" class="egd-btn-outline">عرض الملف</a>
-                        </div>
-                    </article>
-                </div>
+                        </article>
+                    </div>
+                @empty
+                    <p class="text-center text-muted">لا يوجد أطباء مسجلون حاليًا.</p>
+                @endforelse
             </div>
 
             <div class="text-center mt-5">
@@ -627,7 +491,7 @@
         <div class="container">
             <div class="egd-title">
                 <span class="egd-eyebrow">لماذا نحن</span>
-                <h2>لماذا إيج دكتور؟</h2>
+                <h2>لماذا إيجي دكتور؟</h2>
                 <p>نساعدك على اتخاذ قرار صحي وواثق عند اختيار طبيبك.</p>
             </div>
 
@@ -683,70 +547,38 @@
             </div>
 
             <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <article class="egd-article-card wow fadeInUp" data-wow-delay="0.05s">
-                        <div class="egd-article-cover"><i class="fas fa-battery-quarter"></i></div>
-                        <div class="egd-article-body">
-                            <span class="egd-article-cat">صحة عامة</span>
-                            <h3><a href="#">أسباب الشعور بالإرهاق المستمر وطرق التغلب عليه</a></h3>
-                            <p>تعرف على أبرز الأسباب الشائعة للإرهاق اليومي وبعض النصائح العامة لتحسين مستوى
-                                طاقتك.</p>
-                            <div class="egd-article-foot">
-                                <span><i class="far fa-clock"></i> 10 سبتمبر 2026</span>
-                                <a href="#">اقرأ المزيد</a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                @forelse ($randomArticles as $article)
+                    @php
+                        $egdArticleUrl = $article->seo?->slug ? url($article->seo->slug) : '#';
+                        $egdArticleExcerpt = \Illuminate\Support\Str::limit(strip_tags($article->content), 110);
+                    @endphp
+                    <div class="col-md-6 col-lg-3">
+                        <article class="egd-article-card wow fadeInUp" data-wow-delay="0.05s">
+                            <div class="egd-article-cover"><i class="fas fa-notes-medical"></i></div>
+                            <div class="egd-article-body">
+                                <h3><a href="{{ $egdArticleUrl }}">{{ $article->title }}</a></h3>
 
-                <div class="col-md-6 col-lg-3">
-                    <article class="egd-article-card wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="egd-article-cover"><i class="fas fa-heartbeat"></i></div>
-                        <div class="egd-article-body">
-                            <span class="egd-article-cat">القلب والأوعية الدموية</span>
-                            <h3><a href="#">دليلك المبسط للتعامل مع ارتفاع ضغط الدم</a></h3>
-                            <p>خطوات عامة يمكن أن تساعد في متابعة ضغط الدم ضمن خطة يحددها الطبيب المعالج.</p>
-                            <div class="egd-article-foot">
-                                <span><i class="far fa-clock"></i> 6 سبتمبر 2026</span>
-                                <a href="#">اقرأ المزيد</a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                                @if ($article->doctor)
+                                    <span class="egd-article-cat">{{ $article->doctor->name }}</span>
+                                @else
+                                    <span class="egd-article-cat">-</span>
+                                @endif
+                                <p>{{ $egdArticleExcerpt }}</p>
 
-                <div class="col-md-6 col-lg-3">
-                    <article class="egd-article-card wow fadeInUp" data-wow-delay="0.15s">
-                        <div class="egd-article-cover"><i class="fas fa-tooth"></i></div>
-                        <div class="egd-article-body">
-                            <span class="egd-article-cat">طب الأسنان</span>
-                            <h3><a href="#">نصائح للحفاظ على صحة أسنان أطفالك</a></h3>
-                            <p>عادات يومية بسيطة تساعد على حماية أسنان الأطفال من التسوس المبكر.</p>
-                            <div class="egd-article-foot">
-                                <span><i class="far fa-clock"></i> 2 سبتمبر 2026</span>
-                                <a href="#">اقرأ المزيد</a>
+                                <div class="egd-article-foot">
+                                    <span><i class="far fa-clock"></i> {{ $article->created_at?->format('d/m/Y') }}</span>
+                                    <a href="{{ $egdArticleUrl }}">اقرأ المزيد</a>
+                                </div>
                             </div>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <article class="egd-article-card wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="egd-article-cover"><i class="fas fa-female"></i></div>
-                        <div class="egd-article-body">
-                            <span class="egd-article-cat">نساء وتوليد</span>
-                            <h3><a href="#">كل ما تحتاجين معرفته عن متابعة الحمل الدورية</a></h3>
-                            <p>نظرة عامة على أهمية الفحوصات الدورية أثناء الحمل بالتنسيق مع طبيبك.</p>
-                            <div class="egd-article-foot">
-                                <span><i class="far fa-clock"></i> 28 أغسطس 2026</span>
-                                <a href="#">اقرأ المزيد</a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+                        </article>
+                    </div>
+                @empty
+                    <p class="text-center text-muted">لا توجد مقالات حاليًا.</p>
+                @endforelse
             </div>
 
             <div class="text-center mt-5">
-                <a href="#" class="egd-btn-outline">عرض جميع المقالات <i class="fas fa-arrow-left"></i></a>
+                <a href="/مقالات-طبية" class="egd-btn-outline">عرض جميع المقالات <i class="fas fa-arrow-left"></i></a>
             </div>
         </div>
     </section>
@@ -770,65 +602,33 @@
             <div class="egd-title">
                 <span class="egd-eyebrow">اسأل طبيب</span>
                 <h2>الاستشارات الطبية</h2>
-                <p>تصفح أسئلة طرحها مرضى آخرون وأجاب عليها أطباء متخصصون على إيج دكتور.</p>
+                <p>تصفح أسئلة طرحها مرضى آخرون وأجاب عليها أطباء متخصصون على إيجي دكتور.</p>
             </div>
 
             <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="egd-consult-card wow fadeInUp" data-wow-delay="0.05s">
-                        <div class="egd-consult-q">
-                            <i class="fas fa-comment-medical"></i>
-                            <h3>ما أسباب آلام المعدة المتكررة؟</h3>
-                        </div>
-                        <div class="egd-consult-meta">
-                            <span>باطنة</span>
-                            <span>3 إجابات</span>
-                        </div>
+                @forelse ($latestQuestions as $question)
+                    @php
+                        $egdQuestionUrl = $question->seo?->slug ? url($question->seo->slug) : '#';
+                    @endphp
+                    <div class="col-md-6 col-lg-3">
+                        <a href="{{ $egdQuestionUrl }}" class="egd-consult-card wow fadeInUp" data-wow-delay="0.05s">
+                            <div class="egd-consult-q">
+                                <i class="fas fa-comment-medical"></i>
+                                <h3>{{ $question->title }}</h3>
+                            </div>
+                            <div class="egd-consult-meta">
+                                <span>{{ $question->writer ?: 'زائر' }}</span>
+                                <span>{{ $question->answers_count }} إجابة</span>
+                            </div>
+                        </a>
                     </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="egd-consult-card wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="egd-consult-q">
-                            <i class="fas fa-comment-medical"></i>
-                            <h3>متى يحتاج الطفل إلى زيارة طبيب الأطفال؟</h3>
-                        </div>
-                        <div class="egd-consult-meta">
-                            <span>أطفال</span>
-                            <span>5 إجابات</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="egd-consult-card wow fadeInUp" data-wow-delay="0.15s">
-                        <div class="egd-consult-q">
-                            <i class="fas fa-comment-medical"></i>
-                            <h3>هل ألم أسفل الظهر يستدعي زيارة طبيب عظام؟</h3>
-                        </div>
-                        <div class="egd-consult-meta">
-                            <span>عظام</span>
-                            <span>2 إجابة</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="egd-consult-card wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="egd-consult-q">
-                            <i class="fas fa-comment-medical"></i>
-                            <h3>ما الفرق بين حساسية الجيوب الأنفية ونزلة البرد؟</h3>
-                        </div>
-                        <div class="egd-consult-meta">
-                            <span>أنف وأذن وحنجرة</span>
-                            <span>4 إجابات</span>
-                        </div>
-                    </div>
-                </div>
+                @empty
+                    <p class="text-center text-muted">لا توجد استشارات حاليًا.</p>
+                @endforelse
             </div>
 
             <div class="text-center mt-5">
-                <a href="#" class="egd-btn">شاهد جميع الاستشارات <i class="fas fa-arrow-left"></i></a>
+                <a href="/استشارات-و-اسئلة-طبية" class="egd-btn">شاهد جميع الاستشارات <i class="fas fa-arrow-left"></i></a>
             </div>
         </div>
     </section>
@@ -843,43 +643,26 @@
                 <p>مرجع مبسط يشرح الأمراض والأعراض والأدوية بلغة سهلة الفهم.</p>
             </div>
 
+            @php
+                // Cycled purely for visual variety — these tiles show
+                // real random information rows, not fixed categories.
+                $egdInfoIcons = ['fa-notes-medical', 'fa-thermometer-half', 'fa-pills', 'fa-vial', 'fa-x-ray', 'fa-book-medical'];
+            @endphp
+
             <div class="row g-3">
-                <div class="col-6 col-md-4">
-                    <a href="#" class="egd-info-card wow fadeInUp" data-wow-delay="0.05s">
-                        <i class="fas fa-notes-medical"></i>
-                        <h3>الأمراض</h3>
-                    </a>
-                </div>
-                <div class="col-6 col-md-4">
-                    <a href="#" class="egd-info-card wow fadeInUp" data-wow-delay="0.1s">
-                        <i class="fas fa-thermometer-half"></i>
-                        <h3>الأعراض</h3>
-                    </a>
-                </div>
-                <div class="col-6 col-md-4">
-                    <a href="#" class="egd-info-card wow fadeInUp" data-wow-delay="0.15s">
-                        <i class="fas fa-pills"></i>
-                        <h3>الأدوية</h3>
-                    </a>
-                </div>
-                <div class="col-6 col-md-4">
-                    <a href="#" class="egd-info-card wow fadeInUp" data-wow-delay="0.2s">
-                        <i class="fas fa-vial"></i>
-                        <h3>التحاليل الطبية</h3>
-                    </a>
-                </div>
-                <div class="col-6 col-md-4">
-                    <a href="#" class="egd-info-card wow fadeInUp" data-wow-delay="0.25s">
-                        <i class="fas fa-x-ray"></i>
-                        <h3>الفحوصات</h3>
-                    </a>
-                </div>
-                <div class="col-6 col-md-4">
-                    <a href="#" class="egd-info-card wow fadeInUp" data-wow-delay="0.3s">
-                        <i class="fas fa-book-medical"></i>
-                        <h3>المصطلحات الطبية</h3>
-                    </a>
-                </div>
+                @forelse ($randomInformations as $egdInfoIndex => $information)
+                    @php
+                        $egdInfoUrl = $information->seo?->slug ? url($information->seo->slug) : '#';
+                    @endphp
+                    <div class="col-6 col-md-4">
+                        <a href="{{ $egdInfoUrl }}" class="egd-info-card wow fadeInUp" data-wow-delay="0.05s">
+                            <i class="fas {{ $egdInfoIcons[$egdInfoIndex % count($egdInfoIcons)] }}"></i>
+                            <h3>{{ $information->title }}</h3>
+                        </a>
+                    </div>
+                @empty
+                    <p class="text-center text-muted">لا توجد معلومات طبية حاليًا.</p>
+                @endforelse
             </div>
         </div>
     </section>
@@ -903,7 +686,7 @@
             <div class="egd-doctor-cta wow fadeInUp">
                 <div>
                     <h2>هل أنت طبيب؟</h2>
-                    <p>أنشئ ملفك الطبي على إيج دكتور وسهّل على المرضى الوصول إلى بياناتك والتواصل مع عيادتك.</p>
+                    <p>أنشئ ملفك الطبي على إيجي دكتور وسهّل على المرضى الوصول إلى بياناتك والتواصل مع عيادتك.</p>
                     <div class="egd-doctor-cta-points">
                         <span><i class="fas fa-check-circle"></i> ملف طبي احترافي</span>
                         <span><i class="fas fa-check-circle"></i> ظهور ضمن نتائج البحث</span>
@@ -922,11 +705,11 @@
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
                     <a href="{{ url('/') }}" class="egd-logo">
-                        <img src="{{ asset('assets/front/img/Logo_dark.png') }}" alt="إيج دكتور - دليل الأطباء المصري"
+                        <img src="{{ asset('assets/front/img/Logo_dark.png') }}" alt="إيجي دكتور - دليل الأطباء المصري"
                             width="200" height="80">
                     </a>
                     <p>
-                        إيج دكتور هو دليل طبي إلكتروني يساعد المرضى في مصر على البحث عن الأطباء
+                        إيجي دكتور هو دليل طبي إلكتروني يساعد المرضى في مصر على البحث عن الأطباء
                         والعيادات حسب التخصص والمحافظة، والاطلاع على مقالات واستشارات طبية موثوقة.
                     </p>
                     <div class="egd-footer-social">
@@ -942,12 +725,12 @@
                     <ul class="egd-footer-links">
                         <li><a href="#">الرئيسية</a></li>
                         <li><a href="#egd-doctors">الأطباء</a></li>
-                        <li><a href="#egd-specialties">التخصصات</a></li>
-                        <li><a href="#egd-articles">المقالات الطبية</a></li>
-                        <li><a href="#egd-consultations">الاستشارات الطبية</a></li>
-                        <li><a href="#egd-info">معلومات طبية</a></li>
-                        <li><a href="#egd-doctor-cta">سجل كطبيب</a></li>
-                        <li><a href="#">اتصل بنا</a></li>
+                        <li><a href="/المجالات-و-التخصصات-الطبية">التخصصات</a></li>
+                        <li><a href="/مقالات-طبية">المقالات الطبية</a></li>
+                        <li><a href="/استشارات-و-اسئلة-طبية">الاستشارات الطبية</a></li>
+                        <li><a href="/معلومات-طبية-سريعة">معلومات طبية</a></li>
+                        <li><a href="/طلب-طبيب">سجل كطبيب</a></li>
+                        <li><a href="/اتصل-بنا">اتصل بنا</a></li>
                     </ul>
                 </div>
 
@@ -963,7 +746,7 @@
             </div>
 
             <div class="egd-copyright">
-                <p>© 2026 إيج دكتور. جميع الحقوق محفوظة.</p>
+                <p>© 2026 إيجي دكتور. جميع الحقوق محفوظة.</p>
             </div>
         </div>
     </footer>
@@ -993,6 +776,38 @@
     <script src="{{ asset('assets/front/js/form-validator.min.js') }}"></script>
     <!-- Main JS -->
     <script src="{{ asset('assets/front/js/main.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            const zonesUrlTemplate = @json(route('zones-by-city', ['city' => '__CITY_ID__']));
+
+            $('#egd-governorate').on('change', function() {
+                const cityId = $(this).val();
+                const $zoneSelect = $('#egd-area');
+
+                if (!cityId) {
+                    $zoneSelect.prop('disabled', false).html('<option value="">كل المناطق</option>');
+                    return;
+                }
+
+                $zoneSelect.prop('disabled', true).html('<option value="">جاري التحميل...</option>');
+
+                $.get(zonesUrlTemplate.replace('__CITY_ID__', cityId))
+                    .done(function(zones) {
+                        $zoneSelect.empty().append('<option value="">كل المناطق</option>');
+                        zones.forEach(function(zone) {
+                            $zoneSelect.append(new Option(zone.name, zone.id));
+                        });
+                    })
+                    .fail(function() {
+                        $zoneSelect.html('<option value="">تعذر تحميل المناطق</option>');
+                    })
+                    .always(function() {
+                        $zoneSelect.prop('disabled', false);
+                    });
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -17,4 +17,17 @@ class DoctorRepository extends BaseRepository
     {
         return Doctor::filter($request);
     }
+
+    /**
+     * A random sample of doctors, with the relations the "Featured
+     * Doctors" homepage section needs already eager loaded.
+     */
+    function random($count)
+    {
+        return Doctor::with(['degree', 'city', 'zone', 'departments', 'seo'])
+            ->where('more_info', '!=', "")
+            ->inRandomOrder()
+            ->limit($count)
+            ->get();
+    }
 }

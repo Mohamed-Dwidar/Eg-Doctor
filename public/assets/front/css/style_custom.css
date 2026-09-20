@@ -734,11 +734,20 @@ body.egd-home {
 
 /* ---------- Consultations ---------- */
 .egd-consult-card {
+    display: block;
     background: #fff;
     border: 1.5px solid var(--egd-border);
     border-radius: 12px;
     padding: 22px;
     height: 100%;
+    color: inherit;
+    transition: 0.3s;
+}
+
+.egd-consult-card:hover {
+    color: inherit;
+    border-color: var(--egd-primary);
+    box-shadow: 0 14px 30px rgba(21, 73, 156, 0.1);
 }
 
 .egd-consult-card .egd-consult-q {
@@ -823,6 +832,7 @@ body.egd-home {
     font-size: 28px;
     font-weight: 800;
     margin-bottom: 12px;
+    color: #fff;
 }
 
 .egd-doctor-cta p {

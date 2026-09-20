@@ -17,4 +17,17 @@ class QuestionRepository extends BaseRepository
     {
         return Question::filter($request);
     }
+
+    /**
+     * The most recently asked questions, for the homepage's
+     * "الاستشارات الطبية" section.
+     */
+    function latest($count)
+    {
+        return Question::with('seo')
+            ->withCount('answers')
+            ->orderByDesc('created_at')
+            ->limit($count)
+            ->get();
+    }
 }
