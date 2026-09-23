@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\PageModule\app\Http\Controllers\Admin\PageAdminController;
-use Modules\PageModule\Http\Controllers\PageModuleController;
+use Modules\PageModule\app\Http\Controllers\PageModuleController;
 
 Route::group(['prefix' => 'admin/pages', 'middleware' => ['auth:admin']], function () {
 

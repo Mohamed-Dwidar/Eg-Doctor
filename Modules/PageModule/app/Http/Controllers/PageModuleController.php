@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\PageModule\Http\Controllers;
+namespace Modules\PageModule\app\Http\Controllers;
 
 use App\Helpers\ApiResponseHelper;
 

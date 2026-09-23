@@ -17,8 +17,6 @@ class AdminService
     public function __construct(AdminRepository $adminRepository)
     {
         $this->adminRepository = $adminRepository;
-       
-        $this->permissionRepository = $permissionRepository;
     }
 
     // get all admins from database
