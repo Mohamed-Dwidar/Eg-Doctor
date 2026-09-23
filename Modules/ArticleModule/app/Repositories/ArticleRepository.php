@@ -44,4 +44,39 @@ class ArticleRepository extends BaseRepository
             ->limit($count)
             ->get();
     }
+
+    /**
+     * Every published article, newest first, for the public articles
+     * listing page.
+     */
+    function publishedPaginated($perPage)
+    {
+        return Article::with(['seo', 'doctor'])
+            ->where('status', 1)
+            ->latest()
+            ->paginate($perPage);
+    }
+
+    /**
+     * Single article with SEO + doctor eager loaded, for the public
+     * article detail page.
+     */
+    function findWithRelations($id)
+    {
+        return Article::with(['seo', 'doctor'])->find($id);
+    }
+
+    /**
+     * A random sample of published articles other than the given one,
+     * for the "related articles" areas of the article detail page.
+     */
+    function randomExcept($excludeId, $count)
+    {
+        return Article::with(['seo', 'doctor'])
+            ->where('status', 1)
+            ->where('id', '!=', $excludeId)
+            ->inRandomOrder()
+            ->limit($count)
+            ->get();
+    }
 }

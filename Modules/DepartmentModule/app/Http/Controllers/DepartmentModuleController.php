@@ -4,15 +4,34 @@ namespace Modules\DepartmentModule\app\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Modules\ArticleModule\app\Repositories\ArticleRepository;
+use Modules\DepartmentModule\app\Services\DepartmentService;
+use Modules\QuestionModule\app\Repositories\QuestionRepository;
 
 class DepartmentModuleController extends Controller
 {
+    protected $departmentService;
+    protected $articleRepository;
+    protected $questionRepository;
+
+    public function __construct(
+        DepartmentService $departmentService,
+        ArticleRepository $articleRepository,
+        QuestionRepository $questionRepository
+    ) {
+        $this->departmentService = $departmentService;
+        $this->articleRepository = $articleRepository;
+        $this->questionRepository = $questionRepository;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('departmentmodule::guest.index');
+        $departments = $this->departmentService->getAllDepartmentsSorted();
+
+        return view('departmentmodule::guest.index', compact('departments'));
     }
 
     /**
@@ -33,7 +52,21 @@ class DepartmentModuleController extends Controller
      */
     public function show($id)
     {
-        return view('departmentmodule::show');
+        $department = $this->departmentService->findOneWithSeo($id);
+
+        if (!$department) {
+            abort(404);
+        }
+
+        $doctors = $department->doctors()
+            ->with(['degree', 'city', 'zone', 'departments', 'seo'])
+            ->orderByDesc('doctors.id')
+            ->paginate(10);
+
+        $relatedArticles = $this->articleRepository->random(4);
+        $latestQuestions = $this->questionRepository->latest(4);
+
+        return view('departmentmodule::guest.show', compact('department', 'doctors', 'relatedArticles', 'latestQuestions'));
     }
 
     /**

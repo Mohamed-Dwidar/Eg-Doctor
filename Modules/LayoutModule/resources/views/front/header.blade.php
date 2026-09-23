@@ -28,7 +28,7 @@
                         <li class="nav-item @if (request()->is('/')) active @endif">
                             <a href="{{ route('home_page') }}" class="nav-link">الرئيسية</a>
                         </li>
-                        <li class="nav-item"><a href="/الأطباء" class="nav-link">الأطباء</a></li>
+                        {{-- <li class="nav-item"><a href="/الأطباء" class="nav-link">الأطباء</a></li> --}}
                         <li class="nav-item"><a href="/المجالات-و-التخصصات-الطبية" class="nav-link">التخصصات</a></li>
                         <li class="nav-item"><a href="/مقالات-طبية" class="nav-link">المقالات الطبية</a></li>
                         <li class="nav-item"><a href="/استشارات-و-اسئلة-طبية" class="nav-link">الاستشارات الطبية</a></li>

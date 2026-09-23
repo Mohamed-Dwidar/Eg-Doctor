@@ -55,13 +55,16 @@
 
  {{--
      Several thousand `seos` rows backfilled from the legacy site ended
-     up with plain keyword text in header_script instead of real markup
-     (a migration bug, not real header scripts) — rendering that raw
-     leaks visible text into <head>, which browsers then hoist into the
-     top of <body>. Only trust it as markup if it actually looks like
-     markup; the underlying bad data still needs a DB cleanup pass.
+     up with header_script holding either plain keyword text or a raw
+     copy of the record's own content (complete with <br /> tags) —
+     a migration bug, not real header scripts. Rendering either raw
+     leaks visible text into <head>, which browsers then hoist into
+     the top of <body>. A genuine header script is always a <script>
+     tag, so require that specifically rather than just "contains a
+     '<'" (too loose — content copies have <br /> too). The underlying
+     bad data still needs a DB cleanup pass.
  --}}
- @if ($__seo && $__seo->header_script && str_contains($__seo->header_script, '<'))
+ @if ($__seo && $__seo->header_script && stripos($__seo->header_script, '<script') !== false)
      {!! $__seo->header_script !!}
  @endif
 

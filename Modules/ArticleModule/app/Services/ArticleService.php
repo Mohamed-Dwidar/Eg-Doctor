@@ -29,6 +29,22 @@ class ArticleService {
     public function getAllArticles() {
         return $this->articleRepository->all();
     }
+
+    public function getPublishedPaginated($perPage) {
+        return $this->articleRepository->publishedPaginated($perPage);
+    }
+
+    public function getRandomPublished($count) {
+        return $this->articleRepository->random($count);
+    }
+
+    public function findOneWithRelations($id) {
+        return $this->articleRepository->findWithRelations($id);
+    }
+
+    public function getRandomExcept($excludeId, $count) {
+        return $this->articleRepository->randomExcept($excludeId, $count);
+    }
     public function findWhere($arr) {
         return $this->articleRepository->findWhere($arr);
     }

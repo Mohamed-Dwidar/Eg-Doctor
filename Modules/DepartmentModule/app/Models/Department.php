@@ -3,6 +3,7 @@
 namespace Modules\DepartmentModule\app\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Modules\DoctorModule\app\Models\Doctor;
 use Modules\SeoModule\App\Models\Seo;
 
 class Department extends Model
@@ -12,6 +13,11 @@ class Department extends Model
     public function seo()
     {
         return $this->morphOne(Seo::class, 'seo_capable');
+    }
+
+    public function doctors()
+    {
+        return $this->belongsToMany(Doctor::class, 'doctor_departments', 'department_id', 'doctor_id');
     }
 
     public function scopeFilter($query, $request)

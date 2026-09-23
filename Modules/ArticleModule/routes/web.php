@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\ArticleModule\app\Http\Controllers\Admin\ArticleAdminController;
+use Modules\ArticleModule\app\Http\Controllers\ArticleModuleController;
+
+Route::get('/articles', [ArticleModuleController::class, 'index'])->name('articles');
 
 Route::group(['prefix' => 'admin/articles', 'middleware' => ['auth:admin']], function () {
     Route::get('/', [ArticleAdminController::class, 'index'])->name('admin.articles');

@@ -18,6 +18,14 @@ class DepartmentService {
     public function getAllDepartments() {
         return $this->departmentRepository->all();
     }
+
+    public function getAllDepartmentsSorted() {
+        return $this->departmentRepository->allSorted();
+    }
+
+    public function findOneWithSeo($id) {
+        return $this->departmentRepository->findWithSeo($id);
+    }
     public function findWhere($arr) {
         return $this->departmentRepository->findWhere($arr);
     }

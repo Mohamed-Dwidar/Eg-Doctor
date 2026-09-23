@@ -4,15 +4,30 @@ namespace Modules\ArticleModule\app\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Modules\ArticleModule\app\Services\ArticleService;
+use Modules\QuestionModule\app\Repositories\QuestionRepository;
 
 class ArticleModuleController extends Controller
 {
+    protected $articleService;
+    protected $questionRepository;
+
+    public function __construct(ArticleService $articleService, QuestionRepository $questionRepository)
+    {
+        $this->articleService = $articleService;
+        $this->questionRepository = $questionRepository;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('articlemodule::index');
+        $articles = $this->articleService->getPublishedPaginated(10);
+        $readAlso = $this->articleService->getRandomPublished(4);
+        $latestQuestions = $this->questionRepository->latest(4);
+
+        return view('articlemodule::guest.index', compact('articles', 'readAlso', 'latestQuestions'));
     }
 
     /**
@@ -33,7 +48,21 @@ class ArticleModuleController extends Controller
      */
     public function show($id)
     {
-        return view('articlemodule::show');
+        $article = $this->articleService->findOneWithRelations($id);
+
+        if (!$article) {
+            abort(404);
+        }
+
+        // One random pool, split so "مقالات أخرى" and "اقرأ أيضا" never
+        // show the same articles as each other or as the current one.
+        $otherPool = $this->articleService->getRandomExcept($article->id, 7);
+        $otherArticles = $otherPool->take(3);
+        $readAlso = $otherPool->slice(3, 4)->values();
+
+        $latestQuestions = $this->questionRepository->latest(4);
+
+        return view('articlemodule::guest.show', compact('article', 'otherArticles', 'readAlso', 'latestQuestions'));
     }
 
     /**

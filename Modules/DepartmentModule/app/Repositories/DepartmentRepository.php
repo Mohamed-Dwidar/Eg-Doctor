@@ -17,4 +17,22 @@ class DepartmentRepository extends BaseRepository
     {
         return Department::filter($request);
     }
+
+    /**
+     * Every department, alphabetically, with SEO eager loaded — for
+     * the public "all specialties" listing page.
+     */
+    function allSorted()
+    {
+        return Department::with('seo')->orderBy('name')->get();
+    }
+
+    /**
+     * Single department with SEO eager loaded, for the public
+     * department page (doctor listing per specialty).
+     */
+    function findWithSeo($id)
+    {
+        return Department::with('seo')->find($id);
+    }
 }
