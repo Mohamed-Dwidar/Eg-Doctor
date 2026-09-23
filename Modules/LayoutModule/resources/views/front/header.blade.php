@@ -1,98 +1,46 @@
-    <!-- Start Navbar Area -->
-    <div class="navbar-area">
-        <div class="zash-responsive-nav">
-            <div class="container">
-                <div class="zash-responsive-menu">
-                    <div class="logo">
-                        <a href="#">
-                            <img src="{{ asset('assets/front/img/logo_main.png') }}" alt="Pivot Coworking Space Logo">
-                        </a>
-                    </div>
-                </div>
+    <!-- Start Top Bar -->
+    <div class="egd-topbar d-none d-md-block">
+        <div class="container">
+            <div class="egd-topbar-info">
+                <span><i class="fas fa-map-marker-alt"></i> الدليل الطبي للأطباء في جميع محافظات مصر</span>
             </div>
-        </div>
-
-        <div class="zash-nav">
-            <div class="container">
-                <nav class="navbar navbar-expand-md navbar-light">
-                    <a class="navbar-brand" href="{{ route('home_page') }}">
-                        <img src="{{ asset('assets/front/img/logo_main.png') }}" alt="Pivot Coworking Space Logo">
-                    </a>
-
-                    <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent">
-                        <ul class="navbar-nav">
-
-                            <li class="nav-item"><a href="{{ route('home_page') }}#about" class="nav-link">About Us</a></li>
-                            <li class="nav-item"><a href="{{ route('home_page') }}#services" class="nav-link">Services</a></li>
-                            <li class="nav-item"><a href="{{ route('home_page') }}#why-us" class="nav-link">Why Us</a></li>
-                            <li class="nav-item"><a href="{{ route('home_page') }}#packages" class="nav-link">Packages</a></li>
-                            <li class="nav-item"><a href="{{ route('guest.blogs') }}" class="nav-link">Blog</a></li>
-                            <li class="nav-item"><a href="{{ route('home_page') }}#footer-area" class="nav-link">Contact</a></li>
-
-                            {{-- <li class="nav-item"><a href="#" class="nav-link active">Home <i
-                                        class="flaticon-down-arrow"></i></a>
-                            </li>
-
-                            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-
-                            <li class="nav-item"><a href="#" class="nav-link">The Place</a></li>
-
-                            <li class="nav-item"><a href="#" class="nav-link">Event <i
-                                        class="flaticon-down-arrow"></i></a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a href="#" class="nav-link">Event</a></li>
-
-                                    <li class="nav-item"><a href="single-#" class="nav-link">Event Details</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="nav-item"><a href="#" class="nav-link">Pages <i
-                                        class="flaticon-down-arrow"></i></a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a href="#" class="nav-link">Gallery</a></li>
-
-                                    <li class="nav-item"><a href="#" class="nav-link">Services</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="nav-item"><a href="#" class="nav-link">Services</a></li>
-
-                                            <li class="nav-item"><a href="#" class="nav-link">Services Details</a></li>
-                                        </ul>
-                                    </li>
-
-                                    <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
-
-                                    <li class="nav-item"><a href="#" class="nav-link">Team</a></li>
-
-                                    <li class="nav-item"><a href="#" class="nav-link">404 Error</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="nav-item"><a href="#" class="nav-link">News <i
-                                        class="flaticon-down-arrow"></i></a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a href="#" class="nav-link">News Grid</a></li>
-
-                                    <li class="nav-item"><a href="#" class="nav-link">News Right Sidebar</a></li>
-
-                                    <li class="nav-item"><a href="#" class="nav-link">News Details</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="nav-item"><a href="#" class="nav-link">Contact</a></li> --}}
-                        </ul>
-
-                        <div class="others-option">
-                            <div class="call-us">
-                                <div class="icon">
-                                    <i class="flaticon-call"></i>
-                                </div>
-                                Call Us:
-                                <a href="tel:01226420549">01226420549</a>
-                            </div>
-                        </div>
-                    </div>
-                </nav>
+            <div class="egd-topbar-social">
+                <a href="http://www.facebook.com/EgyptianDoctorsGuide" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="انستقرام"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </div>
-    <!-- End Navbar Area -->
+    <!-- End Top Bar -->
+
+    <!-- Start Header -->
+    <header class="egd-header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand egd-logo" href="{{ route('home_page') }}">
+                    <img src="{{ asset('assets/front/img/logo_main.png') }}" alt="إيجي دكتور - دليل الأطباء المصري"
+                        width="200" height="80">
+                </a>
+
+                <div class="collapse navbar-collapse mean-menu" id="egdNavbarContent">
+                    <ul class="navbar-nav mx-lg-auto">
+                        <li class="nav-item @if (request()->is('/')) active @endif">
+                            <a href="{{ route('home_page') }}" class="nav-link">الرئيسية</a>
+                        </li>
+                        <li class="nav-item"><a href="/الأطباء" class="nav-link">الأطباء</a></li>
+                        <li class="nav-item"><a href="/المجالات-و-التخصصات-الطبية" class="nav-link">التخصصات</a></li>
+                        <li class="nav-item"><a href="/مقالات-طبية" class="nav-link">المقالات الطبية</a></li>
+                        <li class="nav-item"><a href="/استشارات-و-اسئلة-طبية" class="nav-link">الاستشارات الطبية</a></li>
+                        <li class="nav-item"><a href="/معلومات-طبية-سريعة" class="nav-link">معلومات طبية</a></li>
+                    </ul>
+
+                    <div class="egd-header-actions">
+                        <a href="#" class="egd-btn-outline"><i class="fas fa-user"></i> تسجيل الدخول</a>
+                        <a href="{{ route('home_page') }}#egd-doctor-cta" class="egd-btn"><i class="fas fa-user-md"></i> سجل كطبيب</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- End Header -->

@@ -4,9 +4,26 @@ namespace Modules\DoctorModule\app\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Modules\ArticleModule\app\Repositories\ArticleRepository;
+use Modules\DoctorModule\app\Services\DoctorService;
+use Modules\QuestionModule\app\Repositories\QuestionRepository;
 
 class DoctorModuleController extends Controller
 {
+    protected $doctorService;
+    protected $articleRepository;
+    protected $questionRepository;
+
+    public function __construct(
+        DoctorService $doctorService,
+        ArticleRepository $articleRepository,
+        QuestionRepository $questionRepository
+    ) {
+        $this->doctorService = $doctorService;
+        $this->articleRepository = $articleRepository;
+        $this->questionRepository = $questionRepository;
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -33,7 +50,20 @@ class DoctorModuleController extends Controller
      */
     public function show($id)
     {
-        return view('doctormodule::show');
+        $doctor = $this->doctorService->findOneWithRelations($id);
+
+        if (!$doctor) {
+            abort(404);
+        }
+
+        $relatedArticles = $this->articleRepository->forDoctor($doctor->id, 4);
+        if ($relatedArticles->isEmpty()) {
+            $relatedArticles = $this->articleRepository->random(4);
+        }
+
+        $latestQuestions = $this->questionRepository->latest(4);
+
+        return view('doctormodule::show', compact('doctor', 'relatedArticles', 'latestQuestions'));
     }
 
     /**

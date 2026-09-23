@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 
 <head>
     @include('layoutmodule::front.metas')
@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="{{ asset('assets/front/css/style_custom.css') }}">
 </head>
 
-<body>
+<body class="egd-home">
 
     <!-- Start Preloader Area -->
     <div class="preloader">
@@ -43,43 +43,86 @@
                 <div class="plane"></div>
             </div>
 
-            <p><i>LOADING...</i></p>
+            <p><i>جاري التحميل...</i></p>
         </div>
     </div>
     <!-- End Preloader Area -->
 
+    <!-- Start Vertical Ad Rails (visible on wide desktop screens only) -->
+    {{-- Google AdSense placement — swap each placeholder for your real <ins class="adsbygoogle"> unit --}}
+    <div class="egd-ad-rail egd-ad-rail-start">
+        <span class="egd-ad-tag">إعلان</span>
+        <p>مساحة إعلانية عمودية<br>(160×600)</p>
+    </div>
+    <div class="egd-ad-rail egd-ad-rail-end">
+        <span class="egd-ad-tag">إعلان</span>
+        <p>مساحة إعلانية عمودية<br>(160×600)</p>
+    </div>
+    <!-- End Vertical Ad Rails -->
+
     @include('layoutmodule::front.header')
 
+    <!-- Start Page Hero -->
+    <section class="egd-page-hero">
+        <div class="container">
+            <div class="egd-page-hero-content">
+                <h1>{{ $page_title ?? '' }}</h1>
+                @if ($breadcrumb ?? false)
+                    <ul class="egd-breadcrumb">
+                        @foreach ($breadcrumb as $item)
+                            <li><a href="{{ $item['url'] }}">{{ $item['title'] }}</a></li>
+                        @endforeach
+                    </ul>
+                @endif
+            </div>
+        </div>
+    </section>
+    <!-- End Page Hero -->
 
-    <!-- Start Page Title Area -->
-    <div class="page-title-area item-bg3">
-        <div class="d-table">
-            <div class="d-table-cell">
-                <div class="container">
-                    <div class="page-title-content">
-                        <h1>{{ $page_title ?? '' }}</h1>
-                        @if ($breadcrumb ?? false)
-                            <ul>
-                                @foreach ($breadcrumb as $item)
-                                    <li><a href="{{ $item['url'] }}">{{ $item['title'] }}</a></li>
-                                @endforeach
-                            </ul>
-                        @endif
-                    </div>
-                </div>
+    <!-- Start Ad Slot -->
+    <div class="egd-ad-section">
+        <div class="container">
+            {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
+            <div class="egd-ad-slot">
+                <span class="egd-ad-tag">إعلان</span>
+                <p>مساحة إعلانية (728×90 على الشاشات الكبيرة / 320×50 على الجوال)</p>
             </div>
         </div>
     </div>
-    <!-- End Page Title Area -->
-
-
+    <!-- End Ad Slot -->
 
     @yield('content')
 
+    <!-- Start Ad Slot -->
+    <div class="egd-ad-section">
+        <div class="container">
+            {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
+            <div class="egd-ad-slot">
+                <span class="egd-ad-tag">إعلان</span>
+                <p>مساحة إعلانية (728×90 على الشاشات الكبيرة / 320×50 على الجوال)</p>
+            </div>
+        </div>
+    </div>
+    <!-- End Ad Slot -->
 
+    <!-- Start Departments Search -->
+    @if (($departments ?? collect())->isNotEmpty())
+        <section class="egd-section egd-section-soft egd-dept-search-section">
+            <div class="container">
+                <div class="egd-title">
+                    <h2>ابحث فى الاقسام الطبية عن</h2>
+                </div>
+                <div class="egd-dept-search">
+                    @foreach ($departments as $department)
+                        <a href="{{ $department->seo?->slug ? url($department->seo->slug) : '#' }}">{{ $department->name }}</a>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+    <!-- End Departments Search -->
 
     @include('layoutmodule::front.footer')
-
 
     <div class="go-top"><i class="fas fa-chevron-up"></i><i class="fas fa-chevron-up"></i></div>
 

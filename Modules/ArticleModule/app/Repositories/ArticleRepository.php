@@ -30,4 +30,18 @@ class ArticleRepository extends BaseRepository
             ->limit($count)
             ->get();
     }
+
+    /**
+     * Published articles written by a specific doctor, for that
+     * doctor's public profile page ("مقالات قد تهمك").
+     */
+    function forDoctor($doctorId, $count)
+    {
+        return Article::with(['seo', 'doctor'])
+            ->where('status', 1)
+            ->where('doctor_id', $doctorId)
+            ->latest()
+            ->limit($count)
+            ->get();
+    }
 }

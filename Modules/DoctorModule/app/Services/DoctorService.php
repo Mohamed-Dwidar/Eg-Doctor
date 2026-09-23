@@ -43,6 +43,10 @@ class DoctorService {
         return $this->doctorRepository->findWhere(['id' => $id])->first();
     }
 
+    public function findOneWithRelations($id) {
+        return $this->doctorRepository->findWithRelations($id);
+    }
+
     public function getDoctorById($id) {
         return $this->doctorRepository->find($id);
     }

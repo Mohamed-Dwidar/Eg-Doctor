@@ -53,7 +53,15 @@
 
  <link rel="icon" type="image/png" href="{{ asset('assets/front/img/favicon.png') }}">
 
- @if ($__seo && $__seo->header_script)
+ {{--
+     Several thousand `seos` rows backfilled from the legacy site ended
+     up with plain keyword text in header_script instead of real markup
+     (a migration bug, not real header scripts) — rendering that raw
+     leaks visible text into <head>, which browsers then hoist into the
+     top of <body>. Only trust it as markup if it actually looks like
+     markup; the underlying bad data still needs a DB cleanup pass.
+ --}}
+ @if ($__seo && $__seo->header_script && str_contains($__seo->header_script, '<'))
      {!! $__seo->header_script !!}
  @endif
 

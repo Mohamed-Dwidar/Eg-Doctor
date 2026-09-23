@@ -3,7 +3,9 @@
 namespace Modules\LayoutModule\Providers;
 
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Modules\DepartmentModule\app\Repositories\DepartmentRepository;
 use Nwidart\Modules\Traits\PathNamespace;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
@@ -26,6 +28,7 @@ class LayoutModuleServiceProvider extends ServiceProvider
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
+        $this->registerViewComposers();
         $this->loadMigrationsFrom(module_path($this->name, 'database/migrations'));
     }
 
@@ -115,6 +118,20 @@ class LayoutModuleServiceProvider extends ServiceProvider
         $module_config = require $path;
 
         config([$key => array_replace_recursive($existing, $module_config)]);
+    }
+
+    /**
+     * Share data every inner page needs with the shared front layout,
+     * so individual controllers don't each have to pass it in.
+     */
+    protected function registerViewComposers(): void
+    {
+        View::composer('layoutmodule::front.main', function ($view) {
+            $view->with(
+                'departments',
+                app(DepartmentRepository::class)->all()->sortBy('name')->values()
+            );
+        });
     }
 
     /**

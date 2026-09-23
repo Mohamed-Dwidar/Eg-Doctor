@@ -30,4 +30,13 @@ class DoctorRepository extends BaseRepository
             ->limit($count)
             ->get();
     }
+
+    /**
+     * Single doctor with the relations the public profile page needs
+     * already eager loaded.
+     */
+    function findWithRelations($id)
+    {
+        return Doctor::with(['degree', 'city', 'zone', 'departments.seo', 'seo'])->find($id);
+    }
 }
