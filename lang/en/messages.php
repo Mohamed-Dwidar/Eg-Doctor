@@ -1131,4 +1131,13 @@ return [
   "update_manual_seo" => "Edit manual SEO entry",
   "target_path" => "Target path",
 
+  // Videos
+  "videos" => "Videos",
+  "add_new_video" => "Add new video",
+  "update_video" => "Edit video",
+  "seo_applied_to_videos" => "SEO data has been applied to :count video(s).",
+  "youtube_code" => "YouTube code",
+  "video_code" => "Video embed code",
+  "img_url" => "Image URL",
+
 ];

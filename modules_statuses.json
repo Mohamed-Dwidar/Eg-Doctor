@@ -10,5 +10,6 @@
     "DoctorModule" : true,
     "QuestionModule" : true,
     "ArticleModule" : true,
-    "InformationModule" : true
+    "InformationModule" : true,
+    "VideoModule" : true
 }

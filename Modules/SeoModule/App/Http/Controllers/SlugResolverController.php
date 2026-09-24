@@ -11,6 +11,7 @@ use Modules\DoctorModule\app\Http\Controllers\DoctorModuleController;
 use Modules\InformationModule\app\Http\Controllers\InformationModuleController;
 use Modules\QuestionModule\app\Http\Controllers\QuestionModuleController;
 use Modules\SeoModule\App\Models\Seo;
+use Modules\VideoModule\app\Http\Controllers\VideoModuleController;
 
 class SlugResolverController extends Controller
 {
@@ -27,6 +28,7 @@ class SlugResolverController extends Controller
         'Article' => [ArticleModuleController::class, 'show'],
         'Information' => [InformationModuleController::class, 'show'],
         'Blog' => [BlogModuleController::class, 'singleBlog'],
+        'Video' => [VideoModuleController::class, 'show'],
     ];
 
     /**

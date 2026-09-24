@@ -138,6 +138,7 @@ return [
   "sub_categories" => 'الفئات الفرعية',
   "main_category" => 'الفئة الرئيسية',
   "sub_category" => 'الفئة الفرعية',
+  "description" => 'الوصف',
   "please_enter_category_name_ar" => 'الرجاء ادخال اسم الفئة باللغة العربية',
   "please_enter_category_name_en" => 'الرجاء ادخال اسم الفئة باللغة الانجليزية',
   "save" => 'حفظ التغييرات',
@@ -990,5 +991,14 @@ return [
   "add_new_manual_seo" => "إضافة سيو يدوي جديد",
   "update_manual_seo" => "تعديل السيو اليدوي",
   "target_path" => "المسار المستهدف",
+
+  // Videos
+  "videos" => "الفيديوهات",
+  "add_new_video" => "إضافة فيديو جديد",
+  "update_video" => "تعديل الفيديو",
+  "seo_applied_to_videos" => "تم تطبيق بيانات السيو على :count فيديو.",
+  "youtube_code" => "كود يوتيوب",
+  "video_code" => "كود تضمين الفيديو",
+  "img_url" => "رابط الصورة",
 
 ];
