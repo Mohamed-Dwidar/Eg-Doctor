@@ -16,4 +16,15 @@ class QuestionAnswerRepository extends BaseRepository
     {
         return QuestionAnswer::filter($request);
     }
+
+    /**
+     * A question's answers, newest first, for the public question
+     * detail page.
+     */
+    function paginatedForQuestion($questionId, $perPage)
+    {
+        return QuestionAnswer::where('question_id', $questionId)
+            ->orderByDesc('created')
+            ->paginate($perPage);
+    }
 }

@@ -1522,8 +1522,8 @@ body.egd-home {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px;
-    margin-top: 32px;
+    gap: 2px;
+    margin-top: 32px !important;
 }
 
 .egd-pagination li a,
@@ -1705,4 +1705,181 @@ body.egd-home {
 
 .egd-article-detail-body p {
     margin: 0 0 16px;
+}
+
+/* ---------- Video grid (sidebar widget) ---------- */
+.egd-video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+}
+
+.egd-video-item h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--egd-dark);
+    margin: 8px 0 0;
+    line-height: 1.5;
+}
+
+.egd-video-thumb {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    background: var(--egd-bg-soft);
+    border: 1.5px dashed var(--egd-border);
+    overflow: hidden;
+}
+
+.egd-video-thumb i {
+    font-size: 26px;
+    color: var(--egd-primary);
+}
+
+/* ---------- Question detail page ---------- */
+.egd-question-detail-card h1 {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--egd-dark);
+    margin: 0 0 16px;
+    line-height: 1.5;
+}
+
+.egd-question-detail-body {
+    font-size: 15.5px;
+    line-height: 2;
+    color: var(--egd-dark);
+    margin: 0 0 24px;
+}
+
+.egd-answer-card {
+    background: #fff;
+    border: 1.5px solid var(--egd-border);
+    border-radius: var(--egd-radius);
+    padding: 18px 20px;
+}
+
+.egd-answer-card + .egd-answer-card {
+    margin-top: 14px;
+}
+
+.egd-answer-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--egd-primary);
+}
+
+.egd-answer-card p {
+    margin: 0;
+    font-size: 14.5px;
+    line-height: 1.9;
+    color: var(--egd-dark);
+}
+
+.answers-list .egd-title{
+    margin-bottom: 20px;
+}
+.answers-list h2#egd-answers-count {
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+/* ---------- Simple front-end form (answer form, etc.) ---------- */
+.egd-form-group {
+    margin-bottom: 18px;
+}
+
+.egd-form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--egd-text-muted);
+    margin-bottom: 8px;
+}
+
+.egd-form-group input,
+.egd-form-group textarea {
+    width: 100%;
+    border: 1.5px solid var(--egd-border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 14px;
+    color: var(--egd-dark);
+    font-family: inherit;
+}
+
+.egd-form-group input:focus,
+.egd-form-group textarea:focus {
+    outline: none;
+    border-color: var(--egd-primary);
+}
+
+.egd-form-error {
+    display: block;
+    color: #c0392b;
+    font-size: 12.5px;
+    margin-top: 6px;
+}
+
+.egd-char-count {
+    display: block;
+    text-align: end;
+    color: var(--egd-text-muted);
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+.egd-char-count-limit {
+    color: #c0392b;
+    font-weight: 700;
+}
+
+.egd-form-group input.egd-input-invalid,
+.egd-form-group textarea.egd-input-invalid {
+    border-color: #c0392b;
+}
+
+.egd-form-loading {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--egd-text-muted);
+    font-size: 15px;
+}
+
+.egd-form-loading i {
+    color: var(--egd-primary);
+    margin-inline-end: 8px;
+}
+
+.egd-alert-success,
+.egd-alert-danger {
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.egd-alert-success {
+    background: #e8f8f2;
+    border: 1.5px solid var(--egd-accent);
+    color: #0d6b4f;
+}
+
+.egd-alert-danger {
+    background: #fdeeee;
+    border: 1.5px solid #e35d5d;
+    color: #a12d2d;
+}
+
+.egd-alert-danger ul {
+    margin: 6px 0 0;
+    padding-inline-start: 18px;
+    list-style: disc;
 }

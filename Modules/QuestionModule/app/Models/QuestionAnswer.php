@@ -5,7 +5,20 @@ namespace Modules\QuestionModule\app\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class QuestionAnswer extends Model {
+    // The live question_answers table has legacy created/modified
+    // columns (from the old CakePHP site's schema), not Laravel's
+    // usual created_at/updated_at — point Eloquent's automatic
+    // timestamp handling at the real column names instead of
+    // disabling it.
+    const CREATED_AT = 'created';
+    const UPDATED_AT = 'modified';
+
     protected $guarded = [];
+
+    protected $casts = [
+        'created' => 'datetime',
+        'modified' => 'datetime',
+    ];
 
     public function question() {
         return $this->belongsTo(Question::class);

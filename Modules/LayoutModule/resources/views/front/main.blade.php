@@ -152,6 +152,8 @@
     <script src="{{ asset('assets/front/js/contact-form-script.js') }}"></script>
     <!-- Main JS -->
     <script src="{{ asset('assets/front/js/main.js') }}"></script>
+
+    @stack('scripts')
 </body>
 
 </html>

@@ -18,6 +18,22 @@ class QuestionService {
     public function getAllQuestions() {
         return $this->questionRepository->all();
     }
+
+    public function getPaginatedLatest($perPage) {
+        return $this->questionRepository->paginatedLatest($perPage);
+    }
+
+    public function getLatest($count) {
+        return $this->questionRepository->latest($count);
+    }
+
+    public function findOneWithSeo($id) {
+        return $this->questionRepository->findWithSeo($id);
+    }
+
+    public function getRandomExcept($excludeIds, $count) {
+        return $this->questionRepository->randomExcept($excludeIds, $count);
+    }
     public function findWhere($arr) {
         return $this->questionRepository->findWhere($arr);
     }

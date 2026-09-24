@@ -106,6 +106,15 @@
                     </a>
                 </li>
 
+                 <li class="pc-item">
+                    <a href="{{ route('admin.videos') }}" class="pc-link">
+                        <span class="pc-micon">
+                            <i class="fas fa-video"></i>
+                        </span>
+                        <span class="pc-mtext" data-i18n="Videos">Videos</span>
+                    </a>
+                </li>
+
                 <li class="pc-item">
                     <a href="{{ route('admin.seo.manual') }}" class="pc-link">
                         <span class="pc-micon">
