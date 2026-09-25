@@ -36,8 +36,8 @@
                     </ul>
 
                     <div class="egd-header-actions">
-                        <a href="#" class="egd-btn-outline"><i class="fas fa-user"></i> تسجيل الدخول</a>
-                        <a href="{{ route('home_page') }}#egd-doctor-cta" class="egd-btn"><i class="fas fa-user-md"></i> سجل كطبيب</a>
+                        {{-- <a href="#" class="egd-btn-outline"><i class="fas fa-user"></i> تسجيل الدخول</a>
+                        <a href="{{ route('home_page') }}#egd-doctor-cta" class="egd-btn"><i class="fas fa-user-md"></i> سجل كطبيب</a> --}}
                     </div>
                 </div>
             </nav>

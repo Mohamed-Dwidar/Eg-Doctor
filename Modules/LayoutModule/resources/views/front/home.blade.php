@@ -693,44 +693,6 @@
     </div>
     <!-- End Ad Slot -->
 
-    <!-- Start Doctor Registration CTA -->
-    <section class="egd-section egd-section-soft" id="egd-doctor-cta">
-        <div class="container">
-            <div class="egd-doctor-cta wow fadeInUp">
-                <div>
-                    <h2>هل أنت طبيب؟</h2>
-                    <p>أنشئ ملفك الطبي على إيجي دكتور وسهّل على المرضى الوصول إلى بياناتك والتواصل مع عيادتك.</p>
-                    <div class="egd-doctor-cta-points">
-                        <span><i class="fas fa-check-circle"></i> ملف طبي احترافي</span>
-                        <span><i class="fas fa-check-circle"></i> ظهور ضمن نتائج البحث</span>
-                        <span><i class="fas fa-check-circle"></i> تواصل مباشر مع المرضى</span>
-                    </div>
-                </div>
-                <a href="#" class="egd-btn-light"><i class="fas fa-user-md"></i> سجل كطبيب</a>
-            </div>
-        </div>
-    </section>
-    <!-- End Doctor Registration CTA -->
-
-    <!-- Start Ad Slot -->
-    <div class="egd-ad-section">
-        <div class="container">
-            {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
-            <div class="egd-ad-slot">
-                {{-- <span class="egd-ad-tag">إعلان</span> --}}
-                <p>
-                    <!-- Eg-Doctor - Home - Bottom - Multiplex -->
-                    <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed"
-                        data-ad-client="ca-pub-0462453958685277" data-ad-slot="6920793185"></ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
-                </p>
-            </div>
-        </div>
-    </div>
-    <!-- End Ad Slot -->
-
     @include('layoutmodule::front.footer')
 
     <div class="go-top"><i class="fas fa-chevron-up"></i><i class="fas fa-chevron-up"></i></div>
