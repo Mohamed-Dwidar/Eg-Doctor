@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.pivotcoworkingspace.com/sitemap.xml
+Sitemap: https://www.egdoctor.com/sitemap.xml
 
 Disallow: /%D8%A7%D9%84%D8%B9%D8%B8%D8%A7%D9%85-%D9%88%D8%A7%D9%84%D9%85%D9%81%D8%A7%D8%B5%D9%84
 Disallow: /%D8%A7%D9%84%D8%B1%D9%88%D9%85%D8%A7%D8%AA%D9%8A%D8%B2%D9%85-%D9%88%D8%A7%D9%84%D8%B9%D9%84%D8%A7%D8%AC-%D8%A7%D9%84%D8%B7%D8%A8%D9%8A%D8%B9%D9%8A
