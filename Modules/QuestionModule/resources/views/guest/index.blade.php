@@ -8,20 +8,9 @@
 
     $page_meta['title'] = 'الاستشارات و الأسئلة الطبية';
     $page_meta['description'] = 'تصفح أسئلة طرحها مرضى آخرون وأجاب عليها أطباء متخصصون على إيجي دكتور.';
-
-    // Placeholder video grid — there's no VideoModule/data source yet.
-    // Swap each entry for a real YouTube video (id + title) once
-    // available; url stays "#" until then.
-    $egdPlaceholderVideos = [
-        ['title' => 'فيديو تجريبي 1', 'url' => '#'],
-        ['title' => 'فيديو تجريبي 2', 'url' => '#'],
-        ['title' => 'فيديو تجريبي 3', 'url' => '#'],
-        ['title' => 'فيديو تجريبي 4', 'url' => '#'],
-    ];
 @endphp
 
 @section('content')
-
     <section class="egd-section">
         <div class="container">
             <div class="row g-4">
@@ -35,7 +24,10 @@
                         @forelse ($questions as $question)
                             @php
                                 $egdQuestionUrl = $question->seo?->slug ? url($question->seo->slug) : '#';
-                                $egdQuestionExcerpt = \Illuminate\Support\Str::limit(strip_tags($question->question), 130);
+                                $egdQuestionExcerpt = \Illuminate\Support\Str::limit(
+                                    strip_tags($question->question),
+                                    130,
+                                );
                             @endphp
                             <article class="egd-article-list-item wow fadeInUp" data-wow-delay="0.05s">
                                 <div class="egd-article-list-cover"><i class="fas fa-comment-medical"></i></div>
@@ -47,7 +39,8 @@
                                     <p>{{ $egdQuestionExcerpt }}</p>
 
                                     <div class="egd-article-list-meta">
-                                        <span><i class="fas fa-comment-medical"></i> {{ $question->answers_count }} إجابة</span>
+                                        <span><i class="fas fa-comment-medical"></i> {{ $question->answers_count }}
+                                            إجابة</span>
                                         <a href="{{ $egdQuestionUrl }}" class="egd-btn-outline">عرض الإجابات</a>
                                     </div>
                                 </div>
@@ -56,8 +49,17 @@
                             @if ($loop->index === 2)
                                 {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
                                 <div class="egd-ad-slot">
-                                    <span class="egd-ad-tag">إعلان</span>
-                                    <p>مساحة إعلانية (728×90 على الشاشات الكبيرة / 320×50 على الجوال)</p>
+                                    {{-- <span class="egd-ad-tag">إعلان</span> --}}
+                                    <p>
+                                        <!-- Eg-Doctor - Question - In-feed -->
+                                        <ins class="adsbygoogle" style="display:block" data-ad-format="fluid"
+                                            data-ad-layout-key="-gw-3+1f-3d+2z" data-ad-client="ca-pub-0462453958685277"
+                                            data-ad-slot="5523951030"></ins>
+                                        <script>
+                                            (adsbygoogle = window.adsbygoogle || [])
+                                            .push({});
+                                        </script>
+                                    </p>
                                 </div>
                             @endif
                         @empty
@@ -84,7 +86,8 @@
                                         <span class="egd-side-item-body">
                                             <h3>{{ $article->title }}</h3>
                                             <span class="egd-side-item-meta">
-                                                <span><i class="far fa-clock"></i> {{ $article->created_at?->format('d/m/Y') }}</span>
+                                                <span><i class="far fa-clock"></i>
+                                                    {{ $article->created_at?->format('d/m/Y') }}</span>
                                             </span>
                                         </span>
                                     </a>
@@ -96,27 +99,59 @@
 
                         {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
                         <div class="egd-ad-slot">
-                            <span class="egd-ad-tag">إعلان</span>
-                            <p>مساحة إعلانية (300×250)</p>
+                            {{-- <span class="egd-ad-tag">إعلان</span> --}}
+                            <p>
+                                <!-- Eg-Doctor - Question - Display -->
+                                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
+                                    data-ad-slot="6425794157" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </p>
                         </div>
 
                         <div class="egd-side-block" id="egd-videos">
                             <h2 class="egd-side-title">فيديوهات طبية</h2>
 
                             <div class="egd-video-grid">
-                                @foreach ($egdPlaceholderVideos as $egdVideo)
-                                    <a href="{{ $egdVideo['url'] }}" class="egd-video-item">
-                                        <span class="egd-video-thumb"><i class="fab fa-youtube"></i></span>
-                                        <h3>{{ $egdVideo['title'] }}</h3>
+                                @forelse ($randomVideos as $video)
+                                    @php
+                                        $egdVideoUrl = $video->seo?->slug ? url($video->seo->slug) : '#';
+                                        $egdVideoThumb =
+                                            $video->img_url ?:
+                                            ($video->youtube_code
+                                                ? 'https://img.youtube.com/vi/' .
+                                                    $video->youtube_code .
+                                                    '/hqdefault.jpg'
+                                                : null);
+                                    @endphp
+                                    <a href="{{ $egdVideoUrl }}" class="egd-video-item">
+                                        <span class="egd-video-thumb">
+                                            @if ($egdVideoThumb)
+                                                <img src="{{ $egdVideoThumb }}" alt="{{ $video->title }}" loading="lazy">
+                                            @else
+                                                <i class="fab fa-youtube"></i>
+                                            @endif
+                                        </span>
+                                        <h3>{{ $video->title }}</h3>
                                     </a>
-                                @endforeach
+                                @empty
+                                    <p class="text-muted mb-0">لا توجد فيديوهات حاليًا.</p>
+                                @endforelse
                             </div>
                         </div>
 
                         {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
                         <div class="egd-ad-slot">
-                            <span class="egd-ad-tag">إعلان</span>
-                            <p>مساحة إعلانية (300×250)</p>
+                            {{-- <span class="egd-ad-tag">إعلان</span> --}}
+                            <p>
+                                <!-- Eg-Doctor - Question - Display -->
+                                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
+                                    data-ad-slot="6425794157" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </p>
                         </div>
 
                         <div class="egd-side-block" id="egd-related-consultations">
@@ -125,7 +160,9 @@
                             <div class="egd-side-list">
                                 @forelse ($latestQuestions as $latestQuestion)
                                     @php
-                                        $egdLatestQuestionUrl = $latestQuestion->seo?->slug ? url($latestQuestion->seo->slug) : '#';
+                                        $egdLatestQuestionUrl = $latestQuestion->seo?->slug
+                                            ? url($latestQuestion->seo->slug)
+                                            : '#';
                                     @endphp
                                     <a href="{{ $egdLatestQuestionUrl }}" class="egd-side-item">
                                         <span class="egd-side-item-icon"><i class="fas fa-comment-medical"></i></span>
@@ -142,10 +179,46 @@
                                 @endforelse
                             </div>
                         </div>
+
+                        {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
+                        <div class="egd-ad-slot">
+                            {{-- <span class="egd-ad-tag">إعلان</span> --}}
+                            <p>
+                                <!-- Eg-Doctor - Question - Display -->
+                                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
+                                    data-ad-slot="6425794157" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </p>
+                        </div>
+
+                        <div class="egd-side-block" id="egd-related-informations">
+                            <h2 class="egd-side-title">معلومات طبية سريعة</h2>
+
+                            <div class="egd-side-list">
+                                @forelse ($randomInformations as $information)
+                                    @php
+                                        $egdInfoUrl = $information->seo?->slug ? url($information->seo->slug) : '#';
+                                    @endphp
+                                    <a href="{{ $egdInfoUrl }}" class="egd-side-item">
+                                        <span class="egd-side-item-icon"><i class="fas fa-notes-medical"></i></span>
+                                        <span class="egd-side-item-body">
+                                            <h3>{{ $information->title }}</h3>
+                                            <span class="egd-side-item-meta">
+                                                <span><i class="far fa-clock"></i>
+                                                    {{ $information->created_at?->format('d/m/Y') }}</span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                @empty
+                                    <p class="text-muted mb-0">لا توجد معلومات طبية حاليًا.</p>
+                                @endforelse
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
 @endsection

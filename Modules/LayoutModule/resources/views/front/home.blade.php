@@ -25,10 +25,6 @@
     <link rel="stylesheet" href="{{ asset('assets/front/css/fontawesome.min.css') }}">
     <!-- FlatIcon CSS -->
     <link rel="stylesheet" href="{{ asset('assets/front/css/flaticon.css') }}">
-    <!-- Owl Carousel Min CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/front/css/owl.carousel.min.css') }}">
-    <!-- Image LightBox Min CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/front/css/imagelightbox.min.css') }}">
     <!-- MeanMenu CSS -->
     <link rel="stylesheet" href="{{ asset('assets/front/css/meanmenu.css') }}">
     <!-- Style CSS -->
@@ -64,61 +60,28 @@
     <!-- Start Vertical Ad Rails (visible on wide desktop screens only) -->
     {{-- Google AdSense placement — swap each placeholder for your real <ins class="adsbygoogle"> unit --}}
     <div class="egd-ad-rail egd-ad-rail-start">
-        <span class="egd-ad-tag">إعلان</span>
-        <p>مساحة إعلانية عمودية<br>(160×600)</p>
+        <p>
+            <!-- Eg-Doctor - Inner - Ad-Fly (160x600) -->
+            <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px"
+                data-ad-client="ca-pub-0462453958685277" data-ad-slot="5802977629"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </p>
     </div>
     <div class="egd-ad-rail egd-ad-rail-end">
-        <span class="egd-ad-tag">إعلان</span>
-        <p>مساحة إعلانية عمودية<br>(160×600)</p>
+        <p>
+            <!-- Eg-Doctor - Inner - Ad-Fly (160x600) -->
+            <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px"
+                data-ad-client="ca-pub-0462453958685277" data-ad-slot="5802977629"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </p>
     </div>
     <!-- End Vertical Ad Rails -->
 
-    <!-- Start Top Bar -->
-    <div class="egd-topbar d-none d-md-block">
-        <div class="container">
-            <div class="egd-topbar-info">
-                {{-- <span><i class="fas fa-phone"></i> اتصل بنا: 19XXX</span>
-                <span><i class="fas fa-envelope"></i> info@egdoctor.com</span> --}}
-                <span><i class="fas fa-map-marker-alt"></i> الدليل الطبي للأطباء في جميع محافظات مصر</span>
-            </div>
-            <div class="egd-topbar-social">
-                <a href="http://www.facebook.com/EgyptianDoctorsGuide" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="انستقرام"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
-            </div>
-        </div>
-    </div>
-    <!-- End Top Bar -->
-
-    <!-- Start Header -->
-    <header class="egd-header">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand egd-logo" href="{{ url('/') }}">
-                    <img src="{{ asset('assets/front/img/logo_main.png') }}" alt="إيجي دكتور - دليل الأطباء المصري"
-                        width="200" height="80">
-                </a>
-
-                <div class="collapse navbar-collapse mean-menu" id="egdNavbarContent">
-                    <ul class="navbar-nav mx-lg-auto">
-                        <li class="nav-item active"><a href="#" class="nav-link">الرئيسية</a></li>
-                        <li class="nav-item"><a href="/الأطباء" class="nav-link">الأطباء</a></li>
-                        <li class="nav-item"><a href="/المجالات-و-التخصصات-الطبية" class="nav-link">التخصصات</a></li>
-                        <li class="nav-item"><a href="/مقالات-طبية" class="nav-link">المقالات الطبية</a></li>
-                        <li class="nav-item"><a href="/استشارات-و-اسئلة-طبية" class="nav-link">الاستشارات الطبية</a></li>
-                        <li class="nav-item"><a href="/معلومات-طبية-سريعة" class="nav-link">معلومات طبية</a></li>
-                    </ul>
-
-                    <div class="egd-header-actions">
-                        <a href="#" class="egd-btn-outline"><i class="fas fa-user"></i> تسجيل الدخول</a>
-                        <a href="#egd-doctor-cta" class="egd-btn"><i class="fas fa-user-md"></i> سجل كطبيب</a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
-    <!-- End Header -->
+    @include('layoutmodule::front.header')
 
     <!-- Start Hero / Search -->
     <section class="egd-hero">
@@ -198,7 +161,8 @@
                     <div class="egd-search-field">
                         <label for="egd-doctor-name">اسم الطبيب</label>
                         <div class="egd-input-icon">
-                            <input type="text" id="egd-doctor-name" name="doctor_name" placeholder="اكتب اسم الطبيب">
+                            <input type="text" id="egd-doctor-name" name="doctor_name"
+                                placeholder="اكتب اسم الطبيب">
                             <i class="fas fa-user-md"></i>
                         </div>
                     </div>
@@ -211,7 +175,8 @@
                 <div class="egd-search-tags">
                     <span>الأكثر بحثًا:</span>
                     @foreach ($departments->take(5) as $department)
-                        <a href="{{ $department->seo?->slug ? url($department->seo->slug) : '#' }}">{{ $department->name }}</a>
+                        <a
+                            href="{{ $department->seo?->slug ? url($department->seo->slug) : '#' }}">{{ $department->name }}</a>
                     @endforeach
                 </div>
             </div>
@@ -224,8 +189,15 @@
         <div class="container">
             {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
             <div class="egd-ad-slot">
-                <span class="egd-ad-tag">إعلان</span>
-                <p>مساحة إعلانية (728×90 على الشاشات الكبيرة / 320×50 على الجوال)</p>
+                {{-- <span class="egd-ad-tag">إعلان</span> --}}
+                <p>
+                    <!-- Eg-Doctor - Home - Horizontal -->
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
+                        data-ad-slot="9119491826" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </p>
             </div>
         </div>
     </div>
@@ -280,15 +252,21 @@
             <div class="row g-4">
                 @foreach ($departments->take(12) as $department)
                     @php
-                        $egdIcon = $egdSpecialtyIcons[$department->name]
-                            ?? (str_contains($department->name, 'جراحة') || str_contains($department->name, 'جراحه')
+                        $egdIcon =
+                            $egdSpecialtyIcons[$department->name] ??
+                            (str_contains($department->name, 'جراحة') || str_contains($department->name, 'جراحه')
                                 ? 'fa-user-md'
                                 : 'fa-stethoscope');
                         $egdSpecialtyUrl = $department->seo?->slug ? url($department->seo->slug) : '#';
-                        $egdSpecialtyBlurb = \Illuminate\Support\Str::limit(
-                            trim(str_replace($department->name, '', $department->seo?->meta_description ?? ''), " -\n"),
-                            40
-                        ) ?: $department->name;
+                        $egdSpecialtyBlurb =
+                            \Illuminate\Support\Str::limit(
+                                trim(
+                                    str_replace($department->name, '', $department->seo?->meta_description ?? ''),
+                                    " -\n",
+                                ),
+                                40,
+                            ) ?:
+                            $department->name;
                     @endphp
                     <div class="col-6 col-sm-4 col-lg-2">
                         <a href="{{ $egdSpecialtyUrl }}" class="egd-specialty-card wow fadeInUp"
@@ -302,7 +280,8 @@
             </div>
 
             <div class="text-center mt-5">
-                <a href="/المجالات-و-التخصصات-الطبية" class="egd-btn-outline">عرض جميع التخصصات <i class="fas fa-arrow-left"></i></a>
+                <a href="/المجالات-و-التخصصات-الطبية" class="egd-btn-outline">عرض جميع التخصصات <i
+                        class="fas fa-arrow-left"></i></a>
             </div>
         </div>
     </section>
@@ -326,7 +305,8 @@
                     <div class="col-md-6 col-lg-4">
                         <article class="egd-doctor-card wow fadeInUp" data-wow-delay="0.05s">
                             <div class="egd-doctor-top">
-                                <div class="egd-doctor-avatar" aria-hidden="true">{{ mb_substr(trim($doctor->name), 0, 2) }}</div>
+                                <div class="egd-doctor-avatar" aria-hidden="true">
+                                    {{ mb_substr(trim($doctor->name), 0, 2) }}</div>
                                 <div>
                                     <h3>{{ $doctor->name }}</h3>
                                     <span class="egd-specialty-tag">
@@ -339,7 +319,8 @@
                             </div>
                             <div class="egd-doctor-body">
                                 @if ($doctor->more_info)
-                                    <div class="egd-doc-meta"><i class="fas fa-graduation-cap"></i> {{ $doctor->more_info }}</div>
+                                    <div class="egd-doc-meta"><i class="fas fa-graduation-cap"></i>
+                                        {{ $doctor->more_info }}</div>
                                 @endif
                                 @if ($doctor->city || $doctor->zone)
                                     <div class="egd-doc-meta"><i class="fas fa-map-marker-alt"></i>
@@ -370,8 +351,15 @@
         <div class="container">
             {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
             <div class="egd-ad-slot">
-                <span class="egd-ad-tag">إعلان</span>
-                <p>مساحة إعلانية (728×90 على الشاشات الكبيرة / 320×50 على الجوال)</p>
+                {{-- <span class="egd-ad-tag">إعلان</span> --}}
+                <p>
+                    <!-- Eg-Doctor - Home - Horizontal -->
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
+                        data-ad-slot="9119491826" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </p>
             </div>
         </div>
     </div>
@@ -566,7 +554,8 @@
                                 <p>{{ $egdArticleExcerpt }}</p>
 
                                 <div class="egd-article-foot">
-                                    <span><i class="far fa-clock"></i> {{ $article->created_at?->format('d/m/Y') }}</span>
+                                    <span><i class="far fa-clock"></i>
+                                        {{ $article->created_at?->format('d/m/Y') }}</span>
                                     <a href="{{ $egdArticleUrl }}">اقرأ المزيد</a>
                                 </div>
                             </div>
@@ -578,7 +567,8 @@
             </div>
 
             <div class="text-center mt-5">
-                <a href="/مقالات-طبية" class="egd-btn-outline">عرض جميع المقالات <i class="fas fa-arrow-left"></i></a>
+                <a href="/مقالات-طبية" class="egd-btn-outline">عرض جميع المقالات <i
+                        class="fas fa-arrow-left"></i></a>
             </div>
         </div>
     </section>
@@ -589,8 +579,15 @@
         <div class="container">
             {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
             <div class="egd-ad-slot">
-                <span class="egd-ad-tag">إعلان</span>
-                <p>مساحة إعلانية (728×90 على الشاشات الكبيرة / 320×50 على الجوال)</p>
+                {{-- <span class="egd-ad-tag">إعلان</span> --}}
+                <p>
+                    <!-- Eg-Doctor - Home - Horizontal -->
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
+                        data-ad-slot="9119491826" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </p>
             </div>
         </div>
     </div>
@@ -611,7 +608,8 @@
                         $egdQuestionUrl = $question->seo?->slug ? url($question->seo->slug) : '#';
                     @endphp
                     <div class="col-md-6 col-lg-3">
-                        <a href="{{ $egdQuestionUrl }}" class="egd-consult-card wow fadeInUp" data-wow-delay="0.05s">
+                        <a href="{{ $egdQuestionUrl }}" class="egd-consult-card wow fadeInUp"
+                            data-wow-delay="0.05s">
                             <div class="egd-consult-q">
                                 <i class="fas fa-comment-medical"></i>
                                 <h3>{{ $question->title }}</h3>
@@ -628,7 +626,8 @@
             </div>
 
             <div class="text-center mt-5">
-                <a href="/استشارات-و-اسئلة-طبية" class="egd-btn">شاهد جميع الاستشارات <i class="fas fa-arrow-left"></i></a>
+                <a href="/استشارات-و-اسئلة-طبية" class="egd-btn">شاهد جميع الاستشارات <i
+                        class="fas fa-arrow-left"></i></a>
             </div>
         </div>
     </section>
@@ -646,7 +645,14 @@
             @php
                 // Cycled purely for visual variety — these tiles show
                 // real random information rows, not fixed categories.
-                $egdInfoIcons = ['fa-notes-medical', 'fa-thermometer-half', 'fa-pills', 'fa-vial', 'fa-x-ray', 'fa-book-medical'];
+                $egdInfoIcons = [
+                    'fa-notes-medical',
+                    'fa-thermometer-half',
+                    'fa-pills',
+                    'fa-vial',
+                    'fa-x-ray',
+                    'fa-book-medical',
+                ];
             @endphp
 
             <div class="row g-3">
@@ -673,8 +679,15 @@
         <div class="container">
             {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
             <div class="egd-ad-slot">
-                <span class="egd-ad-tag">إعلان</span>
-                <p>مساحة إعلانية (728×90 على الشاشات الكبيرة / 320×50 على الجوال)</p>
+                {{-- <span class="egd-ad-tag">إعلان</span> --}}
+                <p>
+                    <!-- Eg-Doctor - Home - Horizontal -->
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
+                        data-ad-slot="9119491826" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </p>
             </div>
         </div>
     </div>
@@ -699,81 +712,37 @@
     </section>
     <!-- End Doctor Registration CTA -->
 
-    <!-- Start Footer -->
-    <footer class="egd-footer">
+    <!-- Start Ad Slot -->
+    <div class="egd-ad-section">
         <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <a href="{{ url('/') }}" class="egd-logo">
-                        <img src="{{ asset('assets/front/img/Logo_dark.png') }}" alt="إيجي دكتور - دليل الأطباء المصري"
-                            width="200" height="80">
-                    </a>
-                    <p>
-                        إيجي دكتور هو دليل طبي إلكتروني يساعد المرضى في مصر على البحث عن الأطباء
-                        والعيادات حسب التخصص والمحافظة، والاطلاع على مقالات واستشارات طبية موثوقة.
-                    </p>
-                    <div class="egd-footer-social">
-                        <a href="#" aria-label="فيسبوك"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="تويتر"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="انستقرام"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="يوتيوب"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <h3>روابط مهمة</h3>
-                    <ul class="egd-footer-links">
-                        <li><a href="#">الرئيسية</a></li>
-                        <li><a href="#egd-doctors">الأطباء</a></li>
-                        <li><a href="/المجالات-و-التخصصات-الطبية">التخصصات</a></li>
-                        <li><a href="/مقالات-طبية">المقالات الطبية</a></li>
-                        <li><a href="/استشارات-و-اسئلة-طبية">الاستشارات الطبية</a></li>
-                        <li><a href="/معلومات-طبية-سريعة">معلومات طبية</a></li>
-                        <li><a href="/طلب-طبيب">سجل كطبيب</a></li>
-                        <li><a href="/اتصل-بنا">اتصل بنا</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <h3>تواصل معنا</h3>
-                    <ul class="egd-footer-contact">
-                        <li><i class="fas fa-map-marker-alt"></i> القاهرة، جمهورية مصر العربية</li>
-                        <li><i class="fas fa-phone"></i> 19XXX</li>
-                        <li><i class="fas fa-envelope"></i> info@egdoctor.com</li>
-                        <li><i class="far fa-clock"></i> خدمة العملاء متاحة يوميًا من 9 صباحًا حتى 10 مساءً</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="egd-copyright">
-                <p>© 2026 إيجي دكتور. جميع الحقوق محفوظة.</p>
+            {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
+            <div class="egd-ad-slot">
+                {{-- <span class="egd-ad-tag">إعلان</span> --}}
+                <p>
+                    <!-- Eg-Doctor - Home - Bottom - Multiplex -->
+                    <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed"
+                        data-ad-client="ca-pub-0462453958685277" data-ad-slot="6920793185"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </p>
             </div>
         </div>
-    </footer>
-    <!-- End Footer -->
+    </div>
+    <!-- End Ad Slot -->
+
+    @include('layoutmodule::front.footer')
 
     <div class="go-top"><i class="fas fa-chevron-up"></i><i class="fas fa-chevron-up"></i></div>
 
     <!-- jQuery Min JS -->
     <script src="{{ asset('assets/front/js/jquery.min.js') }}"></script>
-    <!-- Popper Min JS -->
-    <script src="{{ asset('assets/front/js/popper.min.js') }}"></script>
     <!-- Bootstrap Min JS -->
     <script src="{{ asset('assets/front/js/bootstrap.min.js') }}"></script>
-    <!-- MixItUp Min JS -->
-    <script src="{{ asset('assets/front/js/mixitup.min.js') }}"></script>
-    <!-- Owl Carousel Min JS -->
-    <script src="{{ asset('assets/front/js/owl.carousel.min.js') }}"></script>
     <!-- MeanMenu JS -->
     <script src="{{ asset('assets/front/js/jquery.meanmenu.js') }}"></script>
-    <!-- Image LightBox Min JS -->
-    <script src="{{ asset('assets/front/js/imagelightbox.min.js') }}"></script>
     <!-- WOW Min JS -->
     <script src="{{ asset('assets/front/js/wow.min.js') }}"></script>
-    <!-- AjaxChimp Min JS -->
-    <script src="{{ asset('assets/front/js/jquery.ajaxchimp.min.js') }}"></script>
-    <!-- Form Validator Min JS -->
-    <script src="{{ asset('assets/front/js/form-validator.min.js') }}"></script>
     <!-- Main JS -->
     <script src="{{ asset('assets/front/js/main.js') }}"></script>
 

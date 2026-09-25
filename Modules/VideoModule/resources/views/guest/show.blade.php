@@ -10,12 +10,11 @@
     $page_meta['title'] = $video->title;
     $page_meta['description'] = \Illuminate\Support\Str::limit(
         html_entity_decode(strip_tags($video->description), ENT_QUOTES, 'UTF-8'),
-        160
+        160,
     );
 @endphp
 
 @section('content')
-
     <section class="egd-section">
         <div class="container">
             <div class="row g-4">
@@ -42,8 +41,8 @@
                                     {!! $video->video_code !!}
                                 </div>
                             @elseif ($video->img_url)
-                                <img src="{{ $video->img_url }}" alt="{{ $video->title }}"
-                                    class="img-fluid rounded mb-4" loading="lazy">
+                                <img src="{{ $video->img_url }}" alt="{{ $video->title }}" class="img-fluid rounded mb-4"
+                                    loading="lazy">
                             @endif
 
                             <div class="egd-video-detail-body">
@@ -53,8 +52,16 @@
 
                         {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
                         <div class="egd-ad-slot">
-                            <span class="egd-ad-tag">إعلان</span>
-                            <p>مساحة إعلانية (728×90 على الشاشات الكبيرة / 320×50 على الجوال)</p>
+                            {{-- <span class="egd-ad-tag">إعلان</span> --}}
+                            <p>
+                                <!-- Eg-Doctor - Video -  In-article -->
+                                <ins class="adsbygoogle" style="display:block; text-align:center;"
+                                    data-ad-layout="in-article" data-ad-format="fluid"
+                                    data-ad-client="ca-pub-0462453958685277" data-ad-slot="2294977459"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </p>
                         </div>
 
                         <div>
@@ -65,19 +72,31 @@
                             <div class="row g-3">
                                 @forelse ($otherVideos as $egdOtherVideo)
                                     @php
-                                        $egdOtherUrl = $egdOtherVideo->seo?->slug ? url($egdOtherVideo->seo->slug) : '#';
+                                        $egdOtherUrl = $egdOtherVideo->seo?->slug
+                                            ? url($egdOtherVideo->seo->slug)
+                                            : '#';
                                         $egdOtherExcerpt = \Illuminate\Support\Str::limit(
-                                            html_entity_decode(strip_tags($egdOtherVideo->description), ENT_QUOTES, 'UTF-8'),
-                                            80
+                                            html_entity_decode(
+                                                strip_tags($egdOtherVideo->description),
+                                                ENT_QUOTES,
+                                                'UTF-8',
+                                            ),
+                                            80,
                                         );
-                                        $egdOtherThumb = $egdOtherVideo->img_url
-                                            ?: ($egdOtherVideo->youtube_code ? 'https://img.youtube.com/vi/' . $egdOtherVideo->youtube_code . '/hqdefault.jpg' : null);
+                                        $egdOtherThumb =
+                                            $egdOtherVideo->img_url ?:
+                                            ($egdOtherVideo->youtube_code
+                                                ? 'https://img.youtube.com/vi/' .
+                                                    $egdOtherVideo->youtube_code .
+                                                    '/hqdefault.jpg'
+                                                : null);
                                     @endphp
                                     <div class="col-6 col-md-4">
                                         <article class="egd-video-card wow fadeInUp" data-wow-delay="0.05s">
                                             <div class="egd-video-cover">
                                                 @if ($egdOtherThumb)
-                                                    <img src="{{ $egdOtherThumb }}" alt="{{ $egdOtherVideo->title }}" loading="lazy">
+                                                    <img src="{{ $egdOtherThumb }}" alt="{{ $egdOtherVideo->title }}"
+                                                        loading="lazy">
                                                 @else
                                                     <i class="fas fa-play-circle"></i>
                                                 @endif
@@ -88,7 +107,8 @@
                                                 <p>{{ $egdOtherExcerpt }}</p>
 
                                                 <div class="egd-video-foot">
-                                                    <span><i class="far fa-clock"></i> {{ $egdOtherVideo->created_at?->format('d/m/Y') }}</span>
+                                                    <span><i class="far fa-clock"></i>
+                                                        {{ $egdOtherVideo->created_at?->format('d/m/Y') }}</span>
                                                     <a href="{{ $egdOtherUrl }}">شاهد الفيديو</a>
                                                 </div>
                                             </div>
@@ -111,14 +131,17 @@
                             <div class="egd-side-list">
                                 @forelse ($readAlso as $egdReadAlsoVideo)
                                     @php
-                                        $egdReadAlsoUrl = $egdReadAlsoVideo->seo?->slug ? url($egdReadAlsoVideo->seo->slug) : '#';
+                                        $egdReadAlsoUrl = $egdReadAlsoVideo->seo?->slug
+                                            ? url($egdReadAlsoVideo->seo->slug)
+                                            : '#';
                                     @endphp
                                     <a href="{{ $egdReadAlsoUrl }}" class="egd-side-item">
                                         <span class="egd-side-item-icon"><i class="fas fa-play-circle"></i></span>
                                         <span class="egd-side-item-body">
                                             <h3>{{ $egdReadAlsoVideo->title }}</h3>
                                             <span class="egd-side-item-meta">
-                                                <span><i class="far fa-clock"></i> {{ $egdReadAlsoVideo->created_at?->format('d/m/Y') }}</span>
+                                                <span><i class="far fa-clock"></i>
+                                                    {{ $egdReadAlsoVideo->created_at?->format('d/m/Y') }}</span>
                                             </span>
                                         </span>
                                     </a>
@@ -130,8 +153,15 @@
 
                         {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
                         <div class="egd-ad-slot">
-                            <span class="egd-ad-tag">إعلان</span>
-                            <p>مساحة إعلانية (300×250)</p>
+                            {{-- <span class="egd-ad-tag">إعلان</span> --}}
+                            <p>
+                                <!-- Eg-Doctor - Video - Display -->
+                                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
+                                    data-ad-slot="2953628016" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </p>
                         </div>
 
                         <div class="egd-side-block" id="egd-related-consultations">
@@ -160,8 +190,15 @@
 
                         {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
                         <div class="egd-ad-slot">
-                            <span class="egd-ad-tag">إعلان</span>
-                            <p>مساحة إعلانية (300×250)</p>
+                           {{-- <span class="egd-ad-tag">إعلان</span> --}}
+                            <p>
+                                <!-- Eg-Doctor - Video - Display -->
+                                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
+                                    data-ad-slot="2953628016" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </p>
                         </div>
 
                         <div class="egd-side-block" id="egd-related-informations">
@@ -177,7 +214,8 @@
                                         <span class="egd-side-item-body">
                                             <h3>{{ $information->title }}</h3>
                                             <span class="egd-side-item-meta">
-                                                <span><i class="far fa-clock"></i> {{ $information->created_at?->format('d/m/Y') }}</span>
+                                                <span><i class="far fa-clock"></i>
+                                                    {{ $information->created_at?->format('d/m/Y') }}</span>
                                             </span>
                                         </span>
                                     </a>
@@ -191,5 +229,4 @@
             </div>
         </div>
     </section>
-
 @endsection

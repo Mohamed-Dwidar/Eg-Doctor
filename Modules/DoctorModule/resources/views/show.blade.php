@@ -9,14 +9,18 @@
 
     $page_meta['title'] = $doctor->name . ($doctor->degree?->name ? ' - ' . $doctor->degree->name : '');
     $page_meta['description'] = \Illuminate\Support\Str::limit(
-        trim($doctor->more_info ?: ($doctor->name . ' ' . ($doctor->degree?->name ?? '') . ' ' . ($doctor->city?->name ?? ''))),
-        160
+        trim(
+            $doctor->more_info ?:
+            $doctor->name . ' ' . ($doctor->degree?->name ?? '') . ' ' . ($doctor->city?->name ?? ''),
+        ),
+        160,
     );
 @endphp
 
 @php
-    $egdPrimaryDepartment = $doctor->departments->first(fn($department) => filled($department->description))
-        ?? $doctor->departments->first();
+    $egdPrimaryDepartment =
+        $doctor->departments->first(fn($department) => filled($department->description)) ??
+        $doctor->departments->first();
 @endphp
 
 @section('content')
@@ -45,7 +49,8 @@
                             @if ($doctor->departments->isNotEmpty())
                                 <div class="egd-doctor-profile-tags">
                                     @foreach ($doctor->departments as $department)
-                                        <a href="{{ $department->seo?->slug ? url($department->seo->slug) : '#' }}">{{ $department->name }}</a>
+                                        <a
+                                            href="{{ $department->seo?->slug ? url($department->seo->slug) : '#' }}">{{ $department->name }}</a>
                                     @endforeach
                                 </div>
                             @endif
@@ -64,10 +69,18 @@
                             </div>
                         @endif
 
-                         {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
+                        {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
                         <div class="egd-ad-slot">
-                            <span class="egd-ad-tag">إعلان</span>
-                            <p>مساحة إعلانية (728×90 على الشاشات الكبيرة / 320×50 على الجوال)</p>
+                            {{-- <span class="egd-ad-tag">إعلان</span> --}}
+                            <p>
+                                <!-- Eg-Doctor - Department - In-article Ad -->
+                                <ins class="adsbygoogle" style="display:block; text-align:center;"
+                                    data-ad-layout="in-article" data-ad-format="fluid"
+                                    data-ad-client="ca-pub-0462453958685277" data-ad-slot="8999986603"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </p>
                         </div>
 
                         <div class="egd-doctor-profile-card egd-doctor-contact-card">
@@ -95,17 +108,21 @@
 
                             <div class="egd-doctor-profile-actions">
                                 @if ($doctor->mobile)
-                                    <a href="tel:{{ $doctor->mobile }}" class="egd-btn"><i class="fas fa-phone"></i> {{ $doctor->mobile }}</a>
+                                    <a href="tel:{{ $doctor->mobile }}" class="egd-btn"><i class="fas fa-phone"></i>
+                                        {{ $doctor->mobile }}</a>
                                 @elseif ($doctor->phone)
-                                    <a href="tel:{{ $doctor->phone }}" class="egd-btn"><i class="fas fa-phone"></i> {{ $doctor->phone }}</a>
+                                    <a href="tel:{{ $doctor->phone }}" class="egd-btn"><i class="fas fa-phone"></i>
+                                        {{ $doctor->phone }}</a>
                                 @endif
 
                                 @if ($doctor->email)
-                                    <a href="mailto:{{ $doctor->email }}" class="egd-btn-outline"><i class="fas fa-envelope"></i> راسل الطبيب</a>
+                                    <a href="mailto:{{ $doctor->email }}" class="egd-btn-outline"><i
+                                            class="fas fa-envelope"></i> راسل الطبيب</a>
                                 @endif
 
                                 @if ($doctor->website)
-                                    <a href="{{ $doctor->website }}" target="_blank" rel="noopener" class="egd-btn-outline"><i class="fas fa-globe"></i> الموقع الإلكتروني</a>
+                                    <a href="{{ $doctor->website }}" target="_blank" rel="noopener"
+                                        class="egd-btn-outline"><i class="fas fa-globe"></i> الموقع الإلكتروني</a>
                                 @endif
 
                                 @if ($doctor->address_latitude && $doctor->address_longitude)
@@ -137,7 +154,8 @@
                                         <span class="egd-side-item-body">
                                             <h3>{{ $article->title }}</h3>
                                             <span class="egd-side-item-meta">
-                                                <span><i class="far fa-clock"></i> {{ $article->created_at?->format('d/m/Y') }}</span>
+                                                <span><i class="far fa-clock"></i>
+                                                    {{ $article->created_at?->format('d/m/Y') }}</span>
                                             </span>
                                         </span>
                                     </a>
@@ -149,8 +167,15 @@
 
                         {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
                         <div class="egd-ad-slot">
-                            <span class="egd-ad-tag">إعلان</span>
-                            <p>مساحة إعلانية (300×250)</p>
+                            {{-- <span class="egd-ad-tag">إعلان</span> --}}
+                            <p>
+                                <!-- Eg-Doctor - Doctor - Display -->
+                                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
+                                    data-ad-slot="9007900471" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </p>
                         </div>
 
                         <div class="egd-side-block" id="egd-related-consultations">
@@ -179,8 +204,15 @@
 
                         {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
                         <div class="egd-ad-slot">
-                            <span class="egd-ad-tag">إعلان</span>
-                            <p>مساحة إعلانية (300×250)</p>
+                            {{-- <span class="egd-ad-tag">إعلان</span> --}}
+                            <p>
+                                <!-- Eg-Doctor - Doctor - Display -->
+                                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
+                                    data-ad-slot="9007900471" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </p>
                         </div>
 
                         <div class="egd-side-block" id="egd-related-videos">
@@ -190,8 +222,13 @@
                                 @forelse ($randomVideos as $video)
                                     @php
                                         $egdVideoUrl = $video->seo?->slug ? url($video->seo->slug) : '#';
-                                        $egdVideoThumb = $video->img_url
-                                            ?: ($video->youtube_code ? 'https://img.youtube.com/vi/' . $video->youtube_code . '/hqdefault.jpg' : null);
+                                        $egdVideoThumb =
+                                            $video->img_url ?:
+                                            ($video->youtube_code
+                                                ? 'https://img.youtube.com/vi/' .
+                                                    $video->youtube_code .
+                                                    '/hqdefault.jpg'
+                                                : null);
                                     @endphp
                                     <a href="{{ $egdVideoUrl }}" class="egd-video-item">
                                         <span class="egd-video-thumb">
@@ -211,8 +248,15 @@
 
                         {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
                         <div class="egd-ad-slot">
-                            <span class="egd-ad-tag">إعلان</span>
-                            <p>مساحة إعلانية (300×250)</p>
+                            {{-- <span class="egd-ad-tag">إعلان</span> --}}
+                            <p>
+                                <!-- Eg-Doctor - Doctor - Display -->
+                                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
+                                    data-ad-slot="9007900471" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </p>
                         </div>
 
                         <div class="egd-side-block" id="egd-related-informations">
@@ -228,7 +272,8 @@
                                         <span class="egd-side-item-body">
                                             <h3>{{ $information->title }}</h3>
                                             <span class="egd-side-item-meta">
-                                                <span><i class="far fa-clock"></i> {{ $information->created_at?->format('d/m/Y') }}</span>
+                                                <span><i class="far fa-clock"></i>
+                                                    {{ $information->created_at?->format('d/m/Y') }}</span>
                                             </span>
                                         </span>
                                     </a>

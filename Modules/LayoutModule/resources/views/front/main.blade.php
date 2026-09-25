@@ -12,10 +12,6 @@
     <link rel="stylesheet" href="{{ asset('assets/front/css/fontawesome.min.css') }}">
     <!-- FlatIcon CSS -->
     <link rel="stylesheet" href="{{ asset('assets/front/css/flaticon.css') }}">
-    <!-- Owl Carousel Min CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/front/css/owl.carousel.min.css') }}">
-    <!-- Image LightBox Min CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/front/css/imagelightbox.min.css') }}">
     <!-- MeanMenu CSS -->
     <link rel="stylesheet" href="{{ asset('assets/front/css/meanmenu.css') }}">
     <!-- Style CSS -->
@@ -24,6 +20,8 @@
     <link rel="stylesheet" href="{{ asset('assets/front/css/responsive.css') }}">
 
     <link rel="stylesheet" href="{{ asset('assets/front/css/style_custom.css') }}">
+
+
 </head>
 
 <body class="egd-home">
@@ -51,12 +49,24 @@
     <!-- Start Vertical Ad Rails (visible on wide desktop screens only) -->
     {{-- Google AdSense placement — swap each placeholder for your real <ins class="adsbygoogle"> unit --}}
     <div class="egd-ad-rail egd-ad-rail-start">
-        <span class="egd-ad-tag">إعلان</span>
-        <p>مساحة إعلانية عمودية<br>(160×600)</p>
+        <p>
+            <!-- Eg-Doctor Ad-Fly (160x600) -->
+            <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px"
+                data-ad-client="ca-pub-0462453958685277" data-ad-slot="5102005112"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </p>
     </div>
     <div class="egd-ad-rail egd-ad-rail-end">
-        <span class="egd-ad-tag">إعلان</span>
-        <p>مساحة إعلانية عمودية<br>(160×600)</p>
+        <p>
+            <!-- Eg-Doctor Ad-Fly (160x600) -->
+            <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px"
+                data-ad-client="ca-pub-0462453958685277" data-ad-slot="5102005112"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </p>
     </div>
     <!-- End Vertical Ad Rails -->
 
@@ -79,17 +89,7 @@
     </section>
     <!-- End Page Hero -->
 
-    <!-- Start Ad Slot -->
-    <div class="egd-ad-section">
-        <div class="container">
-            {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
-            <div class="egd-ad-slot">
-                <span class="egd-ad-tag">إعلان</span>
-                <p>مساحة إعلانية (728×90 على الشاشات الكبيرة / 320×50 على الجوال)</p>
-            </div>
-        </div>
-    </div>
-    <!-- End Ad Slot -->
+
 
     @yield('content')
 
@@ -98,8 +98,15 @@
         <div class="container">
             {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
             <div class="egd-ad-slot">
-                <span class="egd-ad-tag">إعلان</span>
-                <p>مساحة إعلانية (728×90 على الشاشات الكبيرة / 320×50 على الجوال)</p>
+                {{-- <span class="egd-ad-tag">إعلان</span> --}}
+                <p>
+                    <!-- Eg-Doctor - Inner - Bottom - Multiplex -->
+                    <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed"
+                        data-ad-client="ca-pub-0462453958685277" data-ad-slot="5607536505"></ins>
+                    <script>
+                        (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </p>
             </div>
         </div>
     </div>
@@ -114,7 +121,8 @@
                 </div>
                 <div class="egd-dept-search">
                     @foreach ($departments as $department)
-                        <a href="{{ $department->seo?->slug ? url($department->seo->slug) : '#' }}">{{ $department->name }}</a>
+                        <a
+                            href="{{ $department->seo?->slug ? url($department->seo->slug) : '#' }}">{{ $department->name }}</a>
                     @endforeach
                 </div>
             </div>
@@ -128,28 +136,12 @@
 
     <!-- jQuery Min JS -->
     <script src="{{ asset('assets/front/js/jquery.min.js') }}"></script>
-    <!-- Popper Min JS -->
-    <script src="{{ asset('assets/front/js/popper.min.js') }}"></script>
     <!-- Bootstrap Min JS -->
     <script src="{{ asset('assets/front/js/bootstrap.min.js') }}"></script>
-    <!-- MixItUp Min JS -->
-    <script src="{{ asset('assets/front/js/mixitup.min.js') }}"></script>
-    <!-- Parallax Min JS -->
-    <script src="{{ asset('assets/front/js/parallax.min.js') }}"></script>
-    <!-- Owl Carousel Min JS -->
-    <script src="{{ asset('assets/front/js/owl.carousel.min.js') }}"></script>
     <!-- MeanMenu JS -->
     <script src="{{ asset('assets/front/js/jquery.meanmenu.js') }}"></script>
-    <!-- Image LightBox Min JS -->
-    <script src="{{ asset('assets/front/js/imagelightbox.min.js') }}"></script>
     <!-- WOW Min JS -->
     <script src="{{ asset('assets/front/js/wow.min.js') }}"></script>
-    <!-- AjaxChimp Min JS -->
-    <script src="{{ asset('assets/front/js/jquery.ajaxchimp.min.js') }}"></script>
-    <!-- Form Validator Min JS -->
-    <script src="{{ asset('assets/front/js/form-validator.min.js') }}"></script>
-    <!-- Contact Form Min JS -->
-    <script src="{{ asset('assets/front/js/contact-form-script.js') }}"></script>
     <!-- Main JS -->
     <script src="{{ asset('assets/front/js/main.js') }}"></script>
 

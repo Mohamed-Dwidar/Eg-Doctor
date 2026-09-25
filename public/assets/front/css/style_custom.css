@@ -1033,15 +1033,15 @@ body.egd-home {
     color: var(--egd-text-muted);
 }
 
-/* Vertical skyscraper rails — shown only once the viewport has real
-   gutter space beside the 1230px content column (see media query below) */
+/* Vertical skyscraper rails (120x600 IAB standard) — shown only once the
+   viewport has real gutter space beside the 1320px content column */
 .egd-ad-rail {
     display: none;
     position: fixed;
-    top: 50%;
+    top: 55%;
     transform: translateY(-50%);
     z-index: 500;
-    width: 160px;
+    width: 120px;
     min-height: 600px;
     flex-direction: column;
     align-items: center;
@@ -1050,7 +1050,7 @@ body.egd-home {
     background: var(--egd-bg-soft);
     border: 1.5px dashed var(--egd-border);
     border-radius: 10px;
-    padding: 16px;
+    padding: 12px;
     text-align: center;
 }
 
@@ -1062,14 +1062,14 @@ body.egd-home {
 }
 
 .egd-ad-rail-start {
-    inset-inline-start: 24px;
+    inset-inline-start: 16px;
 }
 
 .egd-ad-rail-end {
-    inset-inline-end: 24px;
+    inset-inline-end: 16px;
 }
 
-@media (min-width: 1700px) {
+@media (min-width: 1650px) {
     .egd-ad-rail {
         display: flex;
     }
@@ -1730,13 +1730,19 @@ body.egd-home {
     aspect-ratio: 16 / 9;
     border-radius: 10px;
     background: var(--egd-bg-soft);
-    border: 1.5px dashed var(--egd-border);
+    border: 1.5px solid var(--egd-border);
     overflow: hidden;
 }
 
 .egd-video-thumb i {
     font-size: 26px;
     color: var(--egd-primary);
+}
+
+.egd-video-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* ---------- Question detail page ---------- */
@@ -1882,4 +1888,226 @@ body.egd-home {
     margin: 6px 0 0;
     padding-inline-start: 18px;
     list-style: disc;
+}
+
+/* ---------- Video cards (videos listing "مقالات أخرى" grid) ---------- */
+.egd-video-card {
+    display: block;
+    background: #fff;
+    border: 1.5px solid var(--egd-border);
+    border-radius: var(--egd-radius);
+    overflow: hidden;
+    height: 100%;
+    transition: 0.3s;
+}
+
+.egd-video-card:hover {
+    box-shadow: 0 18px 40px rgba(21, 73, 156, 0.1);
+    transform: translateY(-4px);
+}
+
+.egd-video-cover {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    color: #fff;
+    background: linear-gradient(135deg, var(--egd-primary), var(--egd-primary-dark));
+    overflow: hidden;
+}
+
+.egd-video-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.egd-video-body {
+    padding: 20px 22px 22px;
+}
+
+.egd-video-body h3 {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.6;
+    margin: 0 0 10px;
+}
+
+.egd-video-body h3 a {
+    color: var(--egd-dark);
+}
+
+.egd-video-body h3 a:hover {
+    color: var(--egd-primary);
+}
+
+.egd-video-body p {
+    font-size: 14px;
+    color: var(--egd-text-muted);
+    line-height: 1.8;
+    margin-bottom: 14px;
+}
+
+.egd-video-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    color: var(--egd-text-muted);
+    border-top: 1px solid var(--egd-border);
+    padding-top: 14px;
+}
+
+.egd-video-foot a {
+    color: var(--egd-primary);
+    font-weight: 700;
+}
+
+/* ---------- Video list (videos listing page) ---------- */
+.egd-video-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.egd-video-list-item {
+    display: flex;
+    align-items: stretch;
+    gap: 18px;
+    background: #fff;
+    border: 1.5px solid var(--egd-border);
+    border-radius: var(--egd-radius);
+    padding: 18px;
+    transition: 0.25s;
+}
+
+.egd-video-list-item:hover {
+    box-shadow: 0 14px 32px rgba(21, 73, 156, 0.1);
+    transform: translateY(-2px);
+}
+
+.egd-video-list-cover {
+    width: 120px;
+    height: 84px;
+    flex: 0 0 auto;
+    border-radius: 12px;
+    background: var(--egd-primary-light);
+    color: var(--egd-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    overflow: hidden;
+}
+
+.egd-video-list-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.egd-video-list-body {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.egd-video-list-body h3 {
+    font-size: 16px;
+    font-weight: 800;
+    margin: 0 0 4px;
+    color: var(--egd-dark);
+}
+
+.egd-video-list-body h3 a {
+    color: inherit;
+}
+
+.egd-video-list-body p {
+    font-size: 13.5px;
+    color: var(--egd-text-muted);
+    line-height: 1.7;
+    margin: 8px 0 10px;
+}
+
+.egd-video-list-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.egd-video-list-meta span {
+    font-size: 12.5px;
+    color: var(--egd-text-muted);
+}
+
+.egd-video-list-meta .egd-btn-outline {
+    padding: 6px 16px;
+    font-size: 13px;
+}
+
+@media (max-width: 575px) {
+    .egd-video-list-item {
+        flex-wrap: wrap;
+    }
+
+    .egd-video-list-cover {
+        width: 100%;
+        height: 160px;
+    }
+}
+
+/* ---------- Video detail page ---------- */
+.egd-video-detail-card {
+    background: #fff;
+    border: 1.5px solid var(--egd-border);
+    border-radius: var(--egd-radius);
+    padding: 32px 28px;
+}
+
+.egd-video-detail-card h1 {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--egd-dark);
+    margin: 0 0 16px;
+    line-height: 1.5;
+}
+
+.egd-video-detail-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--egd-border);
+    font-size: 13.5px;
+    color: var(--egd-text-muted);
+}
+
+.egd-video-detail-meta span {
+    display: inline-flex;
+    align-items: center;
+}
+
+.egd-video-detail-meta i {
+    color: var(--egd-primary);
+    margin-inline-end: 6px;
+}
+
+.egd-video-embed {
+    border-radius: 10px;
+    overflow: hidden;
+    background: #000;
+}
+
+.egd-video-detail-body {
+    font-size: 15.5px;
+    line-height: 2;
+    color: var(--egd-dark);
+}
+
+.egd-video-detail-body p {
+    margin: 0 0 16px;
 }

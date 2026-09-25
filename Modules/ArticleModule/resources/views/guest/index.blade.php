@@ -7,11 +7,11 @@
     $breadcrumb[] = ['title' => 'المقالات الطبية', 'url' => url()->current()];
 
     $page_meta['title'] = 'المقالات الطبية';
-    $page_meta['description'] = 'تصفح أحدث المقالات الطبية على إيجي دكتور، محتوى طبي مبسط يساعدك على فهم صحتك بشكل أفضل.';
+    $page_meta['description'] =
+        'تصفح أحدث المقالات الطبية على إيجي دكتور، محتوى طبي مبسط يساعدك على فهم صحتك بشكل أفضل.';
 @endphp
 
 @section('content')
-
     <section class="egd-section">
         <div class="container">
             <div class="row g-4">
@@ -27,7 +27,7 @@
                                 $egdArticleUrl = $article->seo?->slug ? url($article->seo->slug) : '#';
                                 $egdArticleExcerpt = \Illuminate\Support\Str::limit(
                                     html_entity_decode(strip_tags($article->content), ENT_QUOTES, 'UTF-8'),
-                                    130
+                                    130,
                                 );
                             @endphp
                             <article class="egd-article-list-item wow fadeInUp" data-wow-delay="0.05s">
@@ -45,7 +45,8 @@
                                     <p>{{ $egdArticleExcerpt }}</p>
 
                                     <div class="egd-article-list-meta">
-                                        <span><i class="far fa-clock"></i> {{ $article->created_at?->format('d/m/Y') }}</span>
+                                        <span><i class="far fa-clock"></i>
+                                            {{ $article->created_at?->format('d/m/Y') }}</span>
                                         <a href="{{ $egdArticleUrl }}" class="egd-btn-outline">اقرأ المزيد</a>
                                     </div>
                                 </div>
@@ -54,8 +55,17 @@
                             @if ($loop->index === 2)
                                 {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
                                 <div class="egd-ad-slot">
-                                    <span class="egd-ad-tag">إعلان</span>
-                                    <p>مساحة إعلانية (728×90 على الشاشات الكبيرة / 320×50 على الجوال)</p>
+                                    {{-- <span class="egd-ad-tag">إعلان</span> --}}
+                                    <p>
+                                        <!-- Eg-Doctor - Article - In-feed  -->
+                                        <ins class="adsbygoogle" style="display:block" data-ad-format="fluid"
+                                            data-ad-layout-key="-gw-3+1f-3d+2z" data-ad-client="ca-pub-0462453958685277"
+                                            data-ad-slot="4365858592"></ins>
+                                        <script>
+                                            (adsbygoogle = window.adsbygoogle || [])
+                                            .push({});
+                                        </script>
+                                    </p>
                                 </div>
                             @endif
                         @empty
@@ -82,7 +92,8 @@
                                         <span class="egd-side-item-body">
                                             <h3>{{ $article->title }}</h3>
                                             <span class="egd-side-item-meta">
-                                                <span><i class="far fa-clock"></i> {{ $article->created_at?->format('d/m/Y') }}</span>
+                                                <span><i class="far fa-clock"></i>
+                                                    {{ $article->created_at?->format('d/m/Y') }}</span>
                                             </span>
                                         </span>
                                     </a>
@@ -94,8 +105,15 @@
 
                         {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
                         <div class="egd-ad-slot">
-                            <span class="egd-ad-tag">إعلان</span>
-                            <p>مساحة إعلانية (300×250)</p>
+                            {{-- <span class="egd-ad-tag">إعلان</span> --}}
+                            <p>
+                                <!-- Eg-Doctor - Article - Display -->
+                                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
+                                    data-ad-slot="8533257756" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </p>
                         </div>
 
                         <div class="egd-side-block" id="egd-related-videos">
@@ -105,8 +123,13 @@
                                 @forelse ($randomVideos as $video)
                                     @php
                                         $egdVideoUrl = $video->seo?->slug ? url($video->seo->slug) : '#';
-                                        $egdVideoThumb = $video->img_url
-                                            ?: ($video->youtube_code ? 'https://img.youtube.com/vi/' . $video->youtube_code . '/hqdefault.jpg' : null);
+                                        $egdVideoThumb =
+                                            $video->img_url ?:
+                                            ($video->youtube_code
+                                                ? 'https://img.youtube.com/vi/' .
+                                                    $video->youtube_code .
+                                                    '/hqdefault.jpg'
+                                                : null);
                                     @endphp
                                     <a href="{{ $egdVideoUrl }}" class="egd-video-item">
                                         <span class="egd-video-thumb">
@@ -126,8 +149,15 @@
 
                         {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
                         <div class="egd-ad-slot">
-                            <span class="egd-ad-tag">إعلان</span>
-                            <p>مساحة إعلانية (300×250)</p>
+                            {{-- <span class="egd-ad-tag">إعلان</span> --}}
+                            <p>
+                                <!-- Eg-Doctor - Article - Display -->
+                                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
+                                    data-ad-slot="8533257756" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </p>
                         </div>
 
                         <div class="egd-side-block" id="egd-related-consultations">
@@ -156,8 +186,15 @@
 
                         {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
                         <div class="egd-ad-slot">
-                            <span class="egd-ad-tag">إعلان</span>
-                            <p>مساحة إعلانية (300×250)</p>
+                            {{-- <span class="egd-ad-tag">إعلان</span> --}}
+                            <p>
+                                <!-- Eg-Doctor - Article - Display -->
+                                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
+                                    data-ad-slot="8533257756" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </p>
                         </div>
 
                         <div class="egd-side-block" id="egd-related-informations">
@@ -173,7 +210,8 @@
                                         <span class="egd-side-item-body">
                                             <h3>{{ $information->title }}</h3>
                                             <span class="egd-side-item-meta">
-                                                <span><i class="far fa-clock"></i> {{ $information->created_at?->format('d/m/Y') }}</span>
+                                                <span><i class="far fa-clock"></i>
+                                                    {{ $information->created_at?->format('d/m/Y') }}</span>
                                             </span>
                                         </span>
                                     </a>
@@ -187,5 +225,4 @@
             </div>
         </div>
     </section>
-
 @endsection

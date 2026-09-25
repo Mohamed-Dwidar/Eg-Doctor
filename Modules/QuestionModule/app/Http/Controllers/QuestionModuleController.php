@@ -7,23 +7,31 @@ use App\Rules\SafeText;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Modules\ArticleModule\app\Repositories\ArticleRepository;
+use Modules\InformationModule\app\Services\InformationService;
 use Modules\QuestionModule\app\Repositories\QuestionAnswerRepository;
 use Modules\QuestionModule\app\Services\QuestionService;
+use Modules\VideoModule\app\Services\VideoService;
 
 class QuestionModuleController extends Controller
 {
     protected $questionService;
     protected $articleRepository;
     protected $questionAnswerRepository;
+    protected $videoService;
+    protected $informationService;
 
     public function __construct(
         QuestionService $questionService,
         ArticleRepository $articleRepository,
-        QuestionAnswerRepository $questionAnswerRepository
+        QuestionAnswerRepository $questionAnswerRepository,
+        VideoService $videoService,
+        InformationService $informationService
     ) {
         $this->questionService = $questionService;
         $this->articleRepository = $articleRepository;
         $this->questionAnswerRepository = $questionAnswerRepository;
+        $this->videoService = $videoService;
+        $this->informationService = $informationService;
     }
 
     /**
@@ -34,8 +42,12 @@ class QuestionModuleController extends Controller
         $questions = $this->questionService->getPaginatedLatest(10);
         $relatedArticles = $this->articleRepository->random(4);
         $latestQuestions = $this->questionService->getLatest(4);
+        $randomVideos = $this->videoService->getRandomPublished(4);
+        $randomInformations = $this->informationService->getRandomPublished(4);
 
-        return view('questionmodule::guest.index', compact('questions', 'relatedArticles', 'latestQuestions'));
+        return view('questionmodule::guest.index', compact(
+            'questions', 'relatedArticles', 'latestQuestions', 'randomVideos', 'randomInformations'
+        ));
     }
 
     /**
@@ -69,9 +81,11 @@ class QuestionModuleController extends Controller
 
         $excludeIds = $latestQuestions->pluck('id')->push($question->id)->all();
         $otherQuestions = $this->questionService->getRandomExcept($excludeIds, 3);
+        $randomVideos = $this->videoService->getRandomPublished(4);
+        $randomInformations = $this->informationService->getRandomPublished(4);
 
         return view('questionmodule::guest.show', compact(
-            'question', 'answers', 'relatedArticles', 'latestQuestions', 'otherQuestions'
+            'question', 'answers', 'relatedArticles', 'latestQuestions', 'otherQuestions', 'randomVideos', 'randomInformations'
         ));
     }
 
