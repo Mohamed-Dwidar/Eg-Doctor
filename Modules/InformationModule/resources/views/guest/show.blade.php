@@ -1,23 +1,17 @@
 @extends('layoutmodule::front.main')
 
 @php
-    $page_title = $article->title;
+    $page_title = $information->title;
 
     $breadcrumb[] = ['title' => 'الرئيسية', 'url' => route('home_page')];
-    $breadcrumb[] = ['title' => 'المقالات الطبية', 'url' => '/مقالات-طبية'];
-    $breadcrumb[] = ['title' => $article->title, 'url' => url()->current()];
+    $breadcrumb[] = ['title' => 'معلومات طبية سريعة', 'url' => '/معلومات-طبية-سريعة'];
+    $breadcrumb[] = ['title' => $information->title, 'url' => url()->current()];
 
-    $page_meta['title'] = $article->title;
+    $page_meta['title'] = $information->title;
     $page_meta['description'] = \Illuminate\Support\Str::limit(
-        html_entity_decode(strip_tags($article->content), ENT_QUOTES, 'UTF-8'),
+        html_entity_decode(strip_tags($information->content ?: $information->title), ENT_QUOTES, 'UTF-8'),
         160
     );
-
-    // Several thousand legacy-migrated `pic` filenames don't have a
-    // matching file under public/uploads/articles (never migrated) —
-    // check on disk rather than rendering a guaranteed-broken <img>.
-    $egdArticlePicPath = $article->pic ? public_path('uploads/articles/' . $article->pic) : null;
-    $egdArticleHasPic = $egdArticlePicPath && file_exists($egdArticlePicPath);
 @endphp
 
 @section('content')
@@ -25,25 +19,22 @@
     <section class="egd-section">
         <div class="container">
             <div class="row g-4">
-                {{-- Right: the article itself --}}
+                {{-- Right: the information itself --}}
                 <div class="col-lg-7">
                     <div class="egd-doctor-part">
                         <article class="egd-article-detail-card">
-                            <h1>{{ $article->title }}</h1>
+                            <h1>{{ $information->title }}</h1>
 
                             <div class="egd-article-detail-meta">
-                                <span><i class="fas fa-user-md"></i> {{ $article->doctor?->name ?? 'فريق إيجي دكتور' }}</span>
-                                <span><i class="far fa-clock"></i> {{ $article->created_at?->format('d/m/Y') }}</span>
+                                <span><i class="fas fa-user-md"></i> فريق إيجي دكتور</span>
+                                <span><i class="far fa-clock"></i> {{ $information->created_at?->format('d/m/Y') }}</span>
                             </div>
 
-                            @if ($egdArticleHasPic)
-                                <img src="{{ asset('uploads/articles/' . $article->pic) }}" alt="{{ $article->title }}"
-                                    class="img-fluid rounded mb-4" loading="lazy">
+                            @if ($information->content)
+                                <div class="egd-article-detail-body">
+                                    {!! $information->content !!}
+                                </div>
                             @endif
-
-                            <div class="egd-article-detail-body">
-                                {!! $article->content !!}
-                            </div>
                         </article>
 
                         {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
@@ -54,40 +45,39 @@
 
                         <div>
                             <div class="egd-title egd-title-start">
-                                <h2>مقالات أخرى</h2>
+                                <h2>معلومات طبية سريعة أخرى</h2>
                             </div>
 
                             <div class="row g-3">
-                                @forelse ($otherArticles as $egdOtherArticle)
+                                @forelse ($otherInformations as $egdOtherInfo)
                                     @php
-                                        $egdOtherUrl = $egdOtherArticle->seo?->slug ? url($egdOtherArticle->seo->slug) : '#';
-                                        $egdOtherExcerpt = \Illuminate\Support\Str::limit(
-                                            html_entity_decode(strip_tags($egdOtherArticle->content), ENT_QUOTES, 'UTF-8'),
-                                            80
-                                        );
+                                        $egdOtherUrl = $egdOtherInfo->seo?->slug ? url($egdOtherInfo->seo->slug) : '#';
+                                        $egdOtherExcerpt = $egdOtherInfo->content
+                                            ? \Illuminate\Support\Str::limit(
+                                                html_entity_decode(strip_tags($egdOtherInfo->content), ENT_QUOTES, 'UTF-8'),
+                                                80
+                                            )
+                                            : null;
                                     @endphp
                                     <div class="col-6 col-md-4">
                                         <article class="egd-article-card wow fadeInUp" data-wow-delay="0.05s">
                                             <div class="egd-article-cover"><i class="fas fa-notes-medical"></i></div>
                                             <div class="egd-article-body">
-                                                <h3><a href="{{ $egdOtherUrl }}">{{ $egdOtherArticle->title }}</a></h3>
+                                                <h3><a href="{{ $egdOtherUrl }}">{{ $egdOtherInfo->title }}</a></h3>
 
-                                                @if ($egdOtherArticle->doctor)
-                                                    <span class="egd-article-cat">{{ $egdOtherArticle->doctor->name }}</span>
-                                                @else
-                                                    <span class="egd-article-cat">-</span>
+                                                @if ($egdOtherExcerpt)
+                                                    <p>{{ $egdOtherExcerpt }}</p>
                                                 @endif
-                                                <p>{{ $egdOtherExcerpt }}</p>
 
                                                 <div class="egd-article-foot">
-                                                    <span><i class="far fa-clock"></i> {{ $egdOtherArticle->created_at?->format('d/m/Y') }}</span>
+                                                    <span><i class="far fa-clock"></i> {{ $egdOtherInfo->created_at?->format('d/m/Y') }}</span>
                                                     <a href="{{ $egdOtherUrl }}">اقرأ المزيد</a>
                                                 </div>
                                             </div>
                                         </article>
                                     </div>
                                 @empty
-                                    <p class="text-muted mb-0">لا توجد مقالات أخرى حاليًا.</p>
+                                    <p class="text-muted mb-0">لا توجد معلومات أخرى حاليًا.</p>
                                 @endforelse
                             </div>
                         </div>
@@ -98,24 +88,24 @@
                 <div class="col-lg-5">
                     <div class="egd-doctor-part">
                         <div class="egd-side-block" id="egd-read-also">
-                            <h2 class="egd-side-title">اقرأ أيضا</h2>
+                            <h2 class="egd-side-title">معلومات طبية سريعة</h2>
 
                             <div class="egd-side-list">
-                                @forelse ($readAlso as $egdReadAlsoArticle)
+                                @forelse ($readAlso as $egdReadAlsoInfo)
                                     @php
-                                        $egdReadAlsoUrl = $egdReadAlsoArticle->seo?->slug ? url($egdReadAlsoArticle->seo->slug) : '#';
+                                        $egdReadAlsoUrl = $egdReadAlsoInfo->seo?->slug ? url($egdReadAlsoInfo->seo->slug) : '#';
                                     @endphp
                                     <a href="{{ $egdReadAlsoUrl }}" class="egd-side-item">
                                         <span class="egd-side-item-icon"><i class="fas fa-notes-medical"></i></span>
                                         <span class="egd-side-item-body">
-                                            <h3>{{ $egdReadAlsoArticle->title }}</h3>
+                                            <h3>{{ $egdReadAlsoInfo->title }}</h3>
                                             <span class="egd-side-item-meta">
-                                                <span><i class="far fa-clock"></i> {{ $egdReadAlsoArticle->created_at?->format('d/m/Y') }}</span>
+                                                <span><i class="far fa-clock"></i> {{ $egdReadAlsoInfo->created_at?->format('d/m/Y') }}</span>
                                             </span>
                                         </span>
                                     </a>
                                 @empty
-                                    <p class="text-muted mb-0">لا توجد مقالات حاليًا.</p>
+                                    <p class="text-muted mb-0">لا توجد معلومات طبية حاليًا.</p>
                                 @endforelse
                             </div>
                         </div>
@@ -178,35 +168,6 @@
                                     </a>
                                 @empty
                                     <p class="text-muted mb-0">لا توجد استشارات حاليًا.</p>
-                                @endforelse
-                            </div>
-                        </div>
-
-                        {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
-                        <div class="egd-ad-slot">
-                            <span class="egd-ad-tag">إعلان</span>
-                            <p>مساحة إعلانية (300×250)</p>
-                        </div>
-
-                        <div class="egd-side-block" id="egd-related-informations">
-                            <h2 class="egd-side-title">معلومات طبية سريعة</h2>
-
-                            <div class="egd-side-list">
-                                @forelse ($randomInformations as $information)
-                                    @php
-                                        $egdInfoUrl = $information->seo?->slug ? url($information->seo->slug) : '#';
-                                    @endphp
-                                    <a href="{{ $egdInfoUrl }}" class="egd-side-item">
-                                        <span class="egd-side-item-icon"><i class="fas fa-notes-medical"></i></span>
-                                        <span class="egd-side-item-body">
-                                            <h3>{{ $information->title }}</h3>
-                                            <span class="egd-side-item-meta">
-                                                <span><i class="far fa-clock"></i> {{ $information->created_at?->format('d/m/Y') }}</span>
-                                            </span>
-                                        </span>
-                                    </a>
-                                @empty
-                                    <p class="text-muted mb-0">لا توجد معلومات طبية حاليًا.</p>
                                 @endforelse
                             </div>
                         </div>

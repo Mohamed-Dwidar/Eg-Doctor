@@ -25,6 +25,22 @@ class InformationService {
     public function getAllInformations() {
         return $this->informationRepository->all();
     }
+
+    public function getPublishedPaginated($perPage) {
+        return $this->informationRepository->publishedPaginated($perPage);
+    }
+
+    public function getRandomPublished($count) {
+        return $this->informationRepository->random($count);
+    }
+
+    public function findOneWithRelations($id) {
+        return $this->informationRepository->findWithRelations($id);
+    }
+
+    public function getRandomExcept($excludeId, $count) {
+        return $this->informationRepository->randomExcept($excludeId, $count);
+    }
     public function findWhere($arr) {
         return $this->informationRepository->findWhere($arr);
     }

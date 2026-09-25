@@ -5,17 +5,27 @@ namespace Modules\ArticleModule\app\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Modules\ArticleModule\app\Services\ArticleService;
+use Modules\InformationModule\app\Services\InformationService;
 use Modules\QuestionModule\app\Repositories\QuestionRepository;
+use Modules\VideoModule\app\Services\VideoService;
 
 class ArticleModuleController extends Controller
 {
     protected $articleService;
     protected $questionRepository;
+    protected $videoService;
+    protected $informationService;
 
-    public function __construct(ArticleService $articleService, QuestionRepository $questionRepository)
-    {
+    public function __construct(
+        ArticleService $articleService,
+        QuestionRepository $questionRepository,
+        VideoService $videoService,
+        InformationService $informationService
+    ) {
         $this->articleService = $articleService;
         $this->questionRepository = $questionRepository;
+        $this->videoService = $videoService;
+        $this->informationService = $informationService;
     }
 
     /**
@@ -26,8 +36,12 @@ class ArticleModuleController extends Controller
         $articles = $this->articleService->getPublishedPaginated(10);
         $readAlso = $this->articleService->getRandomPublished(4);
         $latestQuestions = $this->questionRepository->latest(4);
+        $randomVideos = $this->videoService->getRandomPublished(4);
+        $randomInformations = $this->informationService->getRandomPublished(4);
 
-        return view('articlemodule::guest.index', compact('articles', 'readAlso', 'latestQuestions'));
+        return view('articlemodule::guest.index', compact(
+            'articles', 'readAlso', 'latestQuestions', 'randomVideos', 'randomInformations'
+        ));
     }
 
     /**
@@ -61,8 +75,12 @@ class ArticleModuleController extends Controller
         $readAlso = $otherPool->slice(3, 4)->values();
 
         $latestQuestions = $this->questionRepository->latest(4);
+        $randomVideos = $this->videoService->getRandomPublished(4);
+        $randomInformations = $this->informationService->getRandomPublished(4);
 
-        return view('articlemodule::guest.show', compact('article', 'otherArticles', 'readAlso', 'latestQuestions'));
+        return view('articlemodule::guest.show', compact(
+            'article', 'otherArticles', 'readAlso', 'latestQuestions', 'randomVideos', 'randomInformations'
+        ));
     }
 
     /**

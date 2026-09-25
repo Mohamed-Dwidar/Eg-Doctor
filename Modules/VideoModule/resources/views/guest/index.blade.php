@@ -1,13 +1,13 @@
 @extends('layoutmodule::front.main')
 
 @php
-    $page_title = 'المقالات الطبية';
+    $page_title = 'فيديوهات طبية';
 
     $breadcrumb[] = ['title' => 'الرئيسية', 'url' => route('home_page')];
-    $breadcrumb[] = ['title' => 'المقالات الطبية', 'url' => url()->current()];
+    $breadcrumb[] = ['title' => 'فيديوهات طبية', 'url' => url()->current()];
 
-    $page_meta['title'] = 'المقالات الطبية';
-    $page_meta['description'] = 'تصفح أحدث المقالات الطبية على إيجي دكتور، محتوى طبي مبسط يساعدك على فهم صحتك بشكل أفضل.';
+    $page_meta['title'] = 'فيديوهات طبية';
+    $page_meta['description'] = 'تصفح أحدث الفيديوهات الطبية على إيجي دكتور، محتوى طبي مرئي مبسط يساعدك على فهم صحتك بشكل أفضل.';
 @endphp
 
 @section('content')
@@ -29,11 +29,13 @@
                                     html_entity_decode(strip_tags($video->description), ENT_QUOTES, 'UTF-8'),
                                     130
                                 );
+                                $egdVideoThumb = $video->img_url
+                                    ?: ($video->youtube_code ? 'https://img.youtube.com/vi/' . $video->youtube_code . '/hqdefault.jpg' : null);
                             @endphp
                             <article class="egd-video-list-item wow fadeInUp" data-wow-delay="0.05s">
                                 <div class="egd-video-list-cover">
-                                    @if ($video->img_url)
-                                        <img src="{{ $video->img_url }}" alt="{{ $video->title }}" loading="lazy">
+                                    @if ($egdVideoThumb)
+                                        <img src="{{ $egdVideoThumb }}" alt="{{ $video->title }}" loading="lazy">
                                     @else
                                         <i class="fas fa-play-circle"></i>
                                     @endif
@@ -118,6 +120,35 @@
                                     </a>
                                 @empty
                                     <p class="text-muted mb-0">لا توجد استشارات حاليًا.</p>
+                                @endforelse
+                            </div>
+                        </div>
+
+                        {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
+                        <div class="egd-ad-slot">
+                            <span class="egd-ad-tag">إعلان</span>
+                            <p>مساحة إعلانية (300×250)</p>
+                        </div>
+
+                        <div class="egd-side-block" id="egd-related-informations">
+                            <h2 class="egd-side-title">معلومات طبية سريعة</h2>
+
+                            <div class="egd-side-list">
+                                @forelse ($randomInformations as $information)
+                                    @php
+                                        $egdInfoUrl = $information->seo?->slug ? url($information->seo->slug) : '#';
+                                    @endphp
+                                    <a href="{{ $egdInfoUrl }}" class="egd-side-item">
+                                        <span class="egd-side-item-icon"><i class="fas fa-notes-medical"></i></span>
+                                        <span class="egd-side-item-body">
+                                            <h3>{{ $information->title }}</h3>
+                                            <span class="egd-side-item-meta">
+                                                <span><i class="far fa-clock"></i> {{ $information->created_at?->format('d/m/Y') }}</span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                @empty
+                                    <p class="text-muted mb-0">لا توجد معلومات طبية حاليًا.</p>
                                 @endforelse
                             </div>
                         </div>

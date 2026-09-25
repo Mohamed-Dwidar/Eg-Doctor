@@ -5,17 +5,23 @@ namespace Modules\VideoModule\app\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Modules\VideoModule\app\Services\VideoService;
+use Modules\InformationModule\app\Services\InformationService;
 use Modules\QuestionModule\app\Repositories\QuestionRepository;
 
 class VideoModuleController extends Controller
 {
     protected $videoService;
     protected $questionRepository;
+    protected $informationService;
 
-    public function __construct(VideoService $videoService, QuestionRepository $questionRepository)
-    {
+    public function __construct(
+        VideoService $videoService,
+        QuestionRepository $questionRepository,
+        InformationService $informationService
+    ) {
         $this->videoService = $videoService;
         $this->questionRepository = $questionRepository;
+        $this->informationService = $informationService;
     }
 
     /**
@@ -26,8 +32,9 @@ class VideoModuleController extends Controller
         $videos = $this->videoService->getPublishedPaginated(10);
         $readAlso = $this->videoService->getRandomPublished(4);
         $latestQuestions = $this->questionRepository->latest(4);
+        $randomInformations = $this->informationService->getRandomPublished(4);
 
-        return view('videomodule::guest.index', compact('videos', 'readAlso', 'latestQuestions'));
+        return view('videomodule::guest.index', compact('videos', 'readAlso', 'latestQuestions', 'randomInformations'));
     }
 
     /**
@@ -61,8 +68,11 @@ class VideoModuleController extends Controller
         $readAlso = $otherPool->slice(3, 4)->values();
 
         $latestQuestions = $this->questionRepository->latest(4);
+        $randomInformations = $this->informationService->getRandomPublished(4);
 
-        return view('videomodule::guest.show', compact('video', 'otherVideos', 'readAlso', 'latestQuestions'));
+        return view('videomodule::guest.show', compact(
+            'video', 'otherVideos', 'readAlso', 'latestQuestions', 'randomInformations'
+        ));
     }
 
     /**

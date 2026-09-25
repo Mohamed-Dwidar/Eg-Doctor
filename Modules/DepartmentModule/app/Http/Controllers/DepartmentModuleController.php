@@ -6,22 +6,30 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Modules\ArticleModule\app\Repositories\ArticleRepository;
 use Modules\DepartmentModule\app\Services\DepartmentService;
+use Modules\InformationModule\app\Services\InformationService;
 use Modules\QuestionModule\app\Repositories\QuestionRepository;
+use Modules\VideoModule\app\Services\VideoService;
 
 class DepartmentModuleController extends Controller
 {
     protected $departmentService;
     protected $articleRepository;
     protected $questionRepository;
+    protected $videoService;
+    protected $informationService;
 
     public function __construct(
         DepartmentService $departmentService,
         ArticleRepository $articleRepository,
-        QuestionRepository $questionRepository
+        QuestionRepository $questionRepository,
+        VideoService $videoService,
+        InformationService $informationService
     ) {
         $this->departmentService = $departmentService;
         $this->articleRepository = $articleRepository;
         $this->questionRepository = $questionRepository;
+        $this->videoService = $videoService;
+        $this->informationService = $informationService;
     }
 
     /**
@@ -65,8 +73,12 @@ class DepartmentModuleController extends Controller
 
         $relatedArticles = $this->articleRepository->random(4);
         $latestQuestions = $this->questionRepository->latest(4);
+        $randomVideos = $this->videoService->getRandomPublished(4);
+        $randomInformations = $this->informationService->getRandomPublished(4);
 
-        return view('departmentmodule::guest.show', compact('department', 'doctors', 'relatedArticles', 'latestQuestions'));
+        return view('departmentmodule::guest.show', compact(
+            'department', 'doctors', 'relatedArticles', 'latestQuestions', 'randomVideos', 'randomInformations'
+        ));
     }
 
     /**

@@ -186,9 +186,55 @@
                         <div class="egd-side-block" id="egd-related-videos">
                             <h2 class="egd-side-title">فيديوهات طبية</h2>
 
-                            <div class="egd-related-videos-placeholder">
-                                <i class="fas fa-video"></i>
-                                <p>قسم الفيديوهات الطبية قريبًا على إيجي دكتور.</p>
+                            <div class="egd-video-grid">
+                                @forelse ($randomVideos as $video)
+                                    @php
+                                        $egdVideoUrl = $video->seo?->slug ? url($video->seo->slug) : '#';
+                                        $egdVideoThumb = $video->img_url
+                                            ?: ($video->youtube_code ? 'https://img.youtube.com/vi/' . $video->youtube_code . '/hqdefault.jpg' : null);
+                                    @endphp
+                                    <a href="{{ $egdVideoUrl }}" class="egd-video-item">
+                                        <span class="egd-video-thumb">
+                                            @if ($egdVideoThumb)
+                                                <img src="{{ $egdVideoThumb }}" alt="{{ $video->title }}" loading="lazy">
+                                            @else
+                                                <i class="fab fa-youtube"></i>
+                                            @endif
+                                        </span>
+                                        <h3>{{ $video->title }}</h3>
+                                    </a>
+                                @empty
+                                    <p class="text-muted mb-0">لا توجد فيديوهات حاليًا.</p>
+                                @endforelse
+                            </div>
+                        </div>
+
+                        {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
+                        <div class="egd-ad-slot">
+                            <span class="egd-ad-tag">إعلان</span>
+                            <p>مساحة إعلانية (300×250)</p>
+                        </div>
+
+                        <div class="egd-side-block" id="egd-related-informations">
+                            <h2 class="egd-side-title">معلومات طبية سريعة</h2>
+
+                            <div class="egd-side-list">
+                                @forelse ($randomInformations as $information)
+                                    @php
+                                        $egdInfoUrl = $information->seo?->slug ? url($information->seo->slug) : '#';
+                                    @endphp
+                                    <a href="{{ $egdInfoUrl }}" class="egd-side-item">
+                                        <span class="egd-side-item-icon"><i class="fas fa-notes-medical"></i></span>
+                                        <span class="egd-side-item-body">
+                                            <h3>{{ $information->title }}</h3>
+                                            <span class="egd-side-item-meta">
+                                                <span><i class="far fa-clock"></i> {{ $information->created_at?->format('d/m/Y') }}</span>
+                                            </span>
+                                        </span>
+                                    </a>
+                                @empty
+                                    <p class="text-muted mb-0">لا توجد معلومات طبية حاليًا.</p>
+                                @endforelse
                             </div>
                         </div>
                     </div>

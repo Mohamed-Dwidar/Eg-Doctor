@@ -6,22 +6,30 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Modules\ArticleModule\app\Repositories\ArticleRepository;
 use Modules\DoctorModule\app\Services\DoctorService;
+use Modules\InformationModule\app\Services\InformationService;
 use Modules\QuestionModule\app\Repositories\QuestionRepository;
+use Modules\VideoModule\app\Services\VideoService;
 
 class DoctorModuleController extends Controller
 {
     protected $doctorService;
     protected $articleRepository;
     protected $questionRepository;
+    protected $videoService;
+    protected $informationService;
 
     public function __construct(
         DoctorService $doctorService,
         ArticleRepository $articleRepository,
-        QuestionRepository $questionRepository
+        QuestionRepository $questionRepository,
+        VideoService $videoService,
+        InformationService $informationService
     ) {
         $this->doctorService = $doctorService;
         $this->articleRepository = $articleRepository;
         $this->questionRepository = $questionRepository;
+        $this->videoService = $videoService;
+        $this->informationService = $informationService;
     }
 
     /**
@@ -62,8 +70,12 @@ class DoctorModuleController extends Controller
         }
 
         $latestQuestions = $this->questionRepository->latest(4);
+        $randomVideos = $this->videoService->getRandomPublished(4);
+        $randomInformations = $this->informationService->getRandomPublished(4);
 
-        return view('doctormodule::show', compact('doctor', 'relatedArticles', 'latestQuestions'));
+        return view('doctormodule::show', compact(
+            'doctor', 'relatedArticles', 'latestQuestions', 'randomVideos', 'randomInformations'
+        ));
     }
 
     /**
