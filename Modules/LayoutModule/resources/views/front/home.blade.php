@@ -35,6 +35,10 @@
     <link rel="stylesheet" href="{{ asset('assets/front/css/style_custom.css') }}">
 
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/front/img/favicon.ico') }}">
+
+    <script>
+        window.adsbygoogle = window.adsbygoogle || [];
+    </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0462453958685277"
         crossorigin="anonymous"></script>
 </head>
@@ -62,8 +66,6 @@
     {{-- Google AdSense placement — swap each placeholder for your real <ins class="adsbygoogle"> unit --}}
     <div class="egd-ad-rail egd-ad-rail-start">
         <p>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0462453958685277"
-                crossorigin="anonymous"></script>
             <!-- Eg-Doctor - Home - Ad-Fly (160x600) -->
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
                 data-ad-slot="5102005112" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -74,8 +76,6 @@
     </div>
     <div class="egd-ad-rail egd-ad-rail-end">
         <p>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0462453958685277"
-                crossorigin="anonymous"></script>
             <!-- Eg-Doctor - Home - Ad-Fly (160x600) -->
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
                 data-ad-slot="5102005112" data-ad-format="auto" data-full-width-responsive="true"></ins>
