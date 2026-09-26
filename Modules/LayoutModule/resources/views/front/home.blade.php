@@ -99,6 +99,22 @@
     </script>
 
 </div>
+<div style="width:100%; margin:20px 0;">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0462453958685277"
+     crossorigin="anonymous"></script>
+<!-- Eg-Doctor - Home - Ad-Fly (160x600) -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-0462453958685277"
+     data-ad-slot="5102005112"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+</div>
     @include('layoutmodule::front.header')
 
     <!-- Start Hero / Search -->
@@ -206,24 +222,6 @@
     <div class="egd-ad-section">
         <div class="container">
             {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
-<div style="width:100%; margin:20px 0;">
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0462453958685277"
-     crossorigin="anonymous"></script>
-<!-- Eg-Doctor - Home - Ad-Fly (160x600) -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-0462453958685277"
-     data-ad-slot="5102005112"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-</div>
-
-
             <div class="egd-ad-slot">
                 {{-- <span class="egd-ad-tag">إعلان</span> --}}
                 <p>
