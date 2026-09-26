@@ -21,6 +21,8 @@
 
     <link rel="stylesheet" href="{{ asset('assets/front/css/style_custom.css') }}">
 
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0462453958685277"
+        crossorigin="anonymous"></script>
 
 </head>
 

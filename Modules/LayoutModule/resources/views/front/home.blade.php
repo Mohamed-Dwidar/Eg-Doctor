@@ -35,7 +35,8 @@
     <link rel="stylesheet" href="{{ asset('assets/front/css/style_custom.css') }}">
 
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/front/img/favicon.ico') }}">
-
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0462453958685277"
+        crossorigin="anonymous"></script>
 </head>
 
 <body class="egd-home">
