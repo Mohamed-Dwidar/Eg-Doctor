@@ -218,6 +218,7 @@ body.egd-home {
     font-weight: 600;
     font-size: 15.5px;
     padding: 10px 16px !important;
+    text-align: right;
 }
 
 .egd-header .navbar-nav .nav-link:hover,
@@ -234,6 +235,12 @@ body.egd-home {
 @media (max-width: 991px) {
     .egd-header-actions {
         margin-top: 14px;
+    }
+    .egd-search-field {
+        flex: auto;
+    }
+    .egd-search-field {
+        flex: auto;
     }
 }
 
@@ -1229,7 +1236,7 @@ body.egd-home {
     }
 
     .egd-search-wrap {
-        margin-top: -46px;
+        margin-top: 10px;
     }
 
     .egd-search-card form {
@@ -1250,6 +1257,9 @@ body.egd-home {
 
     .egd-doctor-cta-points {
         justify-content: center;
+    }
+    .egd-search-field {
+        flex: auto;
     }
 }
 
@@ -1273,6 +1283,9 @@ body.egd-home {
     .egd-topbar-info span:not(:first-child) {
         display: none;
     }
+    .egd-search-field {
+        flex: auto;
+    }
 }
 
 @media (max-width: 575px) {
@@ -1289,6 +1302,9 @@ body.egd-home {
         justify-content: center;
         text-align: center;
         flex-direction: column;
+    }
+    .egd-search-field {
+        flex: auto;
     }
 }
 
@@ -1707,6 +1723,9 @@ body.egd-home {
     .egd-article-list-item {
         flex-wrap: wrap;
     }
+    .egd-search-field {
+        flex: auto;
+    }
 }
 
 /* ---------- Article detail page ---------- */
@@ -2112,6 +2131,9 @@ body.egd-home {
     .egd-video-list-cover {
         width: 100%;
         height: 160px;
+    }
+    .egd-search-field {
+        flex: auto;
     }
 }
 

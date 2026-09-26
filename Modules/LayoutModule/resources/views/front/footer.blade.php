@@ -59,7 +59,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 col-xs-4 col-sm-4">
                 <h3>روابط مهمة</h3>
                 <ul class="egd-footer-links">
                     <li><a href="{{ route('home_page') }}">الرئيسية</a></li>
@@ -70,7 +70,7 @@
                 </ul>
             </div>
 
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 col-xs-4 col-sm-4">
                 <h3>&nbsp;</h3>
                 <ul class="egd-footer-links">
 

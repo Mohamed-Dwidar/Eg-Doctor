@@ -102,7 +102,7 @@
                 </p>
             </div>
 
-            <div class="egd-hero-stats">
+            {{-- <div class="egd-hero-stats">
                 <div class="egd-stat">
                     <strong>+5,000</strong>
                     <span>طبيب مسجل</span>
@@ -118,7 +118,7 @@
                 <div class="egd-stat">
                     <strong>+200,000</strong>
                     <span>زيارة بحث شهريًا</span>
-                </div>
+                </div> --}}
             </div>
         </div>
 
