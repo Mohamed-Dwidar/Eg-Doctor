@@ -20,12 +20,12 @@ class AdminModuleDatabaseSeeder extends Seeder
         DB::table('admins')->truncate();
         Admin::create([
             'name' => "Admin",
-            'email' => 'admin@pivot.com',
+            'email' => 'admin@egdoctor.com',
             'password' => bcrypt('123456'),
         ]);
         // $user->syncRoles(1);
 
-       
+
         // $this->call(\Modules\AdminModule\Database\Seeders\PermissionAdminModuleDatabaseSeeder::class);
 
 
