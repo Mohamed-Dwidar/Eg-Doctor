@@ -63,23 +63,21 @@
                 <h3>روابط مهمة</h3>
                 <ul class="egd-footer-links">
                     <li><a href="{{ route('home_page') }}">الرئيسية</a></li>
+                    <li><a href="{{ route('doctors.search-form') }}">ابحث عن طبيب</a></li>
                     <li><a href="/الأطباء">الأطباء</a></li>
                     <li><a href="/المجالات-و-التخصصات-الطبية">التخصصات</a></li>
-                    <li><a href="/مقالات-طبية">المقالات الطبية</a></li>
-                    <li><a href="/استشارات-و-اسئلة-طبية">الاستشارات الطبية</a></li>
-                    <li><a href="/معلومات-طبية-سريعة">معلومات طبية</a></li>
-                    <li><a href="/طلب-طبيب">سجل كطبيب</a></li>
                     <li><a href="/اتصل-بنا">اتصل بنا</a></li>
                 </ul>
             </div>
 
             <div class="col-lg-4 col-md-6">
-                <h3>تواصل معنا</h3>
-                <ul class="egd-footer-contact">
-                    <li><i class="fas fa-map-marker-alt"></i> القاهرة، جمهورية مصر العربية</li>
-                    <li><i class="fas fa-phone"></i> 19XXX</li>
-                    <li><i class="fas fa-envelope"></i> info@egdoctor.com</li>
-                    <li><i class="far fa-clock"></i> خدمة العملاء متاحة يوميًا من 9 صباحًا حتى 10 مساءً</li>
+                <h3>&nbsp;</h3>
+                <ul class="egd-footer-links">
+
+                    <li><a href="/مقالات-طبية">المقالات الطبية</a></li>
+                    <li><a href="/استشارات-و-اسئلة-طبية">الاستشارات الطبية</a></li>
+                    <li><a href="/معلومات-طبية-سريعة">معلومات طبية</a></li>
+                    <li><a href="/طلب-طبيب">سجل كطبيب</a></li>
                 </ul>
             </div>
         </div>

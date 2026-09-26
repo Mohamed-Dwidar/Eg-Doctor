@@ -124,7 +124,7 @@
 
         <div class="container egd-search-wrap">
             <div class="egd-search-card">
-                <form action="#" method="get" role="search" aria-label="نموذج البحث عن طبيب">
+                <form action="{{ route('doctors.search') }}" method="get" role="search" aria-label="نموذج البحث عن طبيب">
                     <div class="egd-search-field">
                         <label for="egd-specialty">التخصص</label>
                         <div class="egd-input-icon">

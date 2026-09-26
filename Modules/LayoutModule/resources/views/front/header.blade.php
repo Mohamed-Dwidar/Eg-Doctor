@@ -17,7 +17,7 @@
     <!-- Start Header -->
     <header class="egd-header">
         <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light">
+            <nav class="navbar navbar-expand-lg navbar-light zash-responsive-menu">
                 <a class="navbar-brand egd-logo" href="{{ route('home_page') }}">
                     <img src="{{ asset('assets/front/img/logo_main.png') }}" alt="إيجي دكتور - دليل الأطباء المصري"
                         width="200" height="80">
@@ -36,6 +36,7 @@
                     </ul>
 
                     <div class="egd-header-actions">
+                        <a href="{{ route('doctors.search-form') }}" class="egd-btn-outline"><i class="fas fa-search"></i> ابحث عن طبيب</a>
                         {{-- <a href="#" class="egd-btn-outline"><i class="fas fa-user"></i> تسجيل الدخول</a>
                         <a href="{{ route('home_page') }}#egd-doctor-cta" class="egd-btn"><i class="fas fa-user-md"></i> سجل كطبيب</a> --}}
                     </div>

@@ -39,8 +39,28 @@ class Doctor extends Model
     public function scopeFilter($query, $request)
     {
         $request_array = (!is_array($request)) ? collect($request)->toArray() : $request;
-        if (isset($request_array['name']) && $request_array['name'] != '') {
+
+        if (!empty($request_array['name'])) {
             $query->where('name', 'like', '%' . $request_array['name'] . '%');
+        }
+
+        if (!empty($request_array['doctor_name'])) {
+            $query->where('name', 'like', '%' . $request_array['doctor_name'] . '%');
+        }
+
+        if (!empty($request_array['governorate'])) {
+            $query->where('city_id', $request_array['governorate']);
+        }
+
+        if (!empty($request_array['area'])) {
+            $query->where('zone_id', $request_array['area']);
+        }
+
+        if (!empty($request_array['specialty'])) {
+            $specialtyId = $request_array['specialty'];
+            $query->whereHas('departments', function ($q) use ($specialtyId) {
+                $q->where('departments.id', $specialtyId);
+            });
         }
 
         return $query;

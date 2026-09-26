@@ -13,7 +13,9 @@
     
     // Mean Menu
     jQuery('.mean-menu').meanmenu({
-        meanScreenWidth: "991"
+        meanScreenWidth: "991",
+        meanMenuContainer: ".zash-responsive-menu",
+        meanRevealPosition: "right"
     });
 
     // Button Hover JS

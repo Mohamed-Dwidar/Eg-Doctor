@@ -69,7 +69,7 @@ body.egd-home {
 }
 
 .egd-title h2 {
-    font-size: 34px;
+    font-size: 30px;
     font-weight: 800;
     margin: 0 0 12px;
     color: var(--egd-dark);
@@ -199,6 +199,7 @@ body.egd-home {
 
 .egd-header .navbar {
     padding: 14px 0;
+    position: relative;
 }
 
 .egd-logo {
@@ -236,12 +237,29 @@ body.egd-home {
     }
 }
 
-/* mean menu color override (kept generic via existing meanmenu.css hooks) */
+/* ---------- Mobile mean-menu integration ----------
+   The reveal button must stay a slim, transparent strip anchored to the
+   header row (so it doesn't cover the logo); the actual dropdown nav is
+   pushed to sit right below the header row instead of overlapping it. */
+.egd-header .navbar.zash-responsive-menu {
+    position: relative;
+}
+
 .egd-home .mean-container .mean-bar {
-    background: #fff;
+    /* Static wrapper only — its children (reveal button + dropdown)
+       position themselves against nav.zash-responsive-menu instead, so
+       this element needs no size/paint of its own. */
+    position: static;
+    float: none;
+    width: auto;
+    background: transparent;
+    padding: 0;
 }
 
 .egd-home .mean-container a.meanmenu-reveal {
+    position: absolute;
+    top: 20px;
+    z-index: 1001;
     color: var(--egd-primary);
 }
 
@@ -254,7 +272,34 @@ body.egd-home {
 }
 
 .egd-home .mean-container .mean-nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    margin-top: 0;
     background: #fff;
+    max-height: 75vh;
+    overflow-y: auto;
+    box-shadow: 0 16px 40px rgba(15, 40, 90, 0.18);
+    border-radius: 0 0 12px 12px;
+    z-index: 1000;
+}
+
+/* The cloned search CTA must stay hidden while the drawer is closed —
+   only the .meanclose state (added by meanmenu.js on open) reveals it. */
+.egd-home .mean-container .mean-nav .egd-header-actions {
+    display: none;
+    padding: 16px 6%;
+    border-top: 1px solid #DBEEFD;
+}
+
+.egd-home .mean-container a.meanmenu-reveal.meanclose ~ .mean-nav .egd-header-actions {
+    display: flex;
+}
+
+.egd-home .mean-container .mean-nav .egd-header-actions .egd-btn-outline {
+    width: 100%;
+    justify-content: center;
 }
 
 /* ---------- Hero ---------- */

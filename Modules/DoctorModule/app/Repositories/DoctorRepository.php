@@ -39,4 +39,17 @@ class DoctorRepository extends BaseRepository
     {
         return Doctor::with(['degree', 'city', 'zone', 'departments.seo', 'seo'])->find($id);
     }
+
+    /**
+     * Paginated doctors matching the public search form filters
+     * (specialty / governorate / area / doctor_name), applied via
+     * Doctor::scopeFilter.
+     */
+    function search($request, $perPage = 10)
+    {
+        return Doctor::filter($request)
+            ->with(['degree', 'city', 'zone', 'departments', 'seo'])
+            ->orderByDesc('id')
+            ->paginate($perPage);
+    }
 }

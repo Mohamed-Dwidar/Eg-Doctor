@@ -47,6 +47,10 @@ class DoctorService {
         return $this->doctorRepository->findWithRelations($id);
     }
 
+    public function search($data, $perPage = 10) {
+        return $this->doctorRepository->search($data, $perPage);
+    }
+
     public function getDoctorById($id) {
         return $this->doctorRepository->find($id);
     }
