@@ -65,24 +65,24 @@
     <!-- Start Vertical Ad Rails (visible on wide desktop screens only) -->
     {{-- Google AdSense placement — swap each placeholder for your real <ins class="adsbygoogle"> unit --}}
     <div class="egd-ad-rail egd-ad-rail-start">
-        <p>
+        {{-- <p> --}}
             <!-- Eg-Doctor - Home - Ad-Fly (160x600) -->
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
                 data-ad-slot="5102005112" data-ad-format="auto" data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </p>
+        {{-- </p> --}}
     </div>
     <div class="egd-ad-rail egd-ad-rail-end">
-        <p>
+        {{-- <p> --}}
             <!-- Eg-Doctor - Home - Ad-Fly (160x600) -->
             <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
                 data-ad-slot="5102005112" data-ad-format="auto" data-full-width-responsive="true"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
-        </p>
+        {{-- </p> --}}
     </div>
     <!-- End Vertical Ad Rails -->
 <div style="width:100%; margin:20px 0;">
@@ -370,14 +370,14 @@
             {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
             <div class="egd-ad-slot">
                 {{-- <span class="egd-ad-tag">إعلان</span> --}}
-                <p>
+                {{-- <p> --}}
                     <!-- Eg-Doctor - Home - Horizontal -->
                     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
                         data-ad-slot="9119491826" data-ad-format="auto" data-full-width-responsive="true"></ins>
                     <script>
                         (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
-                </p>
+                {{-- </p> --}}
             </div>
         </div>
     </div>
