@@ -57,34 +57,25 @@
     {{-- Google AdSense placement — swap each placeholder for your real <ins class="adsbygoogle"> unit --}}
     <div class="egd-ad-rail egd-ad-rail-start">
         <p>
-            <!-- Eg-Doctor Ad-Fly (160x600) -->
-            <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px"
-                data-ad-client="ca-pub-0462453958685277" data-ad-slot="5102005112"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0462453958685277"
-                crossorigin="anonymous"></script>
             <!-- Eg-Doctor - Inner - Ad-Fly (160x600) -->
             <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px"
                 data-ad-client="ca-pub-0462453958685277" data-ad-slot="5802977629"></ins>
             <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
+                if (window.matchMedia('(min-width: 1650px)').matches) {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                }
             </script>
-
-
         </p>
     </div>
     <div class="egd-ad-rail egd-ad-rail-end">
         <p>
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0462453958685277"
-                crossorigin="anonymous"></script>
             <!-- Eg-Doctor - Inner - Ad-Fly (160x600) -->
             <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px"
                 data-ad-client="ca-pub-0462453958685277" data-ad-slot="5802977629"></ins>
             <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
+                if (window.matchMedia('(min-width: 1650px)').matches) {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                }
             </script>
         </p>
     </div>
