@@ -21,8 +21,13 @@
 
     <link rel="stylesheet" href="{{ asset('assets/front/css/style_custom.css') }}">
 
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0462453958685277"
-        crossorigin="anonymous"></script>
+<script>
+    window.adsbygoogle = window.adsbygoogle || [];
+</script>
+
+<script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0462453958685277"
+    crossorigin="anonymous"></script>
 
 </head>
 
@@ -73,8 +78,7 @@
     <!-- End Vertical Ad Rails -->
 
     @include('layoutmodule::front.header')
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0462453958685277"
-     crossorigin="anonymous"></script>
+
 <!-- Eg-Doctor - Doctor - Display -->
 <ins class="adsbygoogle"
      style="display:block"
