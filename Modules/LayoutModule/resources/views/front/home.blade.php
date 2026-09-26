@@ -44,7 +44,6 @@
 </head>
 
 <body class="egd-home">
-
     <!-- Start Preloader Area -->
     <div class="preloader">
         <div id="global">
@@ -85,33 +84,7 @@
         {{-- </p> --}}
     </div>
     <!-- End Vertical Ad Rails -->
-<div style="width:100%; margin:20px 0;">
 
-    <ins class="adsbygoogle"
-        style="display:block"
-        data-ad-client="ca-pub-0462453958685277"
-        data-ad-slot="9007900471"
-        data-ad-format="auto"
-        data-full-width-responsive="true"></ins>
-
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-
-</div>
-<div style="width:100%; margin:20px 0;">
-<!-- Eg-Doctor - Home - Ad-Fly (160x600) -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-0462453958685277"
-     data-ad-slot="5102005112"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-</div>
     @include('layoutmodule::front.header')
 
     <!-- Start Hero / Search -->
