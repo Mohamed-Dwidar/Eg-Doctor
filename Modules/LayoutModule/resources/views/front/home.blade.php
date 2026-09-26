@@ -100,9 +100,6 @@
 
 </div>
 <div style="width:100%; margin:20px 0;">
-
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0462453958685277"
-     crossorigin="anonymous"></script>
 <!-- Eg-Doctor - Home - Ad-Fly (160x600) -->
 <ins class="adsbygoogle"
      style="display:block"
