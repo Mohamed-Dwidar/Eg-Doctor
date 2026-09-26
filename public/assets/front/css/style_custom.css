@@ -996,6 +996,16 @@ body.egd-home {
     padding: 30px 0;
 }
 
+/* align-items is "stretch" (not the flexbox default "center") on purpose:
+   these are column flex containers reserving space for either placeholder
+   text or a real AdSense <ins> (usually still wrapped in the original
+   placeholder's <p>). A flex item that isn't stretched sizes to fit-content
+   on the cross axis (width) instead of filling the container — and at the
+   moment adsbygoogle.push() runs, the <ins>/<p> is empty, so fit-content
+   resolves to 0 and AdSense refuses to render with "availableWidth=0".
+   text-align:center still keeps any placeholder text/ad centered visually.
+   Verified on the Home Page first, then confirmed to be the same root cause
+   on every internal page's .egd-ad-slot / .egd-ad-rail before rolling out. */
 .egd-ad-slot {
     position: relative;
     max-width: 970px;
@@ -1006,7 +1016,7 @@ body.egd-home {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     gap: 6px;
     padding: 18px;
@@ -1027,32 +1037,25 @@ body.egd-home {
     padding: 2px 10px;
 }
 
-/* The placeholder <p> (or a real AdSense <ins> dropped directly in its
-   place) is a flex item with no intrinsic width. An empty <ins> has no
-   content to size against either, so both collapse to 0 width and
-   AdSense refuses to render with "availableWidth=0". Force the whole
-   chain — wrapper and ad unit alike — to fill the reserved slot. */
-.egd-ad-slot p,
-.egd-ad-slot ins.adsbygoogle {
+.egd-ad-slot p {
     margin: 0;
     font-size: 13.5px;
     color: var(--egd-text-muted);
-    width: 100%;
-    align-self: stretch;
 }
 
-/* Vertical skyscraper rails (120x600 IAB standard) — shown only once the
-   viewport has real gutter space beside the 1320px content column */
+/* Vertical skyscraper rails (160x600 — see each page's "Ad-Fly (160x600)"
+   markup comment) — shown only once the viewport has real gutter space
+   beside the 1320px content column. */
 .egd-ad-rail {
     display: none;
     position: fixed;
     top: 55%;
     transform: translateY(-50%);
     z-index: 500;
-    width: 120px;
+    width: 160px;
     min-height: 600px;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
     gap: 8px;
     background: var(--egd-bg-soft);
@@ -1062,16 +1065,11 @@ body.egd-home {
     text-align: center;
 }
 
-/* Same fix as .egd-ad-slot above — the <p> wrapper (or a bare <ins>)
-   must get a definite width or AdSense measures 0 and won't render. */
-.egd-ad-rail p,
-.egd-ad-rail ins.adsbygoogle {
+.egd-ad-rail p {
     margin: 0;
     font-size: 13px;
     line-height: 1.6;
     color: var(--egd-text-muted);
-    width: 100%;
-    align-self: stretch;
 }
 
 .egd-ad-rail-start {
@@ -1080,29 +1078,6 @@ body.egd-home {
 
 .egd-ad-rail-end {
     inset-inline-end: 16px;
-}
-
-/* ---------- Home Page AdSense fix (scoped to home.blade.php only) ----------
-   Root cause: .egd-ad-slot / .egd-ad-rail are column flex containers with
-   align-items:center. Per the flexbox spec, a flex item that isn't stretched
-   sizes to fit-content on the cross axis (width, in a column container). At
-   the moment adsbygoogle.push() runs, the <ins> (or the <p> still wrapping
-   it) is empty, so fit-content resolves to 0 — confirmed via devtools as
-   "ad width = 0px, parent width = 0px, parent is a <p>". align-items:stretch
-   makes the item fill the container's real width instead; text-align:center
-   (already set on both classes) keeps any placeholder text centered.
-   Scoped to body.egd-page-home so DepartmentModule/DoctorModule/other pages
-   that share these same classes via main.blade.php are not touched. */
-body.egd-page-home .egd-ad-slot,
-body.egd-page-home .egd-ad-rail {
-    align-items: stretch;
-}
-
-/* The Home Page Fly/Rail unit is a 160x600 unit (see home.blade.php's
-   "Ad-Fly (160x600)" comment) — restore that width for this page only.
-   The shared 120px default above stays untouched for other pages. */
-body.egd-page-home .egd-ad-rail {
-    width: 160px;
 }
 
 @media (min-width: 1650px) {
