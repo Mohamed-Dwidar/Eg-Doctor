@@ -206,6 +206,22 @@
     <div class="egd-ad-section">
         <div class="container">
             {{-- Google AdSense placement — swap this placeholder for your real <ins class="adsbygoogle"> unit --}}
+<div style="width:100%; margin:20px 0;">
+
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-0462453958685277"
+        data-ad-slot="9007900471"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+
+</div>
+
+
             <div class="egd-ad-slot">
                 {{-- <span class="egd-ad-tag">إعلان</span> --}}
                 <p>
