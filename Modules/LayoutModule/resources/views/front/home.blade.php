@@ -43,7 +43,7 @@
         crossorigin="anonymous"></script>
 </head>
 
-<body class="egd-home">
+<body class="egd-home egd-page-home">
     <!-- Start Preloader Area -->
     <div class="preloader">
         <div id="global">

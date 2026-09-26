@@ -1082,6 +1082,29 @@ body.egd-home {
     inset-inline-end: 16px;
 }
 
+/* ---------- Home Page AdSense fix (scoped to home.blade.php only) ----------
+   Root cause: .egd-ad-slot / .egd-ad-rail are column flex containers with
+   align-items:center. Per the flexbox spec, a flex item that isn't stretched
+   sizes to fit-content on the cross axis (width, in a column container). At
+   the moment adsbygoogle.push() runs, the <ins> (or the <p> still wrapping
+   it) is empty, so fit-content resolves to 0 — confirmed via devtools as
+   "ad width = 0px, parent width = 0px, parent is a <p>". align-items:stretch
+   makes the item fill the container's real width instead; text-align:center
+   (already set on both classes) keeps any placeholder text centered.
+   Scoped to body.egd-page-home so DepartmentModule/DoctorModule/other pages
+   that share these same classes via main.blade.php are not touched. */
+body.egd-page-home .egd-ad-slot,
+body.egd-page-home .egd-ad-rail {
+    align-items: stretch;
+}
+
+/* The Home Page Fly/Rail unit is a 160x600 unit (see home.blade.php's
+   "Ad-Fly (160x600)" comment) — restore that width for this page only.
+   The shared 120px default above stays untouched for other pages. */
+body.egd-page-home .egd-ad-rail {
+    width: 160px;
+}
+
 @media (min-width: 1650px) {
     .egd-ad-rail {
         display: flex;
