@@ -21,13 +21,13 @@
 
     <link rel="stylesheet" href="{{ asset('assets/front/css/style_custom.css') }}">
 
-<script>
-    window.adsbygoogle = window.adsbygoogle || [];
-</script>
 
-<script async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0462453958685277"
-    crossorigin="anonymous"></script>
+    <script>
+        window.adsbygoogle = window.adsbygoogle || [];
+    </script>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0462453958685277"
+        crossorigin="anonymous"></script>
 
 </head>
 
@@ -63,13 +63,26 @@
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
+
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0462453958685277"
+                crossorigin="anonymous"></script>
+            <!-- Eg-Doctor - Inner - Ad-Fly (160x600) -->
+            <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px"
+                data-ad-client="ca-pub-0462453958685277" data-ad-slot="5802977629"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+
         </p>
     </div>
     <div class="egd-ad-rail egd-ad-rail-end">
         <p>
-            <!-- Eg-Doctor Ad-Fly (160x600) -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0462453958685277"
+                crossorigin="anonymous"></script>
+            <!-- Eg-Doctor - Inner - Ad-Fly (160x600) -->
             <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px"
-                data-ad-client="ca-pub-0462453958685277" data-ad-slot="5102005112"></ins>
+                data-ad-client="ca-pub-0462453958685277" data-ad-slot="5802977629"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
@@ -79,16 +92,6 @@
 
     @include('layoutmodule::front.header')
 
-<!-- Eg-Doctor - Doctor - Display -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-0462453958685277"
-     data-ad-slot="9007900471"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
     <!-- Start Page Hero -->
     <section class="egd-page-hero">
         <div class="container">

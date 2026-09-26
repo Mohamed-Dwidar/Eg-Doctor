@@ -62,9 +62,11 @@
     {{-- Google AdSense placement — swap each placeholder for your real <ins class="adsbygoogle"> unit --}}
     <div class="egd-ad-rail egd-ad-rail-start">
         <p>
-            <!-- Eg-Doctor - Inner - Ad-Fly (160x600) -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0462453958685277"
+                crossorigin="anonymous"></script>
+            <!-- Eg-Doctor - Home - Ad-Fly (160x600) -->
             <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px"
-                data-ad-client="ca-pub-0462453958685277" data-ad-slot="5802977629"></ins>
+                data-ad-client="ca-pub-0462453958685277" data-ad-slot="5102005112"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
@@ -72,9 +74,11 @@
     </div>
     <div class="egd-ad-rail egd-ad-rail-end">
         <p>
-            <!-- Eg-Doctor - Inner - Ad-Fly (160x600) -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-0462453958685277"
+                crossorigin="anonymous"></script>
+            <!-- Eg-Doctor - Home - Ad-Fly (160x600) -->
             <ins class="adsbygoogle" style="display:inline-block;width:160px;height:600px"
-                data-ad-client="ca-pub-0462453958685277" data-ad-slot="5802977629"></ins>
+                data-ad-client="ca-pub-0462453958685277" data-ad-slot="5102005112"></ins>
             <script>
                 (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
