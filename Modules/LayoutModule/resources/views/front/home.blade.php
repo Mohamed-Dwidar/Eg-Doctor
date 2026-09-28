@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 
 <head>
-     @include('layoutmodule::front.metas')
+    @include('layoutmodule::front.metas')
     {{-- <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
@@ -72,26 +72,26 @@
     {{-- Google AdSense placement — swap each placeholder for your real <ins class="adsbygoogle"> unit --}}
     <div class="egd-ad-rail egd-ad-rail-start">
         {{-- <p> --}}
-            <!-- Eg-Doctor - Home - Ad-Fly (160x600) -->
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
-                data-ad-slot="5102005112" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>
-                if (window.matchMedia('(min-width: 1650px)').matches) {
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                }
-            </script>
+        <!-- Eg-Doctor - Home - Ad-Fly (160x600) -->
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
+            data-ad-slot="5102005112" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            if (window.matchMedia('(min-width: 1650px)').matches) {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            }
+        </script>
         {{-- </p> --}}
     </div>
     <div class="egd-ad-rail egd-ad-rail-end">
         {{-- <p> --}}
-            <!-- Eg-Doctor - Home - Ad-Fly (160x600) -->
-            <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
-                data-ad-slot="5102005112" data-ad-format="auto" data-full-width-responsive="true"></ins>
-            <script>
-                if (window.matchMedia('(min-width: 1650px)').matches) {
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                }
-            </script>
+        <!-- Eg-Doctor - Home - Ad-Fly (160x600) -->
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
+            data-ad-slot="5102005112" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>
+            if (window.matchMedia('(min-width: 1650px)').matches) {
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            }
+        </script>
         {{-- </p> --}}
     </div>
     <!-- End Vertical Ad Rails -->
@@ -126,12 +126,13 @@
                     <strong>+200,000</strong>
                     <span>زيارة بحث شهريًا</span>
                 </div> --}}
-            </div>
+        </div>
         </div>
 
         <div class="container egd-search-wrap">
             <div class="egd-search-card">
-                <form action="{{ route('doctors.search') }}" method="get" role="search" aria-label="نموذج البحث عن طبيب">
+                <form action="{{ route('doctors.search') }}" method="get" role="search"
+                    aria-label="نموذج البحث عن طبيب">
                     <div class="egd-search-field">
                         <label for="egd-specialty">التخصص</label>
                         <div class="egd-input-icon">
@@ -176,8 +177,7 @@
                     <div class="egd-search-field">
                         <label for="egd-doctor-name">اسم الطبيب</label>
                         <div class="egd-input-icon">
-                            <input type="text" id="egd-doctor-name" name="doctor_name"
-                                placeholder="اكتب اسم الطبيب">
+                            <input type="text" id="egd-doctor-name" name="doctor_name" placeholder="اكتب اسم الطبيب">
                             <i class="fas fa-user-md"></i>
                         </div>
                     </div>
@@ -368,12 +368,12 @@
             <div class="egd-ad-slot">
                 {{-- <span class="egd-ad-tag">إعلان</span> --}}
                 {{-- <p> --}}
-                    <!-- Eg-Doctor - Home - Horizontal -->
-                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
-                        data-ad-slot="9119491826" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                    <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    </script>
+                <!-- Eg-Doctor - Home - Horizontal -->
+                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-0462453958685277"
+                    data-ad-slot="9119491826" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
                 {{-- </p> --}}
             </div>
         </div>
@@ -554,10 +554,22 @@
                     @php
                         $egdArticleUrl = $article->seo?->slug ? url($article->seo->slug) : '#';
                         $egdArticleExcerpt = \Illuminate\Support\Str::limit(strip_tags($article->content), 110);
+
+                        $egdArticlePicPath = $article->pic
+                            ? public_path('uploads/articles/' . $article->id . '/' . $article->pic)
+                            : null;
+                        $egdArticleHasPic = $egdArticlePicPath && file_exists($egdArticlePicPath);
                     @endphp
                     <div class="col-md-6 col-lg-3">
                         <article class="egd-article-card wow fadeInUp" data-wow-delay="0.05s">
-                            <div class="egd-article-cover"><i class="fas fa-notes-medical"></i></div>
+                            <div class="egd-article-cover">
+                                  @if ($egdArticleHasPic)
+                                        <img src="{{ asset('uploads/articles/' . $article->id . '/' . $article->pic) }}"
+                                            alt="{{ $article->title }}" class="img-fluid" loading="lazy">
+                                    @else
+                                        <i class="fas fa-notes-medical"></i>
+                                    @endif
+                            </div>
                             <div class="egd-article-body">
                                 <h3><a href="{{ $egdArticleUrl }}">{{ $article->title }}</a></h3>
 

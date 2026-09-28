@@ -16,7 +16,7 @@
     // Several thousand legacy-migrated `pic` filenames don't have a
 // matching file under public/uploads/articles (never migrated) —
 // check on disk rather than rendering a guaranteed-broken <img>.
-$egdArticlePicPath = $article->pic ? public_path('uploads/articles/' . $article->pic) : null;
+$egdArticlePicPath = $article->pic ? public_path('uploads/articles/' . $article->id . '/' . $article->pic) : null;
     $egdArticleHasPic = $egdArticlePicPath && file_exists($egdArticlePicPath);
 @endphp
 
@@ -37,7 +37,7 @@ $egdArticlePicPath = $article->pic ? public_path('uploads/articles/' . $article-
                             </div>
 
                             @if ($egdArticleHasPic)
-                                <img src="{{ asset('uploads/articles/' . $article->pic) }}" alt="{{ $article->title }}"
+                                <img src="{{ asset('uploads/articles/' . $article->id . '/' . $article->pic) }}" alt="{{ $article->title }}"
                                     class="img-fluid rounded mb-4" loading="lazy">
                             @endif
 

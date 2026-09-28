@@ -29,9 +29,20 @@
                                     html_entity_decode(strip_tags($article->content), ENT_QUOTES, 'UTF-8'),
                                     130,
                                 );
+                                $egdArticlePicPath = $article->pic
+                                    ? public_path('uploads/articles/' . $article->id . '/' . $article->pic)
+                                    : null;
+                                $egdArticleHasPic = $egdArticlePicPath && file_exists($egdArticlePicPath);
                             @endphp
                             <article class="egd-article-list-item wow fadeInUp" data-wow-delay="0.05s">
-                                <div class="egd-article-list-cover"><i class="fas fa-notes-medical"></i></div>
+                                <div class="egd-article-list-cover">
+                                    @if ($egdArticleHasPic)
+                                        <img src="{{ asset('uploads/articles/' . $article->id . '/' . $article->pic) }}"
+                                            alt="{{ $article->title }}" class="img-fluid" loading="lazy">
+                                    @else
+                                        <i class="fas fa-notes-medical"></i>
+                                    @endif
+                                </div>
 
                                 <div class="egd-article-list-body">
                                     <h3><a href="{{ $egdArticleUrl }}">{{ $article->title }}</a></h3>
