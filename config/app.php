@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'Asia/Dubai',
+    'timezone' => 'Africa/Cairo',
 
     /*
     |--------------------------------------------------------------------------
@@ -139,11 +139,11 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        
+
         // 'ExampleClass' => App\Example\ExampleClass::class,
         // 'Module' => Nwidart\Modules\Facades\Module::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        
+
     ])->toArray(),
 
 ];
